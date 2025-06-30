@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "/Users/brunabites/localsites/bellhop-ui"
+    }
+  ],
+  "settings": {
+    "editor.defaultFormatter": "GitHub.copilot",
+    "github.copilot.advanced": {
+
+    },
+    "github.copilot.chat.codesearch.enabled": true
+  }
+}
