@@ -1,7 +1,7 @@
 <br />
 <br />
 <p align="center">
-  <a href="https://npm.bellhop.so">
+  <a href="https://bellhop-ui.vercel.app">
     <picture>
        <source media="(prefers-color-scheme: dark)" srcset="images/bellhop-logo-dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="images/bellhop-logo-light.svg">
@@ -14,49 +14,34 @@
 <br />
 
 <div align="center">
-  <a href="https://npmjs.com/package/@bellhop/react">
-    <img alt="npm" src="https://img.shields.io/npm/dm/@bellhop/react?color=3b82f6&label=npm&logo=npm&labelColor=334155">
+  <a href="https://npmjs.com/package/@bellhop">
+    <img alt="npm" src="https://img.shields.io/npm/dm/@actabl-pdesign/bellhop-ui?color=3b82f6&label=npm&logo=npm&labelColor=334155">
   </a>
-  <a href="https://npm.bellhop.so/docs/getting-started/installation">
-    <img alt="Read the documentation" src="https://img.shields.io/badge/Docs-blue?style=flat&logo=readthedocs&color=3b82f6&labelColor=334155&logoColor=f5f5f5" height="20" width="auto">
-  </a>
-  <a href="https://github.com/bellhoplabs/bellhop-npm/blob/main/License">
-    <img alt="License Apache 2.0" src="https://img.shields.io/badge/license-Apache 2.0-blue.svg?style=flat&color=3b82f6&labelColor=334155 " height="20" width="auto">
-  </a>
-  <a href="https://join.slack.com/t/bellhop-community/shared_invite/zt-21ug6czv6-RckDPEAR6GdYOqfMGKOWpQ">
-    <img src="https://img.shields.io/badge/Join-important.svg?color=4A154B&label=Slack&logo=slack&labelColor=334155&logoColor=f5f5f5" alt="Join Slack" />
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=bellhoplabs">
-    <img src="https://img.shields.io/badge/Follow-important.svg?color=000000&label=@bellhoplabs&logo=X&labelColor=334155&logoColor=f5f5f5" alt="Follow at Bellhoplabs" />
+  <a href="https://actabl.slack.com/archives/C05UD2LARQF">
+    <img src="https://img.shields.io/badge/Join-important.svg?color=4A154B&label=Slack&logo=slack&labelColor=334155&logoColor=f5f5f5" alt="Support on Slack" />
   </a>
 </div>
 <h3 align="center">
-  <a href="https://npm.bellhop.so/docs/getting-started/installation">Documentation</a> &bull;
-  <a href="https://npm.bellhop.so">Website</a>
+  <a href="https://bellhop-ui.vercel.app">Documentation</a> &bull;
+  <a href="https://bellhop-ui.vercel.app">Website</a>
 </h3>
 <br />
   <h1>React components to build charts and dashboards</h1>
 </div>
 
-[Bellhop NPM](https://npm.bellhop.so/) 20+ open-source components built on top of Tailwind CSS to make visualizing data simple again. Fully open-source, made by data scientists and software engineers with a sweet spot for design.
-
-<br />
-
-![Bellhop Banner](images/banner-github-readme.png)
-
-<br />
+The [bellhop-ui](https://github.com/actabl-pdesign/bellhop-ui) contains 20+ components built on top of Tailwind CSS to make visualizing data simple.
 
 ## Getting Started
 
-See our [Installation Guide](https://npm.bellhop.so/docs/getting-started/installation). To make use of the library we also need Tailwind CSS setup in the project.
+See our [Installation Guide](https://github.com/actabl-pdesign/bellhop-ui). To make use of the library we also need Tailwind CSS setup in the project.
 
 ## Example
 
-With Bellhop creating an analytical interface is easy.
+Creating an analytical interface with bellhop-ui.
 
 ```jsx
 "use client";
-import { AreaChart, Card } from "@bellhop/react";
+import { AreaChart, Card } from "@actabl-pdesign/bellhop-ui";
 
 const chartdata = [
   {
@@ -102,12 +87,10 @@ export default function Example() {
   <img alt="Bellhop Example" src="images/example-light.png"/>
 </picture>
 
-## Community and Contribution
 
-We are always looking for new ideas or other ways to improve Bellhop NPM. If you have developed anything cool or found a bug, send us a pull request. Check out our Contributor License Agreement [here](https://bellhop.so/contributors).
 
 ## License
 
 [Apache License 2.0](https://github.com/bellhoplabs/bellhop-npm/blob/main/License)
 
-Copyright &copy; 2025 Bellhop Labs, Inc. All rights reserved.
+Copyright &copy; 2025 Actabl, All rights reserved.
