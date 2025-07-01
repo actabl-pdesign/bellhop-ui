@@ -46,7 +46,11 @@ export function SimpleSelectControlled() {
 
   return (
     <div className="space-y-4">
-      <Select enableClear={true} value={value} onValueChange={handleValueChange}>
+      <Select
+        enableClear={true}
+        value={value}
+        onValueChange={handleValueChange}
+      >
         <SelectItem value="1">One</SelectItem>
         <SelectItem value="2">Two</SelectItem>
         <SelectItem value="3">Three</SelectItem>
@@ -86,7 +90,11 @@ export const SimpleSelectForm = (args: any) => {
     >
       <label htmlFor="path" className="w-full">
         <p>Redirect path</p>
-        <TextInput name="path" id="path" defaultValue="/story/ui-input-select--form" />
+        <TextInput
+          name="path"
+          id="path"
+          defaultValue="/story/ui-input-select--form"
+        />
       </label>
       <label htmlFor="select-test">Label</label>
       <Select enableClear={true} {...args} name="select" id="select-test">
@@ -95,7 +103,10 @@ export const SimpleSelectForm = (args: any) => {
         <SelectItem value={"1"}>One</SelectItem>
       </Select>
       <Button type="submit">Submit</Button>
-      <p>You will find your selected value in the URL params after submiting the form</p>
+      <p>
+        You will find your selected value in the URL params after submiting the
+        form
+      </p>
     </form>
   );
 };

@@ -48,7 +48,9 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>((props, ref) => {
       {...other}
     >
       <TabVariantContext.Provider value={variant}>
-        <BaseColorContext.Provider value={color}>{children}</BaseColorContext.Provider>
+        <BaseColorContext.Provider value={color}>
+          {children}
+        </BaseColorContext.Provider>
       </TabVariantContext.Provider>
     </Tab.List>
   );

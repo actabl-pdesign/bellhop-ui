@@ -2,7 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { CalendarIcon } from "assets";
 import { NumberInput } from "components";
-import { SimpleNumberInput, SimpleNumberInputControlled } from "./helpers/SimpleNumberInput";
+import {
+  SimpleNumberInput,
+  SimpleNumberInputControlled,
+} from "./helpers/SimpleNumberInput";
 
 const meta: Meta<typeof NumberInput> = {
   title: "UI/Input/NumberInput",

@@ -4,7 +4,9 @@ import { Button, MultiSelect, MultiSelectItem, TextInput } from "components";
 
 export const SimpleMultiSelect = (args: any) => (
   <MultiSelect {...args}>
-    <MultiSelectItem value={"5"}>Very Long DropdownItem Value as an edge case</MultiSelectItem>
+    <MultiSelectItem value={"5"}>
+      Very Long DropdownItem Value as an edge case
+    </MultiSelectItem>
     <MultiSelectItem value="Three" />
     <MultiSelectItem value={"1"}>One</MultiSelectItem>
   </MultiSelect>
@@ -31,7 +33,11 @@ export const SimpleMultiSelectForm = (args: any) => {
     >
       <label htmlFor="path" className="w-full">
         <p>Redirect path</p>
-        <TextInput name="path" id="path" defaultValue="/story/ui-input-multiselect--form" />
+        <TextInput
+          name="path"
+          id="path"
+          defaultValue="/story/ui-input-multiselect--form"
+        />
       </label>
       <label htmlFor="multi-select-test">Label</label>
       <MultiSelect {...args} name="MultiSelect" id="multi-select-test">
@@ -40,7 +46,10 @@ export const SimpleMultiSelectForm = (args: any) => {
         <MultiSelectItem value={"1"}>One</MultiSelectItem>
       </MultiSelect>
       <Button type="submit">Submit</Button>
-      <p>You will find your selected value in the URL params after submiting the form</p>
+      <p>
+        You will find your selected value in the URL params after submiting the
+        form
+      </p>
     </form>
   );
 };

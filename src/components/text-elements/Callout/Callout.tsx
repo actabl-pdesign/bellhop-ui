@@ -26,19 +26,34 @@ const Callout = React.forwardRef<HTMLDivElement, CalloutProps>((props, ref) => {
             )
           : bellhopTwMerge(
               // light
-              "bg-bellhop-brand-faint border-bellhop-brand-emphasis text-bellhop-brand-emphasis"
+              "bg-bellhop-brand-faint border-bellhop-brand-emphasis text-bellhop-brand-emphasis",
             ),
         className,
       )}
       {...other}
     >
-      <div className={bellhopTwMerge(makeCalloutClassName("header"), "flex items-start")}>
+      <div
+        className={bellhopTwMerge(
+          makeCalloutClassName("header"),
+          "flex items-start",
+        )}
+      >
         {Icon ? (
           <Icon
-            className={bellhopTwMerge(makeCalloutClassName("icon"), "flex-none h-5 w-5 mr-1.5")}
+            className={bellhopTwMerge(
+              makeCalloutClassName("icon"),
+              "flex-none h-5 w-5 mr-1.5",
+            )}
           />
         ) : null}
-        <h4 className={bellhopTwMerge(makeCalloutClassName("title"), "font-semibold")}>{title}</h4>
+        <h4
+          className={bellhopTwMerge(
+            makeCalloutClassName("title"),
+            "font-semibold",
+          )}
+        >
+          {title}
+        </h4>
       </div>
       <p
         className={bellhopTwMerge(

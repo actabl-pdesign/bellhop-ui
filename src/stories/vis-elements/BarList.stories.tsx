@@ -31,7 +31,10 @@ const getData = (
     { name: "/documentation", value: 0 },
   ];
   const updatedData = additionalProps
-    ? basicData.map((value, index) => ({ ...value, ...(additionalProps[index] || {}) }))
+    ? basicData.map((value, index) => ({
+        ...value,
+        ...(additionalProps[index] || {}),
+      }))
     : basicData;
 
   return [...updatedData, ...additionalItems];
@@ -76,7 +79,9 @@ export const Colors: Story = {
 export const IndividualColors: Story = {
   render: (args) => <BarList {...args} />,
   args: {
-    data: getData(["blue", "amber", "red", "indigo"].map((color) => ({ color }))),
+    data: getData(
+      ["blue", "amber", "red", "indigo"].map((color) => ({ color })),
+    ),
     valueFormatter: (value) => `${value} USD`,
   },
 };

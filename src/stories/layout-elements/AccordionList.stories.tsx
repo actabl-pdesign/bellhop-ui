@@ -3,7 +3,10 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AccordionList } from "components";
-import { SimpleAccordion, SimpleAccordionList } from "./helpers/SimpleAccordion";
+import {
+  SimpleAccordion,
+  SimpleAccordionList,
+} from "./helpers/SimpleAccordion";
 
 const meta: Meta<typeof AccordionList> = {
   title: "UI/Layout/AccordionList",

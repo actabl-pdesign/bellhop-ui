@@ -23,7 +23,15 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
-  const { color, icon, size = Sizes.SM, tooltip, className, children, ...other } = props;
+  const {
+    color,
+    icon,
+    size = Sizes.SM,
+    tooltip,
+    className,
+    children,
+    ...other
+  } = props;
 
   const Icon = icon ? icon : null;
 
@@ -71,7 +79,12 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
           )}
         />
       ) : null}
-      <span className={bellhopTwMerge(makeBadgeClassName("text"), "whitespace-nowrap")}>
+      <span
+        className={bellhopTwMerge(
+          makeBadgeClassName("text"),
+          "whitespace-nowrap",
+        )}
+      >
         {children}
       </span>
     </span>

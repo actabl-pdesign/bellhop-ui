@@ -1,9 +1,17 @@
 "use client";
 import { Tab as HeadlessTab } from "@headlessui/react";
-import { colorPalette, getColorClassNames, bellhopTwMerge, makeClassName } from "lib";
+import {
+  colorPalette,
+  getColorClassNames,
+  bellhopTwMerge,
+  makeClassName,
+} from "lib";
 import React, { useContext } from "react";
 
-import { TabVariant, TabVariantContext } from "components/input-elements/Tabs/TabList";
+import {
+  TabVariant,
+  TabVariantContext,
+} from "components/input-elements/Tabs/TabList";
 import { BaseColorContext } from "contexts";
 import { Color } from "../../../lib/inputTypes";
 
@@ -34,7 +42,8 @@ function getVariantStyles(tabVariant: TabVariant, color?: Color) {
   }
 }
 
-export interface TabProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface TabProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ElementType;
 }
 

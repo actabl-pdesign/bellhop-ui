@@ -16,10 +16,18 @@ export const SimpleNumberInput = (args: any) => {
         <NumberInput {...args} onSubmit={(value: number) => alert(value)} />
 
         <p>Uncontrolled with defaultValue</p>
-        <NumberInput {...args} defaultValue={123} onSubmit={(value: number) => alert(value)} />
+        <NumberInput
+          {...args}
+          defaultValue={123}
+          onSubmit={(value: number) => alert(value)}
+        />
 
         <p>Controlled without onValueChange</p>
-        <NumberInput {...args} value={value} onSubmit={(value: number) => alert(value)} />
+        <NumberInput
+          {...args}
+          value={value}
+          onSubmit={(value: number) => alert(value)}
+        />
 
         <label htmlFor="a">
           <p>Controlled with onValueChange</p>

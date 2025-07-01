@@ -110,29 +110,44 @@ export type ColorTypes = {
 
 export const colors: { [key: string]: ColorTypes } = {
   [DeltaTypes.Increase]: {
-    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background).bgColor,
-    textColor: getColorClassNames(BaseColors.Green, colorPalette.iconText).textColor,
-    ringColor: getColorClassNames(BaseColors.Green, colorPalette.iconRing).ringColor,
+    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background)
+      .bgColor,
+    textColor: getColorClassNames(BaseColors.Green, colorPalette.iconText)
+      .textColor,
+    ringColor: getColorClassNames(BaseColors.Green, colorPalette.iconRing)
+      .ringColor,
   },
   [DeltaTypes.ModerateIncrease]: {
-    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background).bgColor,
-    textColor: getColorClassNames(BaseColors.Green, colorPalette.iconText).textColor,
-    ringColor: getColorClassNames(BaseColors.Green, colorPalette.iconRing).ringColor,
+    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background)
+      .bgColor,
+    textColor: getColorClassNames(BaseColors.Green, colorPalette.iconText)
+      .textColor,
+    ringColor: getColorClassNames(BaseColors.Green, colorPalette.iconRing)
+      .ringColor,
   },
   [DeltaTypes.Decrease]: {
-    bgColor: getColorClassNames(BaseColors.Red, colorPalette.background).bgColor,
-    textColor: getColorClassNames(BaseColors.Red, colorPalette.iconText).textColor,
-    ringColor: getColorClassNames(BaseColors.Red, colorPalette.iconRing).ringColor,
+    bgColor: getColorClassNames(BaseColors.Red, colorPalette.background)
+      .bgColor,
+    textColor: getColorClassNames(BaseColors.Red, colorPalette.iconText)
+      .textColor,
+    ringColor: getColorClassNames(BaseColors.Red, colorPalette.iconRing)
+      .ringColor,
   },
   [DeltaTypes.ModerateDecrease]: {
-    bgColor: getColorClassNames(BaseColors.Red, colorPalette.background).bgColor,
-    textColor: getColorClassNames(BaseColors.Red, colorPalette.iconText).textColor,
-    ringColor: getColorClassNames(BaseColors.Red, colorPalette.iconRing).ringColor,
+    bgColor: getColorClassNames(BaseColors.Red, colorPalette.background)
+      .bgColor,
+    textColor: getColorClassNames(BaseColors.Red, colorPalette.iconText)
+      .textColor,
+    ringColor: getColorClassNames(BaseColors.Red, colorPalette.iconRing)
+      .ringColor,
   },
   [DeltaTypes.Unchanged]: {
-    bgColor: getColorClassNames(BaseColors.Orange, colorPalette.background).bgColor,
-    textColor: getColorClassNames(BaseColors.Orange, colorPalette.iconText).textColor,
-    ringColor: getColorClassNames(BaseColors.Orange, colorPalette.iconRing).ringColor,
+    bgColor: getColorClassNames(BaseColors.Orange, colorPalette.background)
+      .bgColor,
+    textColor: getColorClassNames(BaseColors.Orange, colorPalette.iconText)
+      .textColor,
+    ringColor: getColorClassNames(BaseColors.Orange, colorPalette.iconRing)
+      .ringColor,
   },
 };
 

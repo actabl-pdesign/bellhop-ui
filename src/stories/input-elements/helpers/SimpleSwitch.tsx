@@ -13,7 +13,11 @@ export const SimpleSwitch = (args: any) => {
         }}
         onReset={() => setChecked(false)}
       >
-        <input type="hidden" name="path" value={"/docs/components-input-switch--docs"} />
+        <input
+          type="hidden"
+          name="path"
+          value={"/docs/components-input-switch--docs"}
+        />
         <Switch {...args} checked={checked} onChange={setChecked} />
 
         <div className="flex gap-4 mt-2">

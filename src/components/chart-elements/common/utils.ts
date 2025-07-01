@@ -36,7 +36,12 @@ export const constructCategories = (data: any[], color?: string): string[] => {
 export function deepEqual(obj1: any, obj2: any) {
   if (obj1 === obj2) return true;
 
-  if (typeof obj1 !== "object" || typeof obj2 !== "object" || obj1 === null || obj2 === null)
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  )
     return false;
 
   const keys1 = Object.keys(obj1);

@@ -13,7 +13,9 @@ type BaseEventProps = FixedProps & {
 
 export type EventProps = BaseEventProps | null | undefined;
 
-interface BaseChartProps extends BaseAnimationTimingProps, React.HTMLAttributes<HTMLDivElement> {
+interface BaseChartProps
+  extends BaseAnimationTimingProps,
+    React.HTMLAttributes<HTMLDivElement> {
   data: any[];
   categories: string[];
   index: string;

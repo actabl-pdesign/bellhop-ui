@@ -116,7 +116,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
     const [height, setHeight] = React.useState(0);
     const [tooltip, setTooltip] = React.useState<Tooltip>({ x: 0, y: 0 });
 
-    const [activeBar, setActiveBar] = React.useState<any | undefined>(undefined);
+    const [activeBar, setActiveBar] = React.useState<any | undefined>(
+      undefined,
+    );
     const hasOnValueChange = !!onValueChange;
 
     function onBarClick(data: any, idx: number, event: React.MouseEvent) {
@@ -136,7 +138,10 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
       }
     }
 
-    const maxValue = React.useMemo(() => Math.max(...data.map((item) => item.value)), [data]);
+    const maxValue = React.useMemo(
+      () => Math.max(...data.map((item) => item.value)),
+      [data],
+    );
 
     const widthWithoutPadding = width - GLOBAL_PADDING - yAxisPadding;
     const gap = React.useMemo(() => {
@@ -163,7 +168,8 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
       height -
       GLOBAL_PADDING -
       (showXAxis
-        ? (rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT) + (showXAxis && xAxisLabel ? 30 : 10)
+        ? (rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT) +
+          (showXAxis && xAxisLabel ? 30 : 10)
         : 0);
 
     const isPreviousCalculation = calculateFrom === "previous";
@@ -210,7 +216,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
       return data.reduce((acc: FormattedDataT[], item, index) => {
         const prev = acc[index - 1];
         const value = item.value;
-        const valueToCompareWith = isPreviousCalculation ? (prev?.value ?? maxValue) : maxValue;
+        const valueToCompareWith = isPreviousCalculation
+          ? (prev?.value ?? maxValue)
+          : maxValue;
         const calculationHeight = isPreviousCalculation
           ? (prev?.barHeight ?? realHeight)
           : realHeight;
@@ -221,7 +229,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
         const startY =
           calculationHeight -
           barHeight +
-          (isPreviousCalculation ? realHeight - (prev?.barHeight ?? realHeight) : 0);
+          (isPreviousCalculation
+            ? realHeight - (prev?.barHeight ?? realHeight)
+            : 0);
         const nextValue = data[index + 1]?.value;
         const nextNormalizedValue = nextValue / valueToCompareWith;
         const nextBarHeight = nextNormalizedValue * calculationHeight;
@@ -253,7 +263,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
       const chartLeft = chartX + window.scrollX + yAxisPadding + HALF_PADDING;
       const chartWidth = chartBoundingRect.width - yAxisPadding - HALF_PADDING;
       const chartHeight =
-        chartBoundingRect.height - HALF_PADDING - (showXAxis ? DEFAULT_X_AXIS_HEIGHT : 0);
+        chartBoundingRect.height -
+        HALF_PADDING -
+        (showXAxis ? DEFAULT_X_AXIS_HEIGHT : 0);
       const chartRight = chartLeft + chartWidth;
       const chartBottom = chartTop + chartHeight;
 
@@ -267,13 +279,16 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
         return setTooltip({ x: 0, y: 0 });
       }
 
-      const pageX = touch.pageX - chartX - barWidth / 2 - yAxisPadding - HALF_PADDING;
+      const pageX =
+        touch.pageX - chartX - barWidth / 2 - yAxisPadding - HALF_PADDING;
       const closestBar = formattedData.reduce((acc, current) => {
         const currentDistance = Math.abs(current.startX - pageX);
         const accDistance = Math.abs(acc.startX - pageX);
         return currentDistance < accDistance ? current : acc;
       });
-      const closestBarIndex = formattedData.findIndex((bar) => bar === closestBar);
+      const closestBarIndex = formattedData.findIndex(
+        (bar) => bar === closestBar,
+      );
 
       setTooltip({
         x: closestBar.startX,
@@ -284,7 +299,8 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
           value: closestBar.value,
           color: color ?? BaseColors.Blue,
           className: bellhopTwMerge(
-            getColorClassNames(color ?? BaseColors.Blue, colorPalette.text).textColor,
+            getColorClassNames(color ?? BaseColors.Blue, colorPalette.text)
+              .textColor,
             hasOnValueChange ? "cursor-pointer" : "cursor-default",
           ),
           fill: "",
@@ -297,7 +313,10 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
     return (
       <div
         ref={ref}
-        className={bellhopTwMerge("bellhop-wrapper relative w-full h-80", className)}
+        className={bellhopTwMerge(
+          "bellhop-wrapper relative w-full h-80",
+          className,
+        )}
         {...other}
       >
         {data?.length ? (
@@ -372,7 +391,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                     fill="currentColor"
                     className={bellhopTwMerge(
                       "z-0",
-                      tooltip.index === index ? "text-[#d1d5db]/15" : "text-transparent",
+                      tooltip.index === index
+                        ? "text-[#d1d5db]/15"
+                        : "text-transparent",
                     )}
                   />
 
@@ -392,13 +413,16 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                         (realHeight -
                           item.barHeight -
                           (isPreviousCalculation
-                            ? realHeight - formattedData[index - 1]?.barHeight || 0
+                            ? realHeight -
+                                formattedData[index - 1]?.barHeight || 0
                             : 0)) /
                         (isVariantCenter ? 2 : 1)
                       }
                       fill={`url(#base-gradient)`}
                       className={bellhopTwMerge(
-                        !activeBar || activeBar.index === index ? "" : "opacity-30",
+                        !activeBar || activeBar.index === index
+                          ? ""
+                          : "opacity-30",
                       )}
                     />
                   ) : null}
@@ -407,15 +431,21 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                   <rect
                     x={item.startX + HALF_PADDING + yAxisPadding}
                     y={
-                      (isVariantCenter ? realHeight / 2 - item.barHeight / 2 : item.startY) +
-                      HALF_PADDING
+                      (isVariantCenter
+                        ? realHeight / 2 - item.barHeight / 2
+                        : item.startY) + HALF_PADDING
                     }
                     width={barWidth}
                     height={item.barHeight}
                     fill="currentColor"
                     className={bellhopTwMerge(
-                      getColorClassNames(color ?? BaseColors.Blue, colorPalette.text).textColor,
-                      !activeBar || activeBar.index === index ? "" : "opacity-30",
+                      getColorClassNames(
+                        color ?? BaseColors.Blue,
+                        colorPalette.text,
+                      ).textColor,
+                      !activeBar || activeBar.index === index
+                        ? ""
+                        : "opacity-30",
                       hasOnValueChange ? "cursor-pointer" : "cursor-default",
                     )}
                     onClick={(e) => onBarClick(item, index, e)}
@@ -430,7 +460,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                       height={(realHeight - item.barHeight) / 2}
                       fill={`url(#base-gradient-revert)`}
                       className={bellhopTwMerge(
-                        !activeBar || activeBar.index === index ? "" : "opacity-30",
+                        !activeBar || activeBar.index === index
+                          ? ""
+                          : "opacity-30",
                       )}
                     />
                   ) : null}
@@ -441,14 +473,21 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                       x={item.startX + HALF_PADDING + yAxisPadding}
                       y={realHeight + HALF_PADDING + 10}
                       width={barWidth}
-                      height={rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT}
+                      height={
+                        rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT
+                      }
                       transform={
                         rotateLabelX
                           ? `rotate(${rotateLabelX?.angle}, ${
-                              item.startX + barWidth / 2 + HALF_PADDING + yAxisPadding
+                              item.startX +
+                              barWidth / 2 +
+                              HALF_PADDING +
+                              yAxisPadding
                             }, ${
                               realHeight +
-                              (rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT) / 2 +
+                              (rotateLabelX?.xAxisHeight ||
+                                DEFAULT_X_AXIS_HEIGHT) /
+                                2 +
                               HALF_PADDING +
                               (rotateLabelX?.verticalShift || 0)
                             })`
@@ -482,43 +521,63 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                           <polygon
                             points={`
                                     ${item.startX + barWidth + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 + item.nextBarHeight / 4 + HALF_PADDING
+                                      realHeight / 2 +
+                                      item.nextBarHeight / 4 +
+                                      HALF_PADDING
                                     }
                                     ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 + item.nextBarHeight / 4 + HALF_PADDING
+                                      realHeight / 2 +
+                                      item.nextBarHeight / 4 +
+                                      HALF_PADDING
                                     }
                                     ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 - item.nextBarHeight / 2 + HALF_PADDING
+                                      realHeight / 2 -
+                                      item.nextBarHeight / 2 +
+                                      HALF_PADDING
                                     }
                                     ${item.startX + barWidth + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 - item.barHeight / 2 + HALF_PADDING
+                                      realHeight / 2 -
+                                      item.barHeight / 2 +
+                                      HALF_PADDING
                                     }
                                   `}
                             fill={`url(#base-gradient)`}
                             className={bellhopTwMerge(
                               "z-10",
-                              !activeBar || activeBar.index === index ? "" : "opacity-30",
+                              !activeBar || activeBar.index === index
+                                ? ""
+                                : "opacity-30",
                             )}
                           />
                           <polygon
                             points={`
                                     ${item.startX + barWidth + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 + item.barHeight / 2 + HALF_PADDING
+                                      realHeight / 2 +
+                                      item.barHeight / 2 +
+                                      HALF_PADDING
                                     }
                                     ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 + item.nextBarHeight / 2 + HALF_PADDING
+                                      realHeight / 2 +
+                                      item.nextBarHeight / 2 +
+                                      HALF_PADDING
                                     }
                                     ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 - item.nextBarHeight / 4 + HALF_PADDING
+                                      realHeight / 2 -
+                                      item.nextBarHeight / 4 +
+                                      HALF_PADDING
                                     }
                                     ${item.startX + barWidth + HALF_PADDING + yAxisPadding}, ${
-                                      realHeight / 2 - item.nextBarHeight / 4 + HALF_PADDING
+                                      realHeight / 2 -
+                                      item.nextBarHeight / 4 +
+                                      HALF_PADDING
                                     }
                                   `}
                             fill={`url(#base-gradient-revert)`}
                             className={bellhopTwMerge(
                               "z-10",
-                              !activeBar || activeBar.index === index ? "" : "opacity-30",
+                              !activeBar || activeBar.index === index
+                                ? ""
+                                : "opacity-30",
                             )}
                           />
                         </>
@@ -529,7 +588,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                                     item.startY + HALF_PADDING
                                   } 
                                   ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
-                                    realHeight - item.nextBarHeight + HALF_PADDING
+                                    realHeight -
+                                    item.nextBarHeight +
+                                    HALF_PADDING
                                   } 
                                   ${item.nextStartX + HALF_PADDING + yAxisPadding}, ${
                                     realHeight + HALF_PADDING
@@ -541,7 +602,9 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                           fill={`url(#base-gradient)`}
                           className={bellhopTwMerge(
                             "z-10",
-                            !activeBar || activeBar.index === index ? "" : "opacity-30",
+                            !activeBar || activeBar.index === index
+                              ? ""
+                              : "opacity-30",
                           )}
                         />
                       )}
@@ -576,12 +639,24 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                     )}
                 /> */}
                   {/* Add arrow between labels */}
-                  {index < data.length - 1 && showXAxis && showArrow && gap >= 14 ? (
+                  {index < data.length - 1 &&
+                  showXAxis &&
+                  showArrow &&
+                  gap >= 14 ? (
                     <foreignObject
-                      x={item.startX + barWidth + HALF_PADDING + yAxisPadding - 6 + gap / 2}
+                      x={
+                        item.startX +
+                        barWidth +
+                        HALF_PADDING +
+                        yAxisPadding -
+                        6 +
+                        gap / 2
+                      }
                       y={realHeight + HALF_PADDING + 11}
                       width={12}
-                      height={rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT}
+                      height={
+                        rotateLabelX?.xAxisHeight || DEFAULT_X_AXIS_HEIGHT
+                      }
                     >
                       <div
                         className={bellhopTwMerge(
@@ -604,7 +679,10 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                 x2="0%"
                 y2="100%"
                 className={bellhopTwMerge(
-                  getColorClassNames(color ?? BaseColors.Blue, colorPalette.text).textColor,
+                  getColorClassNames(
+                    color ?? BaseColors.Blue,
+                    colorPalette.text,
+                  ).textColor,
                 )}
               >
                 <stop offset="5%" stopColor="currentColor" stopOpacity={0.4} />
@@ -617,7 +695,10 @@ const FunnelChartPrimitive = React.forwardRef<HTMLDivElement, FunnelChartProps>(
                 x2="0%"
                 y2="100%"
                 className={bellhopTwMerge(
-                  getColorClassNames(color ?? BaseColors.Blue, colorPalette.text).textColor,
+                  getColorClassNames(
+                    color ?? BaseColors.Blue,
+                    colorPalette.text,
+                  ).textColor,
                 )}
               >
                 <stop offset="5%" stopColor="currentColor" stopOpacity={0} />
@@ -733,7 +814,10 @@ FunnelChartPrimitive.displayName = "FunnelChart";
 
 //#region Data Validation
 
-const validateData = (data: DataT[], calculatedFrom?: CalculateFrom): string | null => {
+const validateData = (
+  data: DataT[],
+  calculatedFrom?: CalculateFrom,
+): string | null => {
   if (data && data.length > 0) {
     if (calculatedFrom === "previous" && data[0].value <= 0) {
       return `The value of the first item "${data[0].name}" is not greater than 0. This is not allowed when setting the "calculateFrom" prop to "previous". Please enter a value greater than 0.`;
@@ -753,7 +837,10 @@ const validateData = (data: DataT[], calculatedFrom?: CalculateFrom): string | n
 const FunnelChart = ({ data, ...props }: FunnelChartProps) => {
   const errorMessage = data ? validateData(data, props.calculateFrom) : null;
   return errorMessage ? (
-    <NoData className="h-full w-full p-6" noDataText={`Calculation error: ${errorMessage}`} />
+    <NoData
+      className="h-full w-full p-6"
+      noDataText={`Calculation error: ${errorMessage}`}
+    />
   ) : (
     <FunnelChartPrimitive data={data} {...props} />
   );

@@ -3,9 +3,18 @@ import { ChevronDownIcon, CircleXIcon } from "lucide-react";
 
 import { makeClassName, bellhopTwMerge } from "lib";
 import React, { Children, isValidElement, useMemo, useRef } from "react";
-import { constructValueToNameMapping, getSelectButtonColors, hasValue } from "../selectUtils";
+import {
+  constructValueToNameMapping,
+  getSelectButtonColors,
+  hasValue,
+} from "../selectUtils";
 
-import { Listbox, ListboxButton, ListboxOptions, Transition } from "@headlessui/react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  Transition,
+} from "@headlessui/react";
 import { useInternalState } from "hooks";
 
 const makeSelectClassName = makeClassName("Select");
@@ -46,11 +55,16 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
   const listboxButtonRef = useRef<HTMLButtonElement | null>(null);
   const childrenArray = Children.toArray(children); // @sev
 
-  const [selectedValue, setSelectedValue] = useInternalState(defaultValue, value);
+  const [selectedValue, setSelectedValue] = useInternalState(
+    defaultValue,
+    value,
+  );
   const Icon = icon;
   const valueToNameMapping = useMemo(() => {
-    const reactElementChildren = React.Children.toArray(children).filter(isValidElement);
-    const valueToNameMapping = constructValueToNameMapping(reactElementChildren);
+    const reactElementChildren =
+      React.Children.toArray(children).filter(isValidElement);
+    const valueToNameMapping =
+      constructValueToNameMapping(reactElementChildren);
     return valueToNameMapping;
   }, [children]);
 
@@ -71,7 +85,9 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
         <select
           title="select-hidden"
           required={required}
-          className={bellhopTwMerge("h-full w-full absolute left-0 top-0 -z-10 opacity-0")}
+          className={bellhopTwMerge(
+            "h-full w-full absolute left-0 top-0 -z-10 opacity-0",
+          )}
           value={selectedValue}
           onChange={(e) => {
             e.preventDefault();
@@ -143,10 +159,14 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
                   </span>
                 )}
                 <span className="w-[90%] block truncate">
-                  {value ? (valueToNameMapping.get(value) ?? placeholder) : placeholder}
+                  {value
+                    ? (valueToNameMapping.get(value) ?? placeholder)
+                    : placeholder}
                 </span>
                 <span
-                  className={bellhopTwMerge("absolute inset-y-0 right-0 flex items-center mr-3")}
+                  className={bellhopTwMerge(
+                    "absolute inset-y-0 right-0 flex items-center mr-3",
+                  )}
                 >
                   <ChevronDownIcon
                     className={bellhopTwMerge(
@@ -154,7 +174,7 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
                       // common
                       "flex-none h-5 w-5",
                       // light
-                      "text-bellhop-content-subtle"
+                      "text-bellhop-content-subtle",
                     )}
                   />
                 </span>
@@ -162,7 +182,9 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
               {enableClear && selectedValue ? (
                 <button
                   type="button"
-                  className={bellhopTwMerge("absolute inset-y-0 right-0 flex items-center mr-8")}
+                  className={bellhopTwMerge(
+                    "absolute inset-y-0 right-0 flex items-center mr-8",
+                  )}
                   onClick={(e) => {
                     e.preventDefault();
                     handleReset();
@@ -174,7 +196,7 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
                       // common
                       "flex-none h-4 w-4",
                       // light
-                      "text-bellhop-content-subtle"
+                      "text-bellhop-content-subtle",
                     )}
                   />
                 </button>
@@ -204,7 +226,12 @@ const Select = React.forwardRef<HTMLInputElement, SelectProps>((props, ref) => {
         </Listbox>
       </div>
       {error && errorMessage ? (
-        <p className={bellhopTwMerge("errorMessage", "text-sm text-red-500 mt-1")}>
+        <p
+          className={bellhopTwMerge(
+            "errorMessage",
+            "text-sm text-red-500 mt-1",
+          )}
+        >
           {errorMessage}
         </p>
       ) : null}

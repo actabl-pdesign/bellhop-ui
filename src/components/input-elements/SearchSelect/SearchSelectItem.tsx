@@ -7,12 +7,16 @@ import { ComboboxOption } from "@headlessui/react";
 
 const makeSearchSelectItemClassName = makeClassName("SearchSelectItem");
 
-export interface SearchSelectItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SearchSelectItemProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   icon?: React.ElementType;
 }
 
-const SearchSelectItem = React.forwardRef<HTMLDivElement, SearchSelectItemProps>((props, ref) => {
+const SearchSelectItem = React.forwardRef<
+  HTMLDivElement,
+  SearchSelectItemProps
+>((props, ref) => {
   const { value, icon, className, children, ...other } = props;
   const Icon = icon;
 

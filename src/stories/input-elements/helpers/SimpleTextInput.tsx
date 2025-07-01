@@ -21,7 +21,12 @@ export const SimpleTextInput = (args: any) => {
         <label htmlFor="a">
           <p>Controlled with on Change</p>
         </label>
-        <TextInput {...args} id={"a"} value={value} onChange={(e) => setValue(e.target.value)} />
+        <TextInput
+          {...args}
+          id={"a"}
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
         <label htmlFor="a">
           <p>Controlled with onValueChange</p>
         </label>

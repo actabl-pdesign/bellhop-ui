@@ -10,7 +10,11 @@ import {
   colorPalette,
 } from "lib";
 
-export const ChartTooltipFrame = ({ children }: { children: React.ReactNode }) => (
+export const ChartTooltipFrame = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
   <div
     className={bellhopTwMerge(
       // common
@@ -103,7 +107,8 @@ const ScatterChartTooltip = ({
               "dark:border-dark-bellhop-background dark:shadow-dark-bellhop-card",
               getColorClassNames(
                 category
-                  ? (categoryColors.get(payload?.[0]?.payload[category]) ?? BaseColors.Blue)
+                  ? (categoryColors.get(payload?.[0]?.payload[category]) ??
+                      BaseColors.Blue)
                   : BaseColors.Blue,
                 colorPalette.background,
               ).bgColor,
@@ -124,19 +129,27 @@ const ScatterChartTooltip = ({
         </div>
 
         <div className={bellhopTwMerge("px-4 py-2 space-y-1")}>
-          {payload.map(({ value, name }: { value: number; name: string }, idx: number) => {
-            const valueFormatterKey = Object.keys(axis).find((key) => axis[key] === name) ?? "";
-            const valueFormatterFn =
-              valueFormatter[valueFormatterKey as keyof ScatterChartValueFormatter] ??
-              defaultValueFormatter;
-            return (
-              <ChartTooltipRow
-                key={`id-${idx}`}
-                value={valueFormatter && valueFormatterFn ? valueFormatterFn(value) : `${value}`}
-                name={name}
-              />
-            );
-          })}
+          {payload.map(
+            ({ value, name }: { value: number; name: string }, idx: number) => {
+              const valueFormatterKey =
+                Object.keys(axis).find((key) => axis[key] === name) ?? "";
+              const valueFormatterFn =
+                valueFormatter[
+                  valueFormatterKey as keyof ScatterChartValueFormatter
+                ] ?? defaultValueFormatter;
+              return (
+                <ChartTooltipRow
+                  key={`id-${idx}`}
+                  value={
+                    valueFormatter && valueFormatterFn
+                      ? valueFormatterFn(value)
+                      : `${value}`
+                  }
+                  name={name}
+                />
+              );
+            },
+          )}
         </div>
       </ChartTooltipFrame>
     );

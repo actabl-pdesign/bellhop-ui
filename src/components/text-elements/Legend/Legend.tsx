@@ -1,6 +1,12 @@
 import React, { useEffect, useCallback } from "react";
 
-import { getColorClassNames, makeClassName, themeColorRange, Color, bellhopTwMerge } from "lib";
+import {
+  getColorClassNames,
+  makeClassName,
+  themeColorRange,
+  Color,
+  bellhopTwMerge,
+} from "lib";
 import { colorPalette } from "lib/theme";
 import { ChevronLeftFill, ChevronRightFill } from "assets";
 
@@ -13,7 +19,12 @@ export interface LegendItemProps {
   activeLegend?: string;
 }
 
-const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => {
+const LegendItem = ({
+  name,
+  color,
+  onClick,
+  activeLegend,
+}: LegendItemProps) => {
   const hasOnValueChange = !!onClick;
   return (
     <li
@@ -55,7 +66,9 @@ const LegendItem = ({ name, color, onClick, activeLegend }: LegendItemProps) => 
           // dark
           "dark:text-dark-bellhop-content",
           activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
-          hasOnValueChange ? "dark:group-hover:text-dark-bellhop-content-emphasis" : "",
+          hasOnValueChange
+            ? "dark:group-hover:text-dark-bellhop-content-emphasis"
+            : "",
         )}
       >
         {name}
@@ -164,7 +177,8 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
     if (!scrollable) return;
 
     const hasLeftScroll = scrollable.scrollLeft > 0;
-    const hasRightScroll = scrollable.scrollWidth - scrollable.clientWidth > scrollable.scrollLeft;
+    const hasRightScroll =
+      scrollable.scrollWidth - scrollable.clientWidth > scrollable.scrollLeft;
 
     setHasScroll({ left: hasLeftScroll, right: hasRightScroll });
   }, [setHasScroll]); // dependencies are listed here in the array
@@ -243,7 +257,11 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
   return (
     <ol
       ref={ref}
-      className={bellhopTwMerge(makeLegendClassName("root"), "relative overflow-hidden", className)}
+      className={bellhopTwMerge(
+        makeLegendClassName("root"),
+        "relative overflow-hidden",
+        className,
+      )}
       {...other}
     >
       <div

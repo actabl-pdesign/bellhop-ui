@@ -34,7 +34,13 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
-  const { decoration = "", decorationColor, children, className, ...other } = props;
+  const {
+    decoration = "",
+    decorationColor,
+    children,
+    className,
+    ...other
+  } = props;
   return (
     <div
       ref={ref}

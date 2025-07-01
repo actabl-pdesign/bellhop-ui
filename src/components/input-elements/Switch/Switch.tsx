@@ -26,7 +26,8 @@ const getSwitchColors = (color?: Color) => {
 
 const makeSwitchClassName = makeClassName("Switch");
 
-export interface SwitchProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface SwitchProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: (value: boolean) => void;
@@ -67,7 +68,10 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>((props, ref) => {
       <Tooltip text={tooltip} {...tooltipProps} />
       <div
         ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-        className={bellhopTwMerge(makeSwitchClassName("root"), "flex flex-row relative h-5")}
+        className={bellhopTwMerge(
+          makeSwitchClassName("root"),
+          "flex flex-row relative h-5",
+        )}
         {...other}
         {...getReferenceProps}
       >
@@ -101,16 +105,19 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>((props, ref) => {
           onBlur={() => setIsFocused(false)}
           id={id}
         >
-          <span className={bellhopTwMerge(makeSwitchClassName("sr-only"), "sr-only")}>
+          <span
+            className={bellhopTwMerge(
+              makeSwitchClassName("sr-only"),
+              "sr-only",
+            )}
+          >
             Switch {isChecked ? "on" : "off"}
           </span>
           <span
             aria-hidden="true"
             className={bellhopTwMerge(
               makeSwitchClassName("background"),
-              isChecked
-                ? switchColorStyles.bgColor
-                : "bg-bellhop-border",
+              isChecked ? switchColorStyles.bgColor : "bg-bellhop-border",
               "pointer-events-none absolute mx-auto h-5 w-9 rounded-bellhop-full transition-colors duration-100 ease-in-out",
             )}
           />
@@ -119,12 +126,12 @@ const Switch = React.forwardRef<HTMLDivElement, SwitchProps>((props, ref) => {
             className={bellhopTwMerge(
               makeSwitchClassName("round"),
               isChecked
-                ? bellhopTwMerge(
-                  "translate-x-[calc(100%-0px)] bg-white",
-                  )
+                ? bellhopTwMerge("translate-x-[calc(100%-0px)] bg-white")
                 : "translate-x-0 bg-white border-bellhop-background",
               "pointer-events-none absolute left-0 inline-block h-4 w-4 transform rounded-bellhop-full border-1 duration-100 ease-in-out transition",
-              isFocused ? bellhopTwMerge("ring-2", switchColorStyles.ringColor) : "",
+              isFocused
+                ? bellhopTwMerge("ring-2", switchColorStyles.ringColor)
+                : "",
             )}
           />
         </HeadlessSwitch>

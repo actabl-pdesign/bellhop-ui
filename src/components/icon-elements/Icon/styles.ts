@@ -1,4 +1,10 @@
-import { getColorClassNames, bellhopTwMerge, colorPalette, Color, IconVariant } from "lib";
+import {
+  getColorClassNames,
+  bellhopTwMerge,
+  colorPalette,
+  Color,
+  IconVariant,
+} from "lib";
 
 export type WrapperProportionTypes = {
   paddingX: string;
@@ -146,7 +152,8 @@ export const getIconColors = (variant: IconVariant, color?: Color) => {
               "bg-opacity-20",
             )
           : "bg-bellhop-brand dark:bg-dark-bellhop-brand",
-        borderColor: "border-bellhop-brand-inverted dark:border-dark-bellhop-brand-inverted",
+        borderColor:
+          "border-bellhop-brand-inverted dark:border-dark-bellhop-brand-inverted",
         ringColor: "ring-bellhop-ring dark:ring-dark-bellhop-ring",
       };
     case "outlined":

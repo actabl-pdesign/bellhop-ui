@@ -1,12 +1,19 @@
 import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
-import { Color, colorPalette, getColorClassNames, makeClassName, bellhopTwMerge } from "lib";
+import {
+  Color,
+  colorPalette,
+  getColorClassNames,
+  makeClassName,
+  bellhopTwMerge,
+} from "lib";
 import React from "react";
 
 const makeProgressCircleClassName = makeClassName("ProgressBar");
 
 export type Size = "xs" | "sm" | "md" | "lg" | "xl";
 
-export interface ProgressCircleProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ProgressCircleProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   value?: number;
   size?: Size;
   color?: Color;
@@ -50,94 +57,100 @@ function getLimitedValue(input: number | undefined) {
   }
 }
 
-const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>((props, ref) => {
-  const {
-    value: inputValue,
-    size = "md",
-    className,
-    showAnimation = true,
-    color,
-    tooltip,
-    radius: inputRadius,
-    strokeWidth: inputStrokeWidth,
-    children,
-    ...other
-  } = props;
+const ProgressCircle = React.forwardRef<HTMLDivElement, ProgressCircleProps>(
+  (props, ref) => {
+    const {
+      value: inputValue,
+      size = "md",
+      className,
+      showAnimation = true,
+      color,
+      tooltip,
+      radius: inputRadius,
+      strokeWidth: inputStrokeWidth,
+      children,
+      ...other
+    } = props;
 
-  // sanitize input
-  const value = getLimitedValue(inputValue);
-  const radius = inputRadius ?? size2config[size].radius;
-  const strokeWidth = inputStrokeWidth ?? size2config[size].strokeWidth;
-  const normalizedRadius = radius - strokeWidth / 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const strokeDashoffset = (value / 100) * circumference;
-  const offset = circumference - strokeDashoffset;
+    // sanitize input
+    const value = getLimitedValue(inputValue);
+    const radius = inputRadius ?? size2config[size].radius;
+    const strokeWidth = inputStrokeWidth ?? size2config[size].strokeWidth;
+    const normalizedRadius = radius - strokeWidth / 2;
+    const circumference = normalizedRadius * 2 * Math.PI;
+    const strokeDashoffset = (value / 100) * circumference;
+    const offset = circumference - strokeDashoffset;
 
-  const { tooltipProps, getReferenceProps } = useTooltip();
+    const { tooltipProps, getReferenceProps } = useTooltip();
 
-  return (
-    <>
-      <Tooltip text={tooltip} {...tooltipProps} />
-      <div
-        ref={ref}
-        className={bellhopTwMerge(
-          makeProgressCircleClassName("root"),
-          "flex flex-col items-center justify-center",
-          className,
-        )}
-        {...other}
-      >
-        <svg
-          ref={tooltipProps.refs.setReference}
-          width={radius * 2}
-          height={radius * 2}
-          viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-          className="transform -rotate-90"
-          {...getReferenceProps}
+    return (
+      <>
+        <Tooltip text={tooltip} {...tooltipProps} />
+        <div
+          ref={ref}
+          className={bellhopTwMerge(
+            makeProgressCircleClassName("root"),
+            "flex flex-col items-center justify-center",
+            className,
+          )}
+          {...other}
         >
-          <circle
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-            strokeWidth={strokeWidth}
-            fill="transparent"
-            stroke=""
-            strokeLinecap="round"
-            className={bellhopTwMerge(
-              "transition-colors ease-linear",
-              color
-                ? `${
-                    getColorClassNames(color, colorPalette.background).strokeColor
-                  } opacity-20 dark:opacity-25`
-                : "stroke-bellhop-brand-muted/50 dark:stroke-dark-bellhop-brand-muted",
-            )}
-          />
-          {value >= 0 ? (
+          <svg
+            ref={tooltipProps.refs.setReference}
+            width={radius * 2}
+            height={radius * 2}
+            viewBox={`0 0 ${radius * 2} ${radius * 2}`}
+            className="transform -rotate-90"
+            {...getReferenceProps}
+          >
             <circle
               r={normalizedRadius}
               cx={radius}
               cy={radius}
               strokeWidth={strokeWidth}
-              strokeDasharray={circumference + " " + circumference}
-              strokeDashoffset={offset}
               fill="transparent"
               stroke=""
               strokeLinecap="round"
               className={bellhopTwMerge(
                 "transition-colors ease-linear",
                 color
-                  ? getColorClassNames(color, colorPalette.background).strokeColor
-                  : "stroke-bellhop-brand dark:stroke-dark-bellhop-brand",
-                showAnimation ? "transition-all duration-300 ease-in-out" : "",
+                  ? `${
+                      getColorClassNames(color, colorPalette.background)
+                        .strokeColor
+                    } opacity-20 dark:opacity-25`
+                  : "stroke-bellhop-brand-muted/50 dark:stroke-dark-bellhop-brand-muted",
               )}
             />
-          ) : null}
-        </svg>
-        <div className={bellhopTwMerge("absolute flex")}>{children}</div>
-      </div>
-    </>
-  );
-});
+            {value >= 0 ? (
+              <circle
+                r={normalizedRadius}
+                cx={radius}
+                cy={radius}
+                strokeWidth={strokeWidth}
+                strokeDasharray={circumference + " " + circumference}
+                strokeDashoffset={offset}
+                fill="transparent"
+                stroke=""
+                strokeLinecap="round"
+                className={bellhopTwMerge(
+                  "transition-colors ease-linear",
+                  color
+                    ? getColorClassNames(color, colorPalette.background)
+                        .strokeColor
+                    : "stroke-bellhop-brand dark:stroke-dark-bellhop-brand",
+                  showAnimation
+                    ? "transition-all duration-300 ease-in-out"
+                    : "",
+                )}
+              />
+            ) : null}
+          </svg>
+          <div className={bellhopTwMerge("absolute flex")}>{children}</div>
+        </div>
+      </>
+    );
+  },
+);
 
 ProgressCircle.displayName = "ProgressCircle";
 

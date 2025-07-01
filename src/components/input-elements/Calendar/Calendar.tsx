@@ -62,21 +62,29 @@ function Calendar<T extends DayPickerSingleProps | DayPickerRangeProps>({
           "aria-selected:bg-bellhop-background-emphasis aria-selected:text-bellhop-content-inverted dark:aria-selected:bg-dark-bellhop-background-emphasis dark:aria-selected:text-dark-bellhop-content-inverted ",
         day_disabled:
           "text-bellhop-content-subtle dark:text-dark-bellhop-content-subtle disabled:hover:bg-transparent",
-        day_outside: "text-bellhop-content-subtle dark:text-dark-bellhop-content-subtle",
+        day_outside:
+          "text-bellhop-content-subtle dark:text-dark-bellhop-content-subtle",
         ...classNames,
       }}
       components={{
-        IconLeft: ({ ...props }) => <ArrowLeftHeadIcon className="h-4 w-4" {...props} />,
-        IconRight: ({ ...props }) => <ArrowRightHeadIcon className="h-4 w-4" {...props} />,
+        IconLeft: ({ ...props }) => (
+          <ArrowLeftHeadIcon className="h-4 w-4" {...props} />
+        ),
+        IconRight: ({ ...props }) => (
+          <ArrowRightHeadIcon className="h-4 w-4" {...props} />
+        ),
         Caption: ({ ...props }) => {
-          const { goToMonth, nextMonth, previousMonth, currentMonth } = useNavigation();
+          const { goToMonth, nextMonth, previousMonth, currentMonth } =
+            useNavigation();
 
           return (
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-1">
                 {enableYearNavigation && (
                   <NavButton
-                    onClick={() => currentMonth && goToMonth(addYears(currentMonth, -1))}
+                    onClick={() =>
+                      currentMonth && goToMonth(addYears(currentMonth, -1))
+                    }
                     icon={DoubleArrowLeftHeadIcon}
                   />
                 )}
@@ -97,7 +105,9 @@ function Calendar<T extends DayPickerSingleProps | DayPickerRangeProps>({
                 />
                 {enableYearNavigation && (
                   <NavButton
-                    onClick={() => currentMonth && goToMonth(addYears(currentMonth, 1))}
+                    onClick={() =>
+                      currentMonth && goToMonth(addYears(currentMonth, 1))
+                    }
                     icon={DoubleArrowRightHeadIcon}
                   />
                 )}

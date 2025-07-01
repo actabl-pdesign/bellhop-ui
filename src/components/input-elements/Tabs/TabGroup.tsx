@@ -12,22 +12,35 @@ export interface TabGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactElement[] | React.ReactElement;
 }
 
-const TabGroup = React.forwardRef<HTMLDivElement, TabGroupProps>((props, ref) => {
-  const { defaultIndex, index, onIndexChange, children, className, ...other } = props;
-  return (
-    <Tab.Group
-      as="div"
-      ref={ref}
-      defaultIndex={defaultIndex}
-      selectedIndex={index}
-      onChange={onIndexChange as any}
-      className={bellhopTwMerge(makeTabGroupClassName("root"), "w-full", className)}
-      {...other}
-    >
-      {children}
-    </Tab.Group>
-  );
-});
+const TabGroup = React.forwardRef<HTMLDivElement, TabGroupProps>(
+  (props, ref) => {
+    const {
+      defaultIndex,
+      index,
+      onIndexChange,
+      children,
+      className,
+      ...other
+    } = props;
+    return (
+      <Tab.Group
+        as="div"
+        ref={ref}
+        defaultIndex={defaultIndex}
+        selectedIndex={index}
+        onChange={onIndexChange as any}
+        className={bellhopTwMerge(
+          makeTabGroupClassName("root"),
+          "w-full",
+          className,
+        )}
+        {...other}
+      >
+        {children}
+      </Tab.Group>
+    );
+  },
+);
 
 TabGroup.displayName = "TabGroup";
 

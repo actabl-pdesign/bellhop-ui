@@ -2,7 +2,13 @@ import { bellhopTwMerge } from "lib";
 import React from "react";
 
 import { makeClassName } from "lib";
-import { colSpan, colSpanLg, colSpanMd, colSpanSm, GridClassesMapping } from "./styles";
+import {
+  colSpan,
+  colSpanLg,
+  colSpanMd,
+  colSpanSm,
+  GridClassesMapping,
+} from "./styles";
 
 const makeColClassName = makeClassName("Col");
 
@@ -44,7 +50,11 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   return (
     <div
       ref={ref}
-      className={bellhopTwMerge(makeColClassName("root"), getColSpanClassNames(), className)}
+      className={bellhopTwMerge(
+        makeColClassName("root"),
+        getColSpanClassNames(),
+        className,
+      )}
       {...other}
     >
       {children}

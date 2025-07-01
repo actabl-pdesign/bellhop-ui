@@ -1,5 +1,10 @@
 "use client";
-import { BaseColors, defaultValueFormatter, themeColorRange, bellhopTwMerge } from "lib";
+import {
+  BaseColors,
+  defaultValueFormatter,
+  themeColorRange,
+  bellhopTwMerge,
+} from "lib";
 import React, { useEffect } from "react";
 import {
   Pie,
@@ -73,112 +78,124 @@ const renderInactiveShape = (props: any) => {
   );
 };
 
-const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref) => {
-  const {
-    data = [],
-    category = "value",
-    index = "name",
-    colors = themeColorRange,
-    variant = "donut",
-    valueFormatter = defaultValueFormatter,
-    label,
-    showLabel = true,
-    animationDuration = 900,
-    showAnimation = false,
-    showTooltip = true,
-    noDataText,
-    onValueChange,
-    customTooltip,
-    className,
-    ...other
-  } = props;
-  const CustomTooltip = customTooltip;
-  const isDonut = variant == "donut";
-  const parsedLabelInput = parseLabelInput(label, valueFormatter, data, category);
+const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>(
+  (props, ref) => {
+    const {
+      data = [],
+      category = "value",
+      index = "name",
+      colors = themeColorRange,
+      variant = "donut",
+      valueFormatter = defaultValueFormatter,
+      label,
+      showLabel = true,
+      animationDuration = 900,
+      showAnimation = false,
+      showTooltip = true,
+      noDataText,
+      onValueChange,
+      customTooltip,
+      className,
+      ...other
+    } = props;
+    const CustomTooltip = customTooltip;
+    const isDonut = variant == "donut";
+    const parsedLabelInput = parseLabelInput(
+      label,
+      valueFormatter,
+      data,
+      category,
+    );
 
-  const [activeIndex, setActiveIndex] = React.useState<number | undefined>(undefined);
-  const hasOnValueChange = !!onValueChange;
+    const [activeIndex, setActiveIndex] = React.useState<number | undefined>(
+      undefined,
+    );
+    const hasOnValueChange = !!onValueChange;
 
-  function onShapeClick(data: any, index: number, event: React.MouseEvent) {
-    event.stopPropagation();
+    function onShapeClick(data: any, index: number, event: React.MouseEvent) {
+      event.stopPropagation();
 
-    if (!hasOnValueChange) return;
-    if (activeIndex === index) {
-      setActiveIndex(undefined);
-      onValueChange?.(null);
-    } else {
-      setActiveIndex(index);
-      onValueChange?.({
-        eventType: "slice",
-        ...data.payload.payload,
-      });
+      if (!hasOnValueChange) return;
+      if (activeIndex === index) {
+        setActiveIndex(undefined);
+        onValueChange?.(null);
+      } else {
+        setActiveIndex(index);
+        onValueChange?.({
+          eventType: "slice",
+          ...data.payload.payload,
+        });
+      }
     }
-  }
 
-  useEffect(() => {
-    const pieSectors = document.querySelectorAll(".recharts-pie-sector");
-    if (pieSectors) {
-      pieSectors.forEach((sector) => {
-        sector.setAttribute("style", "outline: none");
-      });
-    }
-  }, [activeIndex]);
+    useEffect(() => {
+      const pieSectors = document.querySelectorAll(".recharts-pie-sector");
+      if (pieSectors) {
+        pieSectors.forEach((sector) => {
+          sector.setAttribute("style", "outline: none");
+        });
+      }
+    }, [activeIndex]);
 
-  return (
-    <div ref={ref} className={bellhopTwMerge("w-full h-40", className)} {...other}>
-      <ResponsiveContainer className="h-full w-full">
-        {data?.length ? (
-          <ReChartsDonutChart
-            onClick={
-              hasOnValueChange && activeIndex
-                ? () => {
-                    setActiveIndex(undefined);
-                    onValueChange?.(null);
-                  }
-                : undefined
-            }
-            margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
-          >
-            {showLabel && isDonut ? (
-              <text
+    return (
+      <div
+        ref={ref}
+        className={bellhopTwMerge("w-full h-40", className)}
+        {...other}
+      >
+        <ResponsiveContainer className="h-full w-full">
+          {data?.length ? (
+            <ReChartsDonutChart
+              onClick={
+                hasOnValueChange && activeIndex
+                  ? () => {
+                      setActiveIndex(undefined);
+                      onValueChange?.(null);
+                    }
+                  : undefined
+              }
+              margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
+            >
+              {showLabel && isDonut ? (
+                <text
+                  className={bellhopTwMerge(
+                    // light
+                    "fill-bellhop-content-emphasis",
+                    // dark
+                    "dark:fill-dark-bellhop-content-emphasis",
+                  )}
+                  x="50%"
+                  y="50%"
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                >
+                  {parsedLabelInput}
+                </text>
+              ) : null}
+              <Pie
                 className={bellhopTwMerge(
-                  // light
-                  "fill-bellhop-content-emphasis",
-                  // dark
-                  "dark:fill-dark-bellhop-content-emphasis",
+                  "stroke-bellhop-background dark:stroke-dark-bellhop-background",
+                  onValueChange ? "cursor-pointer" : "cursor-default",
                 )}
-                x="50%"
-                y="50%"
-                textAnchor="middle"
-                dominantBaseline="middle"
-              >
-                {parsedLabelInput}
-              </text>
-            ) : null}
-            <Pie
-              className={bellhopTwMerge(
-                "stroke-bellhop-background dark:stroke-dark-bellhop-background",
-                onValueChange ? "cursor-pointer" : "cursor-default",
-              )}
-              data={parseData(data, colors)}
-              cx="50%"
-              cy="50%"
-              startAngle={90}
-              endAngle={-270}
-              innerRadius={isDonut ? "75%" : "0%"}
-              outerRadius="100%"
-              stroke=""
-              strokeLinejoin="round"
-              dataKey={category}
-              nameKey={index}
-              isAnimationActive={showAnimation}
-              animationDuration={animationDuration}
-              onClick={onShapeClick}
-              activeIndex={activeIndex}
-              inactiveShape={renderInactiveShape}
-              style={{ outline: "none" }}
-            />
-            {/* {showTooltip ? (
+                data={parseData(data, colors)}
+                cx="50%"
+                cy="50%"
+                startAngle={90}
+                endAngle={-270}
+                innerRadius={isDonut ? "75%" : "0%"}
+                outerRadius="100%"
+                stroke=""
+                strokeLinejoin="round"
+                dataKey={category}
+                nameKey={index}
+                isAnimationActive={showAnimation}
+                animationDuration={animationDuration}
+                onClick={onShapeClick}
+                activeIndex={activeIndex}
+                inactiveShape={renderInactiveShape}
+                style={{ outline: "none" }}
+              />
+              {/* {showTooltip ? (
               <Tooltip
                 wrapperStyle={{ outline: "none" }}
                 isAnimationActive={false}
@@ -191,41 +208,44 @@ const DonutChart = React.forwardRef<HTMLDivElement, DonutChartProps>((props, ref
             )}
               />
             ) : null} */}
-            <Tooltip
-              wrapperStyle={{ outline: "none" }}
-              isAnimationActive={false}
-              content={
-                showTooltip ? (
-                  ({ active, payload }) =>
-                    CustomTooltip ? (
-                      <CustomTooltip
-                        payload={payload?.map((payloadItem) => ({
-                          ...payloadItem,
-                          color: payload?.[0]?.payload?.color ?? BaseColors.Neutral,
-                        }))}
-                        active={active}
-                        label={payload?.[0]?.name}
-                      />
-                    ) : (
-                      <DonutChartTooltip
-                        active={active}
-                        payload={payload}
-                        valueFormatter={valueFormatter}
-                      />
-                    )
-                ) : (
-                  <></>
-                )
-              }
-            />
-          </ReChartsDonutChart>
-        ) : (
-          <NoData noDataText={noDataText} />
-        )}
-      </ResponsiveContainer>
-    </div>
-  );
-});
+              <Tooltip
+                wrapperStyle={{ outline: "none" }}
+                isAnimationActive={false}
+                content={
+                  showTooltip ? (
+                    ({ active, payload }) =>
+                      CustomTooltip ? (
+                        <CustomTooltip
+                          payload={payload?.map((payloadItem) => ({
+                            ...payloadItem,
+                            color:
+                              payload?.[0]?.payload?.color ??
+                              BaseColors.Neutral,
+                          }))}
+                          active={active}
+                          label={payload?.[0]?.name}
+                        />
+                      ) : (
+                        <DonutChartTooltip
+                          active={active}
+                          payload={payload}
+                          valueFormatter={valueFormatter}
+                        />
+                      )
+                  ) : (
+                    <></>
+                  )
+                }
+              />
+            </ReChartsDonutChart>
+          ) : (
+            <NoData noDataText={noDataText} />
+          )}
+        </ResponsiveContainer>
+      </div>
+    );
+  },
+);
 
 DonutChart.displayName = "DonutChart";
 

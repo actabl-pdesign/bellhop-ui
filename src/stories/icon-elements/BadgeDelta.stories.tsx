@@ -2,7 +2,10 @@ import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { DeltaTypes as InputDeltaTypes, Sizes as InputSizes } from "lib/constants";
+import {
+  DeltaTypes as InputDeltaTypes,
+  Sizes as InputSizes,
+} from "lib/constants";
 
 import { BadgeDelta, Grid } from "components";
 

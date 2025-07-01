@@ -3,7 +3,10 @@ import React from "react";
 import { makeClassName } from "lib";
 import BaseInput, { BaseInputProps } from "../BaseInput";
 
-export type TextInputProps = Omit<BaseInputProps, "stepper" | "makeInputClassName"> & {
+export type TextInputProps = Omit<
+  BaseInputProps,
+  "stepper" | "makeInputClassName"
+> & {
   defaultValue?: string;
   value?: string;
   onValueChange?: (value: string) => void;
@@ -15,10 +18,19 @@ export type TextInputProps = Omit<BaseInputProps, "stepper" | "makeInputClassNam
 
 const makeTextInputClassName = makeClassName("TextInput");
 
-const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>((props, ref) => {
-  const { type = "text", ...other } = props;
-  return <BaseInput ref={ref} type={type} makeInputClassName={makeTextInputClassName} {...other} />;
-});
+const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+  (props, ref) => {
+    const { type = "text", ...other } = props;
+    return (
+      <BaseInput
+        ref={ref}
+        type={type}
+        makeInputClassName={makeTextInputClassName}
+        {...other}
+      />
+    );
+  },
+);
 
 TextInput.displayName = "TextInput";
 

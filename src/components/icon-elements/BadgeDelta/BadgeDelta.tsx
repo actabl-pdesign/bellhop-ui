@@ -28,61 +28,70 @@ export interface BadgeDeltaProps extends React.HTMLAttributes<HTMLSpanElement> {
   tooltip?: string;
 }
 
-const BadgeDelta = React.forwardRef<HTMLSpanElement, BadgeDeltaProps>((props, ref) => {
-  const {
-    deltaType = DeltaTypes.Increase,
-    isIncreasePositive = true,
-    size = Sizes.SM,
-    tooltip,
-    children,
-    className,
-    ...other
-  } = props;
+const BadgeDelta = React.forwardRef<HTMLSpanElement, BadgeDeltaProps>(
+  (props, ref) => {
+    const {
+      deltaType = DeltaTypes.Increase,
+      isIncreasePositive = true,
+      size = Sizes.SM,
+      tooltip,
+      children,
+      className,
+      ...other
+    } = props;
 
-  const Icon = deltaIcons[deltaType];
-  const mappedDeltaType = mapInputsToDeltaType(deltaType, isIncreasePositive);
-  const badgeProportions = children ? badgeProportionsWithText : badgeProportionsIconOnly;
-  const { tooltipProps, getReferenceProps } = useTooltip();
+    const Icon = deltaIcons[deltaType];
+    const mappedDeltaType = mapInputsToDeltaType(deltaType, isIncreasePositive);
+    const badgeProportions = children
+      ? badgeProportionsWithText
+      : badgeProportionsIconOnly;
+    const { tooltipProps, getReferenceProps } = useTooltip();
 
-  return (
-    <span
-      ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-      className={bellhopTwMerge(
-        makeBadgeDeltaClassName("root"),
-        // common
-        "w-max shrink-0 inline-flex justify-center items-center cursor-default rounded-bellhop-small ring-1 ring-inset",
-        colors[mappedDeltaType].bgColor,
-        colors[mappedDeltaType].textColor,
-        colors[mappedDeltaType].ringColor,
-        badgeProportions[size].paddingX,
-        badgeProportions[size].paddingY,
-        badgeProportions[size].fontSize,
-        // light
-        "bg-opacity-10 ring-opacity-20",
-        // dark
-        "dark:bg-opacity-5 dark:ring-opacity-60",
-        className,
-      )}
-      {...getReferenceProps}
-      {...other}
-    >
-      <Tooltip text={tooltip} {...tooltipProps} />
-      <Icon
+    return (
+      <span
+        ref={mergeRefs([ref, tooltipProps.refs.setReference])}
         className={bellhopTwMerge(
-          makeBadgeDeltaClassName("icon"),
-          "shrink-0",
-          children ? bellhopTwMerge("-ml-1 mr-1.5") : iconSizes[size].height,
-          iconSizes[size].width,
+          makeBadgeDeltaClassName("root"),
+          // common
+          "w-max shrink-0 inline-flex justify-center items-center cursor-default rounded-bellhop-small ring-1 ring-inset",
+          colors[mappedDeltaType].bgColor,
+          colors[mappedDeltaType].textColor,
+          colors[mappedDeltaType].ringColor,
+          badgeProportions[size].paddingX,
+          badgeProportions[size].paddingY,
+          badgeProportions[size].fontSize,
+          // light
+          "bg-opacity-10 ring-opacity-20",
+          // dark
+          "dark:bg-opacity-5 dark:ring-opacity-60",
+          className,
         )}
-      />
-      {children ? (
-        <span className={bellhopTwMerge(makeBadgeDeltaClassName("text"), "whitespace-nowrap")}>
-          {children}
-        </span>
-      ) : null}
-    </span>
-  );
-});
+        {...getReferenceProps}
+        {...other}
+      >
+        <Tooltip text={tooltip} {...tooltipProps} />
+        <Icon
+          className={bellhopTwMerge(
+            makeBadgeDeltaClassName("icon"),
+            "shrink-0",
+            children ? bellhopTwMerge("-ml-1 mr-1.5") : iconSizes[size].height,
+            iconSizes[size].width,
+          )}
+        />
+        {children ? (
+          <span
+            className={bellhopTwMerge(
+              makeBadgeDeltaClassName("text"),
+              "whitespace-nowrap",
+            )}
+          >
+            {children}
+          </span>
+        ) : null}
+      </span>
+    );
+  },
+);
 
 BadgeDelta.displayName = "BadgeDelta";
 

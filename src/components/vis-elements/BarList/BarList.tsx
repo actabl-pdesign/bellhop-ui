@@ -23,7 +23,8 @@ type Bar<T> = T & {
   color?: Color;
 };
 
-export interface BarListProps<T = any> extends React.HTMLAttributes<HTMLDivElement> {
+export interface BarListProps<T = any>
+  extends React.HTMLAttributes<HTMLDivElement> {
   data: Bar<T>[];
   valueFormatter?: ValueFormatter;
   color?: Color;
@@ -32,7 +33,10 @@ export interface BarListProps<T = any> extends React.HTMLAttributes<HTMLDivEleme
   sortOrder?: "ascending" | "descending" | "none";
 }
 
-function BarListInner<T>(props: BarListProps<T>, ref: React.ForwardedRef<HTMLDivElement>) {
+function BarListInner<T>(
+  props: BarListProps<T>,
+  ref: React.ForwardedRef<HTMLDivElement>,
+) {
   const {
     data = [],
     color,
@@ -74,7 +78,12 @@ function BarListInner<T>(props: BarListProps<T>, ref: React.ForwardedRef<HTMLDiv
       aria-sort={sortOrder}
       {...other}
     >
-      <div className={bellhopTwMerge(makeBarListClassName("bars"), "relative w-full space-y-1.5")}>
+      <div
+        className={bellhopTwMerge(
+          makeBarListClassName("bars"),
+          "relative w-full space-y-1.5",
+        )}
+      >
         {sortedData.map((item, index) => {
           const Icon = item.icon;
 
@@ -103,8 +112,10 @@ function BarListInner<T>(props: BarListProps<T>, ref: React.ForwardedRef<HTMLDiv
                   rowHeight,
                   item.color || color
                     ? [
-                        getColorClassNames(item.color ?? (color as Color), colorPalette.background)
-                          .bgColor,
+                        getColorClassNames(
+                          item.color ?? (color as Color),
+                          colorPalette.background,
+                        ).bgColor,
                         onValueChange ? "group-hover:bg-opacity-30" : "",
                       ]
                     : "bg-bellhop-brand-subtle dark:bg-dark-bellhop-brand-subtle/60",
@@ -116,9 +127,16 @@ function BarListInner<T>(props: BarListProps<T>, ref: React.ForwardedRef<HTMLDiv
                   // duration
                   showAnimation ? "duration-500" : "",
                 )}
-                style={{ width: `${widths[index]}%`, transition: showAnimation ? "all 1s" : "" }}
+                style={{
+                  width: `${widths[index]}%`,
+                  transition: showAnimation ? "all 1s" : "",
+                }}
               >
-                <div className={bellhopTwMerge("absolute left-2 pr-4 flex max-w-full")}>
+                <div
+                  className={bellhopTwMerge(
+                    "absolute left-2 pr-4 flex max-w-full",
+                  )}
+                >
                   {Icon ? (
                     <Icon
                       className={bellhopTwMerge(

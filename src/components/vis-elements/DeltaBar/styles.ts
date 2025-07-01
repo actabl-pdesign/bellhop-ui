@@ -7,18 +7,23 @@ export type ColorTypes = {
 
 export const colors: { [key: string]: ColorTypes } = {
   [DeltaTypes.Increase]: {
-    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background).bgColor,
+    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background)
+      .bgColor,
   },
   [DeltaTypes.ModerateIncrease]: {
-    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background).bgColor,
+    bgColor: getColorClassNames(BaseColors.Green, colorPalette.background)
+      .bgColor,
   },
   [DeltaTypes.Decrease]: {
-    bgColor: getColorClassNames(BaseColors.Rose, colorPalette.background).bgColor,
+    bgColor: getColorClassNames(BaseColors.Rose, colorPalette.background)
+      .bgColor,
   },
   [DeltaTypes.ModerateDecrease]: {
-    bgColor: getColorClassNames(BaseColors.Rose, colorPalette.background).bgColor,
+    bgColor: getColorClassNames(BaseColors.Rose, colorPalette.background)
+      .bgColor,
   },
   [DeltaTypes.Unchanged]: {
-    bgColor: getColorClassNames(BaseColors.Orange, colorPalette.background).bgColor,
+    bgColor: getColorClassNames(BaseColors.Orange, colorPalette.background)
+      .bgColor,
   },
 };

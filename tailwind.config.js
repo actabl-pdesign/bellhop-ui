@@ -11,7 +11,7 @@ const customColors = {
   transparent: "transparent",
   black: "#000000",
   white: "#ffffff",
-  
+
   // Neutral Scale - replaces slate/gray
   neutral: {
     50: "#f9f9fb",
@@ -26,7 +26,7 @@ const customColors = {
     900: "#111322",
     950: "#0e101b",
   },
-  
+
   // Map gray to neutral for backwards compatibility
   gray: {
     50: "#f9f9fb",
@@ -41,7 +41,7 @@ const customColors = {
     900: "#111322",
     950: "#0e101b",
   },
-  
+
   // Indigo Scale
   indigo: {
     50: "#f1f5fe",
@@ -56,7 +56,7 @@ const customColors = {
     900: "#161b79",
     950: "#141752",
   },
-  
+
   // Rose Scale
   rose: {
     50: "#fbf0ee",
@@ -71,7 +71,7 @@ const customColors = {
     900: "#631c28",
     950: "#681d29",
   },
-  
+
   // Red Scale
   red: {
     50: "#feefeb",
@@ -86,7 +86,7 @@ const customColors = {
     900: "#701e19",
     950: "#55160c",
   },
-  
+
   // Amber Scale
   amber: {
     50: "#fffaeb",
@@ -101,7 +101,7 @@ const customColors = {
     900: "#7a2e0e",
     950: "#4e1d09",
   },
-  
+
   // Green Scale
   green: {
     50: "#ecfdf3",
@@ -116,7 +116,7 @@ const customColors = {
     900: "#074d31",
     950: "#053321",
   },
-  
+
   // Orange Scale
   orange: {
     50: "#fef6ee",
@@ -131,7 +131,7 @@ const customColors = {
     900: "#772917",
     950: "#511c10",
   },
-  
+
   // Blue Scale
   blue: {
     50: "#eff8ff",
@@ -146,7 +146,7 @@ const customColors = {
     900: "#194185",
     950: "#102a56",
   },
-  
+
   // Violet Scale
   violet: {
     50: "#f4ebf4",
@@ -161,7 +161,7 @@ const customColors = {
     900: "#56255f",
     950: "#3d1745",
   },
-  
+
   // Purple Scale
   purple: {
     50: "#f4f3ff",
@@ -227,26 +227,33 @@ module.exports = {
             inverted: customColors.white,
           },
         },
-        
+
         // Override default Tailwind colors with custom palette
         ...customColors,
       },
       fontFamily: {
-      sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "sans-serif",
+        ],
+        serif: ["Merriweather", "serif"],
       },
       boxShadow: {
         // light
         "bellhop-input": "0 0px 0px 0 rgb(0 0 0 / 0)",
-        "bellhop-card": "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-        "bellhop-dropdown": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
-
+        "bellhop-card":
+          "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+        "bellhop-dropdown":
+          "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
       },
       borderWidth: {
         DEFAULT: "1.5px",
-        "0": "0",
-        "2": "2.5px",
-        "3": "3.5px",
+        0: "0",
+        2: "2.5px",
+        3: "3.5px",
       },
       borderRadius: {
         "bellhop-small": "0.375rem",

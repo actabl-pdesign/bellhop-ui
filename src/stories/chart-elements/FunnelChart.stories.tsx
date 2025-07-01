@@ -210,9 +210,13 @@ export const CustomTooltipSimple: Story = {
       return (
         <div className="w-56 rounded-bellhop-default text-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
           <div className="flex flex-1 space-x-2.5">
-            <div className={`w-1.5 flex flex-col bg-${categoryPayload.color}-500 rounded`} />
+            <div
+              className={`w-1.5 flex flex-col bg-${categoryPayload.color}-500 rounded`}
+            />
             <div className="w-full">
-              <p className="font-medium text-bellhop-content-emphasis">{label}</p>
+              <p className="font-medium text-bellhop-content-emphasis">
+                {label}
+              </p>
               <div className="flex items-center justify-between space-x-8">
                 <p className="text-right text-bellhop-content whitespace-nowrap">
                   {(categoryPayload.payload.normalizedValue * 100).toFixed(2)}%

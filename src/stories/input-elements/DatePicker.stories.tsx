@@ -19,7 +19,10 @@ function Uncontrolled({ ...args }) {
 
   return (
     <div className="space-y-4">
-      <DatePicker {...args} onValueChange={(value: Date | undefined) => setValue(value)} />
+      <DatePicker
+        {...args}
+        onValueChange={(value: Date | undefined) => setValue(value)}
+      />
       <div className="text-neutral-500">
         <p>Filtered Data</p>
         <p>Date: {String(value)} </p>
@@ -32,8 +35,16 @@ function Controlled({ ...args }) {
   const [value, setValue] = useState<Date | undefined>(args.value!);
   return (
     <div className="space-y-4">
-      <DatePicker {...args} value={value} onValueChange={(v: Date | undefined) => setValue(v)} />
-      <DatePicker {...args} value={value} onValueChange={(v: Date | undefined) => setValue(v)} />
+      <DatePicker
+        {...args}
+        value={value}
+        onValueChange={(v: Date | undefined) => setValue(v)}
+      />
+      <DatePicker
+        {...args}
+        value={value}
+        onValueChange={(v: Date | undefined) => setValue(v)}
+      />
       <Button
         onClick={() => {
           setValue(undefined);

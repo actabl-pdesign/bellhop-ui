@@ -25,7 +25,8 @@ describe("AreaChart", () => {
       { name: "B", value: 20 },
       { name: "C", value: 30 },
     ];
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const { container } = render(
       <AreaChart
         data={data}
@@ -44,7 +45,8 @@ describe("AreaChart", () => {
       { name: "B", value: 20 },
       { name: "C", value: 30 },
     ];
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const { container } = render(
       <AreaChart
         data={data}
@@ -64,7 +66,8 @@ describe("AreaChart", () => {
       { name: "B", value: 20 },
       { name: "C", value: 30 },
     ];
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const { container } = render(
       <AreaChart
         data={data}
@@ -84,7 +87,8 @@ describe("AreaChart", () => {
       { name: "B", value: 20 },
       { name: "C", value: 30 },
     ];
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const { container } = render(
       <AreaChart
         data={data}
@@ -104,7 +108,8 @@ describe("AreaChart", () => {
       { name: "B", value: null },
       { name: "C", value: 30 },
     ];
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const { container } = render(
       <AreaChart
         data={data}
@@ -119,8 +124,11 @@ describe("AreaChart", () => {
   });
 
   it("renders the chart with no data", () => {
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
-    const { getByText } = render(<AreaChart data={[]} categories={[]} index="name" ref={ref} />);
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const { getByText } = render(
+      <AreaChart data={[]} categories={[]} index="name" ref={ref} />,
+    );
     expect(getByText("No data")).toBeDefined();
   });
 });

@@ -101,7 +101,11 @@ export const ValueDecimal: Story = {
 };
 
 export const ChildrenWithFormatterAndClassName: Story = {
-  args: { value: 45.37283, className: "text-xs text-blue-600", children: formatNumber(45.37283) },
+  args: {
+    value: 45.37283,
+    className: "text-xs text-blue-600",
+    children: formatNumber(45.37283),
+  },
 };
 
 export const ValueLargerThan100: Story = {

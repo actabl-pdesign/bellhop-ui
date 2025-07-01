@@ -66,7 +66,11 @@ export const CustomLabel: Story = {
 };
 
 export const LabelDisabled: Story = {
-  args: { valueFormatter: currencyValueFormatter, label: "Hello there", showLabel: false },
+  args: {
+    valueFormatter: currencyValueFormatter,
+    label: "Hello there",
+    showLabel: false,
+  },
 };
 
 export const OtherColors: Story = {
@@ -75,7 +79,14 @@ export const OtherColors: Story = {
 
 export const CustomColors: Story = {
   args: {
-    colors: ["#32a852", "#fcba03", "orange-600", "blue-400", "violet-400", "rose-400"],
+    colors: [
+      "#32a852",
+      "#fcba03",
+      "orange-600",
+      "blue-400",
+      "violet-400",
+      "rose-400",
+    ],
   },
 };
 
@@ -130,7 +141,10 @@ export const OnValueChangeExample: Story = {
 };
 
 export const OnValueChangePieExample: Story = {
-  args: { variant: "pie", onValueChange: (value) => alert(JSON.stringify(value)) },
+  args: {
+    variant: "pie",
+    onValueChange: (value) => alert(JSON.stringify(value)),
+  },
 };
 
 //Custom tooltips
@@ -148,7 +162,9 @@ export const CustomTooltipSimple: Story = {
       return (
         <div className="w-56 rounded-bellhop-default text-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
           <div className="flex flex-1 space-x-2.5">
-            <div className={`w-1.5 flex flex-col bg-${categoryPayload?.color}-500 rounded`} />
+            <div
+              className={`w-1.5 flex flex-col bg-${categoryPayload?.color}-500 rounded`}
+            />
             <div className="w-full">
               <div className="flex items-center justify-between space-x-8">
                 <p className="text-right text-bellhop-content whitespace-nowrap">

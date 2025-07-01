@@ -13,7 +13,14 @@ import {
 const meta: Meta<typeof ScatterChart> = {
   title: "Visualizations/Chart/ScatterChart",
   component: ScatterChart,
-  args: { x: "x", y: "y", size: "z", category: "location", data, className: "h-72" },
+  args: {
+    x: "x",
+    y: "y",
+    size: "z",
+    category: "location",
+    data,
+    className: "h-72",
+  },
 };
 
 export default meta;
@@ -160,11 +167,18 @@ export const CustomTooltip: Story = {
       return (
         <div className="w-48 rounded-bellhop-default text-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
           <div className="flex flex-1 space-x-2.5">
-            <div className={`w-1.5 flex flex-col bg-${payload?.[0]?.color}-500 rounded`} />
+            <div
+              className={`w-1.5 flex flex-col bg-${payload?.[0]?.color}-500 rounded`}
+            />
             <div className="w-full">
-              <p className="mb-2 font-medium text-bellhop-content-emphasis">{label}</p>
+              <p className="mb-2 font-medium text-bellhop-content-emphasis">
+                {label}
+              </p>
               {payload.map((payloadItem: any, index: number) => (
-                <div key={index} className="flex items-center justify-between space-x-8">
+                <div
+                  key={index}
+                  className="flex items-center justify-between space-x-8"
+                >
                   <p className="text-right text-bellhop-content whitespace-nowrap">
                     {payloadItem.name}
                   </p>

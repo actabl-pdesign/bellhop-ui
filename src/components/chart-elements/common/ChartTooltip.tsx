@@ -8,7 +8,11 @@ import {
   colorPalette,
 } from "lib";
 
-export const ChartTooltipFrame = ({ children }: { children: React.ReactNode }) => (
+export const ChartTooltipFrame = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => (
   <div
     className={bellhopTwMerge(
       // common
@@ -29,7 +33,11 @@ export interface ChartTooltipRowProps {
   color: Color | string;
 }
 
-export const ChartTooltipRow = ({ value, name, color }: ChartTooltipRowProps) => (
+export const ChartTooltipRow = ({
+  value,
+  name,
+  color,
+}: ChartTooltipRowProps) => (
   <div className="flex items-center justify-between space-x-8">
     <div className="flex items-center space-x-2">
       <span
@@ -114,14 +122,16 @@ const ChartTooltip = ({
         </div>
 
         <div className={bellhopTwMerge("px-4 py-2 space-y-1")}>
-          {filteredPayload.map(({ value, name }: { value: number; name: string }, idx: number) => (
-            <ChartTooltipRow
-              key={`id-${idx}`}
-              value={valueFormatter(value)}
-              name={name}
-              color={categoryColors.get(name) ?? BaseColors.Blue}
-            />
-          ))}
+          {filteredPayload.map(
+            ({ value, name }: { value: number; name: string }, idx: number) => (
+              <ChartTooltipRow
+                key={`id-${idx}`}
+                value={valueFormatter(value)}
+                name={name}
+                color={categoryColors.get(name) ?? BaseColors.Blue}
+              />
+            ),
+          )}
         </div>
       </ChartTooltipFrame>
     );

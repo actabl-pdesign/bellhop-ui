@@ -3,7 +3,12 @@ import { bellhopTwMerge } from "lib";
 import React from "react";
 
 import Tooltip, { useTooltip } from "components/util-elements/Tooltip/Tooltip";
-import { colorPalette, getColorClassNames, makeClassName, mergeRefs } from "lib";
+import {
+  colorPalette,
+  getColorClassNames,
+  makeClassName,
+  mergeRefs,
+} from "lib";
 import { Color } from "../../../lib/inputTypes";
 
 export const makeTrackerClassName = makeClassName("Tracker");
@@ -14,26 +19,29 @@ export interface TrackerBlockProps {
   tooltip?: string;
 }
 
-const TrackerBlock = React.forwardRef<HTMLDivElement, TrackerBlockProps>((props, ref) => {
-  const { color, tooltip, ...other } = props;
+const TrackerBlock = React.forwardRef<HTMLDivElement, TrackerBlockProps>(
+  (props, ref) => {
+    const { color, tooltip, ...other } = props;
 
-  const { tooltipProps, getReferenceProps } = useTooltip();
+    const { tooltipProps, getReferenceProps } = useTooltip();
 
-  return (
-    <div
-      ref={mergeRefs([ref, tooltipProps.refs.setReference])}
-      className={bellhopTwMerge(
-        makeTrackerClassName("trackingBlock"),
-        "w-full h-full rounded-[1px] first:rounded-l-[4px] last:rounded-r-[4px]",
-        getColorClassNames(color ?? "neutral", colorPalette.background).bgColor,
-      )}
-      {...other}
-      {...getReferenceProps}
-    >
-      <Tooltip text={tooltip} {...tooltipProps} />
-    </div>
-  );
-});
+    return (
+      <div
+        ref={mergeRefs([ref, tooltipProps.refs.setReference])}
+        className={bellhopTwMerge(
+          makeTrackerClassName("trackingBlock"),
+          "w-full h-full rounded-[1px] first:rounded-l-[4px] last:rounded-r-[4px]",
+          getColorClassNames(color ?? "neutral", colorPalette.background)
+            .bgColor,
+        )}
+        {...other}
+        {...getReferenceProps}
+      >
+        <Tooltip text={tooltip} {...tooltipProps} />
+      </div>
+    );
+  },
+);
 
 TrackerBlock.displayName = "TrackerBlock";
 
@@ -54,7 +62,11 @@ const Tracker = React.forwardRef<HTMLDivElement, TrackerProps>((props, ref) => {
       {...other}
     >
       {data.map((item, idx) => (
-        <TrackerBlock key={item.key ?? idx} color={item.color} tooltip={item.tooltip} />
+        <TrackerBlock
+          key={item.key ?? idx}
+          color={item.color}
+          tooltip={item.tooltip}
+        />
       ))}
     </div>
   );

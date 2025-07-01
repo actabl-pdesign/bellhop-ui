@@ -20,7 +20,10 @@ export const iconSizes: {
   },
 };
 
-export const getButtonProportions = (variant: ButtonVariant, iconOnly = false) => {
+export const getButtonProportions = (
+  variant: ButtonVariant,
+  iconOnly = false,
+) => {
   if (iconOnly) {
     return {
       xs: {
@@ -146,8 +149,8 @@ export const getButtonColors = (variant: ButtonVariant, color?: Color) => {
           ? getColorClassNames(color, colorPalette.background).hoverBgColor
           : "hover:bg-bellhop-secondary-faint",
         borderColor: getColorClassNames("transparent").borderColor,
-      }; 
-      case "destructive":
+      };
+    case "destructive":
       return {
         textColor: color
           ? getColorClassNames(color, colorPalette.text).textColor
@@ -162,7 +165,7 @@ export const getButtonColors = (variant: ButtonVariant, color?: Color) => {
           ? getColorClassNames(color, colorPalette.background).hoverBgColor
           : "hover:bg-red-700",
         borderColor: getColorClassNames("transparent").borderColor,
-      }; 
+      };
     case "link":
       return {
         textColor: color

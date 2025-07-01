@@ -44,7 +44,9 @@ export const parseEndDate = (
   selectValues: DropdownValues,
 ) => {
   if (selectedDropdownValue) {
-    endDate = startOfDay(selectValues.get(selectedDropdownValue)?.to ?? startOfToday());
+    endDate = startOfDay(
+      selectValues.get(selectedDropdownValue)?.to ?? startOfToday(),
+    );
   }
   if (!endDate) return undefined;
   if (endDate && !maxDate) return startOfDay(endDate);

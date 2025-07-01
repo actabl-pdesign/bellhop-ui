@@ -14,7 +14,11 @@ function Controlled({ ...args }) {
   const [value, setValue] = React.useState<string>("Default Value");
   return (
     <div className="space-y-4">
-      <Textarea {...args} value={value} onValueChange={(v: string) => setValue(v)} />
+      <Textarea
+        {...args}
+        value={value}
+        onValueChange={(v: string) => setValue(v)}
+      />
       <Button
         onClick={() => {
           setValue("");

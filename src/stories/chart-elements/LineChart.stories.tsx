@@ -18,7 +18,12 @@ import { valueFormatter } from "./helpers/utils";
 const meta: Meta<typeof LineChart> = {
   title: "Visualizations/Chart/LineChart",
   component: LineChart,
-  args: { categories: ["Sales", "Successful Payments"], index: "month", data, className: "h-72" },
+  args: {
+    categories: ["Sales", "Successful Payments"],
+    index: "month",
+    data,
+    className: "h-72",
+  },
 };
 
 export default meta;
@@ -115,7 +120,10 @@ export const OneDataValue: Story = {
 };
 
 export const OneDataValueAndOnValueChange: Story = {
-  args: { data: data.slice(0, 1), onValueChange: (v: any) => alert(JSON.stringify(v)) },
+  args: {
+    data: data.slice(0, 1),
+    onValueChange: (v: any) => alert(JSON.stringify(v)),
+  },
 };
 
 export const SingleAndMultipleData: Story = {
@@ -123,7 +131,10 @@ export const SingleAndMultipleData: Story = {
 };
 
 export const SingleAndMultipleDataAndOnValueChange: Story = {
-  args: { data: singleAndMultipleData, onValueChange: (v: any) => alert(JSON.stringify(v)) },
+  args: {
+    data: singleAndMultipleData,
+    onValueChange: (v: any) => alert(JSON.stringify(v)),
+  },
 };
 
 export const LegendSlider: Story = {
@@ -189,9 +200,13 @@ export const CustomTooltipSimple: Story = {
       return (
         <div className="w-56 rounded-bellhop-default text-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
           <div className="flex flex-1 space-x-2.5">
-            <div className={`w-1.5 flex flex-col bg-${categoryPayload.color}-500 rounded`} />
+            <div
+              className={`w-1.5 flex flex-col bg-${categoryPayload.color}-500 rounded`}
+            />
             <div className="w-full">
-              <p className="font-medium text-bellhop-content-emphasis">{label}</p>
+              <p className="font-medium text-bellhop-content-emphasis">
+                {label}
+              </p>
               <div className="flex items-center justify-between space-x-8">
                 <p className="text-right text-bellhop-content whitespace-nowrap">
                   {categoryPayload.dataKey}
@@ -224,15 +239,20 @@ export const CustomTooltipPreviousDay: Story = {
       const value = categoryPayload.value as number;
       const dataKey = categoryPayload.dataKey as number;
 
-      const previousIndex = data.findIndex((e) => e[customTooltipIndex] === label);
-      const previousValues: any = previousIndex > 0 ? data[previousIndex - 1] : {};
+      const previousIndex = data.findIndex(
+        (e) => e[customTooltipIndex] === label,
+      );
+      const previousValues: any =
+        previousIndex > 0 ? data[previousIndex - 1] : {};
       const prev = previousValues ? previousValues[dataKey] : undefined;
       const percentage = ((value - prev) / prev) * 100;
       const color = getBadgeColor(percentage);
 
       return (
         <div className="w-56 translate-y-14 flex items-center justify-between rounded-bellhop-default text-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
-          <span className="text-right text-bellhop-content whitespace-nowrap">{dataKey}</span>
+          <span className="text-right text-bellhop-content whitespace-nowrap">
+            {dataKey}
+          </span>
           <div className="flex items-center space-x-2">
             <span className="font-medium text-right whitespace-nowrap text-bellhop-content-emphasis">
               {currencyValueFormatter(value)}
@@ -268,8 +288,11 @@ export const CustomTooltipComplex: Story = {
       const value = categoryPayload.value as number;
       const dataKey = categoryPayload.dataKey as number;
 
-      const previousIndex = data.findIndex((e) => e[customTooltipIndex] === label);
-      const previousValues: any = previousIndex > 0 ? data[previousIndex - 1] : {};
+      const previousIndex = data.findIndex(
+        (e) => e[customTooltipIndex] === label,
+      );
+      const previousValues: any =
+        previousIndex > 0 ? data[previousIndex - 1] : {};
       const prev = previousValues ? previousValues[dataKey] : undefined;
       const percentage = ((value - prev) / prev) * 100;
       const badgeColor = getBadgeColor(percentage);
@@ -277,12 +300,16 @@ export const CustomTooltipComplex: Story = {
       return (
         <div className="rounded-bellhop-default bg-bellhop-background p-2 shadow-bellhop-dropdown border border-bellhop-border">
           <div className="flex flex-1 space-x-2.5">
-            <div className={`w-1 flex flex-col bg-${categoryPayload.color}-500 rounded`} />
+            <div
+              className={`w-1 flex flex-col bg-${categoryPayload.color}-500 rounded`}
+            />
             <div className="w-full">
               <p className="text-bellhop-default font-medium text-bellhop-content-emphasis">
                 {dataKey}
               </p>
-              <p className="text-bellhop-default text-bellhop-content-subtle">{label}</p>
+              <p className="text-bellhop-default text-bellhop-content-subtle">
+                {label}
+              </p>
               <p className="mt-2 font-medium whitespace-nowrap text-bellhop-content-emphasis">
                 {currencyValueFormatter(value)}
               </p>

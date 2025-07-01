@@ -30,7 +30,12 @@ const IconTemplateSizes: Story = {
             <p>{variant}</p>
             {Object.values(InputSizes).map((size) => (
               <div key={size} className="mt-2">
-                <Icon variant={variant} size={size} tooltip="Tooltip" {...args} />
+                <Icon
+                  variant={variant}
+                  size={size}
+                  tooltip="Tooltip"
+                  {...args}
+                />
               </div>
             ))}
           </div>

@@ -1,7 +1,14 @@
 import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow } from "components";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+} from "components";
 
 import BadgeDelta from "components/icon-elements/BadgeDelta/BadgeDelta";
 import { DeltaType } from "lib";
@@ -143,7 +150,9 @@ export const Default: Story = {
           <TableHeaderCell>Sales ($)</TableHeaderCell>
           <TableHeaderCell>Region</TableHeaderCell>
           <TableHeaderCell>Status</TableHeaderCell>
-          <TableHeaderCell className="text-right">Working Hours (h)</TableHeaderCell>
+          <TableHeaderCell className="text-right">
+            Working Hours (h)
+          </TableHeaderCell>
         </TableRow>
       </TableHead>
       <TableBody>

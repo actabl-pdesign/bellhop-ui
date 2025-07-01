@@ -49,7 +49,6 @@ const VariantsTemplateIconOnly: Story = {
   },
 };
 
-
 function LoadingState({ ...args }) {
   const [loading, setLoading] = useState(false);
   function RenderButtons(args: any, loading: any) {
@@ -67,15 +66,23 @@ function LoadingState({ ...args }) {
 
   return (
     <>
-      <Button variant="outline" onClick={() => setLoading(!loading)} color="neutral">
+      <Button
+        variant="outline"
+        onClick={() => setLoading(!loading)}
+        color="neutral"
+      >
         Click to Load
       </Button>
       <div className="flex flex-col max-w-fit gap-y-3 mt-4">
-        <span className="text-bellhop-content text-sm pt-4">With base text</span>
+        <span className="text-bellhop-content text-sm pt-4">
+          With base text
+        </span>
         {RenderButtons(args, loading)}
       </div>
       <div className="flex flex-col max-w-fit gap-y-3 mt-4">
-        <span className="text-bellhop-content text-sm pt-4">With loading text</span>
+        <span className="text-bellhop-content text-sm pt-4">
+          With loading text
+        </span>
         {RenderButtons({ ...args, loadingText: "Loading" }, loading)}
       </div>
     </>

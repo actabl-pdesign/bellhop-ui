@@ -6,7 +6,10 @@ import { Card, Tracker } from "components";
 import { TrackerBlockProps } from "components/vis-elements/Tracker/Tracker";
 
 const data: TrackerBlockProps[] = [
-  { color: "green", tooltip: "Tracker Info asjdfh sk as df sdjfhksadfhjjh asdjfhsk fsk" },
+  {
+    color: "green",
+    tooltip: "Tracker Info asjdfh sk as df sdjfhksadfhjjh asdjfhsk fsk",
+  },
   { color: "green", tooltip: "Tracker Info" },
   { color: "green", tooltip: "Tracker Info" },
   { color: "red", tooltip: "Tracker Info" },
@@ -21,7 +24,10 @@ const data: TrackerBlockProps[] = [
   { color: "green", tooltip: "Tracker Info" },
   { color: "green", tooltip: "Tracker Info" },
   { color: "green", tooltip: "Tracker Info" },
-  { color: "green", tooltip: "Tracker Info  asjdfh sk as df sdjfhksadfhjjh asdjfhsk fsk" },
+  {
+    color: "green",
+    tooltip: "Tracker Info  asjdfh sk as df sdjfhksadfhjjh asdjfhsk fsk",
+  },
   { color: "amber", tooltip: "Tracker Info" },
   { color: "green", tooltip: "Tracker Info" },
   { color: "green", tooltip: "Tracker Info" },

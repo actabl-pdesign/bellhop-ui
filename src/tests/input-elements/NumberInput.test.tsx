@@ -5,9 +5,11 @@ import React from "react";
 describe("NumberInput", () => {
   test("renders the NumberInput component with default props", () => {
     const { container } = render(<NumberInput defaultValue="123" />);
-    expect(container.querySelector('[data-testid="base-input"]')?.getAttribute("type")).toBe(
-      "number",
-    );
+    expect(
+      container
+        .querySelector('[data-testid="base-input"]')
+        ?.getAttribute("type"),
+    ).toBe("number");
   });
   test("can only type numbers", () => {
     render(<NumberInput defaultValue="" />);

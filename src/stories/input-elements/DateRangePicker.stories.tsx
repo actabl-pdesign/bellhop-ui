@@ -1,7 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import React, { useState } from "react";
 
-import { Button, DateRangePicker, DateRangePickerItem, DateRangePickerValue } from "components";
+import {
+  Button,
+  DateRangePicker,
+  DateRangePickerItem,
+  DateRangePickerValue,
+} from "components";
 
 import { fr } from "date-fns/locale";
 import { dateRangePickerData } from "stories/input-elements/helpers/testData";
@@ -33,7 +38,10 @@ function Uncontrolled({ ...args }) {
         {dateRangePickerData
           .filter(
             (datapoint) =>
-              startDate && endDate && datapoint.date >= startDate && datapoint.date <= endDate,
+              startDate &&
+              endDate &&
+              datapoint.date >= startDate &&
+              datapoint.date <= endDate,
           )
           .map((datapoint) => (
             <p key={String(datapoint.date)}>{String(datapoint.date)}</p>
@@ -72,7 +80,10 @@ function UncontrolledChildren({ ...args }) {
         {dateRangePickerData
           .filter(
             (datapoint) =>
-              startDate && endDate && datapoint.date >= startDate && datapoint.date <= endDate,
+              startDate &&
+              endDate &&
+              datapoint.date >= startDate &&
+              datapoint.date <= endDate,
           )
           .map((datapoint) => (
             <p key={String(datapoint.date)}>{String(datapoint.date)}</p>
@@ -90,8 +101,16 @@ function Controlled({ ...args }) {
 
   return (
     <div className="space-y-4">
-      <DateRangePicker {...args} value={value} onValueChange={(v) => setValue(v)} />
-      <DateRangePicker {...args} value={value} onValueChange={(v) => setValue(v)} />
+      <DateRangePicker
+        {...args}
+        value={value}
+        onValueChange={(v) => setValue(v)}
+      />
+      <DateRangePicker
+        {...args}
+        value={value}
+        onValueChange={(v) => setValue(v)}
+      />
       <Button
         onClick={() => {
           setValue({});
@@ -115,7 +134,10 @@ function Controlled({ ...args }) {
         {dateRangePickerData
           .filter(
             (datapoint) =>
-              startDate && endDate && datapoint.date >= startDate && datapoint.date <= endDate,
+              startDate &&
+              endDate &&
+              datapoint.date >= startDate &&
+              datapoint.date <= endDate,
           )
           .map((datapoint) => (
             <p key={String(datapoint.date)}>{String(datapoint.date)}</p>
@@ -200,14 +222,22 @@ export const UncontrolledMinMax: Story = {
 export const UncontrolledDropdownOptions: Story = {
   ...UncontrolledChildrenTemplate,
   args: {
-    defaultValue: { from: new Date(2024, 10, 1), to: new Date(), selectValue: "one" },
+    defaultValue: {
+      from: new Date(2024, 10, 1),
+      to: new Date(),
+      selectValue: "one",
+    },
   },
 };
 
 export const UncontrolledDisabled: Story = {
   ...UncontrolledTemplate,
   args: {
-    defaultValue: { from: new Date(2024, 10, 1), to: new Date(), selectValue: "tdy" },
+    defaultValue: {
+      from: new Date(2024, 10, 1),
+      to: new Date(),
+      selectValue: "tdy",
+    },
     disabled: true,
   },
 };

@@ -1,7 +1,10 @@
 import { DeltaTypes } from "./constants";
 import { Color, getIsBaseColor, ValueFormatter } from "./inputTypes";
 
-export const mapInputsToDeltaType = (deltaType: string, isIncreasePositive: boolean): string => {
+export const mapInputsToDeltaType = (
+  deltaType: string,
+  isIncreasePositive: boolean,
+): string => {
   if (isIncreasePositive || deltaType === DeltaTypes.Unchanged) {
     return deltaType;
   }
@@ -18,7 +21,8 @@ export const mapInputsToDeltaType = (deltaType: string, isIncreasePositive: bool
   return "";
 };
 
-export const defaultValueFormatter: ValueFormatter = (value: number) => value.toString();
+export const defaultValueFormatter: ValueFormatter = (value: number) =>
+  value.toString();
 
 export const currencyValueFormatter: ValueFormatter = (e: number) =>
   `$ ${Intl.NumberFormat("en-US").format(e)}`;
@@ -78,9 +82,18 @@ interface ColorClassNames {
 const getIsArbitraryColor = (color: Color | string) =>
   color.includes("#") || color.includes("--") || color.includes("rgb");
 
-export function getColorClassNames(color: Color | string, shade?: number): ColorClassNames {
+export function getColorClassNames(
+  color: Color | string,
+  shade?: number,
+): ColorClassNames {
   const isBaseColor = getIsBaseColor(color);
-  if (color === "white" || color === "black" || color === "transparent" || !shade || !isBaseColor) {
+  if (
+    color === "white" ||
+    color === "black" ||
+    color === "transparent" ||
+    !shade ||
+    !isBaseColor
+  ) {
     const unshadedColor = !getIsArbitraryColor(color) ? color : `[${color}]`;
     return {
       bgColor: `bg-${unshadedColor} dark:bg-${unshadedColor}`,

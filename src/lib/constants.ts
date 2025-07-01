@@ -1,4 +1,10 @@
-import { Color, DeltaType, HorizontalPosition, Size, VerticalPosition } from "./inputTypes";
+import {
+  Color,
+  DeltaType,
+  HorizontalPosition,
+  Size,
+  VerticalPosition,
+} from "./inputTypes";
 
 export const DeltaTypes: { [key: string]: DeltaType } = {
   Increase: "increase",

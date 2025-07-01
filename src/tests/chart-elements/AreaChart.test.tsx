@@ -20,20 +20,27 @@ describe("AreaChart", () => {
     jest.restoreAllMocks();
   });
   it("renders the chart with data", () => {
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const data = [
       { name: "A", value: 10 },
       { name: "B", value: 20 },
       { name: "C", value: 30 },
     ];
     const { container } = render(
-      <AreaChart data={data} categories={["A", "B", "C"]} index="name" ref={ref} />,
+      <AreaChart
+        data={data}
+        categories={["A", "B", "C"]}
+        index="name"
+        ref={ref}
+      />,
     );
     expect(container.getElementsByClassName("w-full h-80").length).toBe(1);
   });
 
   it("renders the chart without gradient", () => {
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const data = [
       { name: "A", value: 10 },
       { name: "B", value: 20 },
@@ -52,7 +59,8 @@ describe("AreaChart", () => {
   });
 
   it("renders the chart with custom colors", () => {
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const data = [
       { name: "A", value: 10 },
       { name: "B", value: 20 },
@@ -71,7 +79,8 @@ describe("AreaChart", () => {
   });
 
   it("renders the chart with custom curve type", () => {
-    const ref = React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
+    const ref =
+      React.useRef<HTMLDivElement>() as React.MutableRefObject<HTMLDivElement>;
     const data = [
       { name: "A", value: 10 },
       { name: "B", value: 20 },
@@ -96,13 +105,20 @@ describe("AreaChart", () => {
       { name: "C", value: 30 },
     ];
     const { container } = render(
-      <AreaChart data={data} categories={["A", "B", "C"]} index="name" connectNulls />,
+      <AreaChart
+        data={data}
+        categories={["A", "B", "C"]}
+        index="name"
+        connectNulls
+      />,
     );
     expect(container.getElementsByClassName("w-full h-80").length).toBe(1);
   });
 
   it("renders the chart with no data", () => {
-    const { getByText } = render(<AreaChart data={[]} categories={[]} index="name" />);
+    const { getByText } = render(
+      <AreaChart data={[]} categories={[]} index="name" />,
+    );
     expect(getByText("No data")).toBeDefined();
   });
 });

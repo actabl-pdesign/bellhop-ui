@@ -1,7 +1,10 @@
 import React from "react";
 import { bellhopTwMerge, ValueFormatter } from "lib";
 
-import { ChartTooltipFrame, ChartTooltipRow } from "components/chart-elements/common/ChartTooltip";
+import {
+  ChartTooltipFrame,
+  ChartTooltipRow,
+} from "components/chart-elements/common/ChartTooltip";
 
 export interface DonutChartTooltipProps {
   active: boolean | undefined;
@@ -9,7 +12,11 @@ export interface DonutChartTooltipProps {
   valueFormatter: ValueFormatter;
 }
 
-export const DonutChartTooltip = ({ active, payload, valueFormatter }: DonutChartTooltipProps) => {
+export const DonutChartTooltip = ({
+  active,
+  payload,
+  valueFormatter,
+}: DonutChartTooltipProps) => {
   if (active && payload?.[0]) {
     const payloadRow = payload?.[0];
     return (

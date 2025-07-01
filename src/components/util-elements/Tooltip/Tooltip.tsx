@@ -51,7 +51,12 @@ export const useTooltip = (delay?: number) => {
   const dismiss = useDismiss(context);
   const role = useRole(context, { role: "tooltip" });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
 
   return {
     tooltipProps: {
@@ -78,7 +83,15 @@ export interface TooltipProps {
   ) => Record<string, unknown>;
 }
 
-const Tooltip = ({ text, open, x, y, refs, strategy, getFloatingProps }: TooltipProps) => {
+const Tooltip = ({
+  text,
+  open,
+  x,
+  y,
+  refs,
+  strategy,
+  getFloatingProps,
+}: TooltipProps) => {
   return open && text ? (
     <div
       className={bellhopTwMerge(

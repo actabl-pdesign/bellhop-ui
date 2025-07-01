@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { CalendarIcon } from "lucide-react";
 
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "components";
-import { BaseColors, Color } from "lib";
 
 const meta: Meta = {
   title: "UI/Input/Tabs",
@@ -23,7 +22,7 @@ interface MyTabProps {
 
 //Components
 function MyTab(props: MyTabProps) {
-  const { variant = "line", defaultIndex = 0, showText = true,  args } = props;
+  const { variant = "line", defaultIndex = 0, showText = true, args } = props;
 
   const tabLabels = ["Tab 1", "Tab 2", "Tab 3"];
 
@@ -59,7 +58,7 @@ function TabSet({ showText = true, variant = "line", ...args }) {
 
 // Templates
 const TabSetTemplate = {
-  render: (args: any) => <TabSet {...args} />, 
+  render: (args: any) => <TabSet {...args} />,
   argTypes: {
     variant: {
       control: { type: "radio" },
@@ -72,7 +71,6 @@ const TabSetTemplate = {
     },
   },
 };
-
 
 // Stories
 
