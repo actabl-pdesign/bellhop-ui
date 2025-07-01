@@ -6,6 +6,9 @@ on:
       - master
       - beta
       - beta-**
+  permissions:
+    contents: write
+    id-token: write
 
 jobs:
   release:
