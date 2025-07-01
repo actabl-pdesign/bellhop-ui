@@ -1,5 +1,5 @@
 {
-  "name": "bellhop-ui",
+  "name": "@actabl-pdesign/bellhop-ui",
   "version": "0.0.0-development",
   "description": "The React library to build dashboards faster.",
   "scripts": {
@@ -112,7 +112,7 @@
   ],
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "release": {
     "branches": [
