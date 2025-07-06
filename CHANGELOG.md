@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.0.0...v1.0.1) (2025-07-06)
+
+
+### Bug Fixes
+
+* add missing GitHub releases configuration ([a68cafe](https://github.com/actabl-pdesign/bellhop-ui/commit/a68cafe4cd4566962f9316ff8fae1a46cedd8c26))
+
 # 1.0.0 (2025-07-06)
 
 
