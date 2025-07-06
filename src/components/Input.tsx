@@ -17,7 +17,7 @@ const inputStyles = tv({
     // background color
     "bg-white",
     // disabled
-    "disabled:border-gray-200 disabled:bg-gray-100 disabled:text-gray-400",
+    "disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-100 disabled:bg-neutral-50 disabled:text-gray-400",
     // file
     [
       "file:-my-2 file:-ml-2.5 file:cursor-pointer file:rounded-l-[5px] file:rounded-r-none file:border-0 file:px-3 file:py-2 file:outline-none focus:outline-none disabled:pointer-events-none file:disabled:pointer-events-none",
@@ -48,6 +48,8 @@ interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof inputStyles> {
   inputClassName?: string
+  error?: boolean
+  ariaDescribedBy?: string
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -58,28 +60,41 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       hasError,
       enableStepper = true,
       type,
+      error,
+      ariaDescribedBy,
+      required,
       ...props
     }: InputProps,
     forwardedRef,
   ) => {
-    const [typeState, setTypeState] = React.useState(type)
+    const [typeState, setTypeState] = React.useState(type || "text")
+
+    React.useEffect(() => {
+      setTypeState(type || "text")
+    }, [type])
 
     const isPassword = type === "password"
     const isSearch = type === "search"
 
     return (
-      <div className={cx("relative w-full", className)}>
+      <div className={cx("relative w-full")}>
+        )
         <input
           ref={forwardedRef}
           type={isPassword ? typeState : type}
           className={cx(
-            inputStyles({ hasError, enableStepper }),
+            inputStyles({ hasError: hasError || error, enableStepper }),
             {
               "pl-8": isSearch,
               "pr-10": isPassword,
             },
+            className,
             inputClassName,
           )}
+          aria-invalid={error || hasError ? "true" : undefined}
+          aria-required={required ? "true" : undefined}
+          aria-describedby={ariaDescribedBy}
+          required={required}
           {...props}
         />
         {isSearch && (

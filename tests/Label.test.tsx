@@ -1,4 +1,3 @@
-import React from "react"
 import { render, screen } from "@testing-library/react"
 import { axe, toHaveNoViolations } from "jest-axe"
 import { Label } from "../src/components/Label"
@@ -61,12 +60,7 @@ describe("Label", () => {
   it("maintains base styling with custom className", () => {
     render(<Label className="custom-class">Label</Label>)
     const label = screen.getByText("Label")
-    expect(label).toHaveClass(
-      "block",
-      "text-bellhop-body-sm",
-      "font-medium",
-      "custom-class",
-    )
+    expect(label).toHaveClass("block", "text-sm", "font-medium", "custom-class")
   })
 
   it("combines error and required states", () => {

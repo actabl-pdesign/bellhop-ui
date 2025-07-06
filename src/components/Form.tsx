@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import React from "react"
-import { FormProvider, useForm } from "react-hook-form"
+import { FormProvider, useForm, useFormContext } from "react-hook-form"
 import { cn } from "../lib/utils"
 import { FormProps } from "../types"
 
@@ -23,8 +23,7 @@ export const Form: React.FC<FormProps> = ({
     <FormProvider {...methods}>
       <form
         onSubmit={handleSubmit}
-        className={cn("space-y-5", className)}
-        role="form"
+        className={cn("space-y-6", className)}
         {...props}
       >
         {children}
@@ -42,7 +41,7 @@ export const FormField: React.FC<FormFieldProps> = ({ name, children }) => {
   const {
     register,
     formState: { errors },
-  } = useForm()
+  } = useFormContext()
 
   const field = {
     ...register(name),
@@ -61,7 +60,7 @@ interface FormErrorProps {
 export const FormError: React.FC<FormErrorProps> = ({ name, className }) => {
   const {
     formState: { errors },
-  } = useForm()
+  } = useFormContext()
   const error = errors[name]
 
   if (!error) return null

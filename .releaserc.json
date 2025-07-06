@@ -18,7 +18,10 @@
             "path": "dist/**",
             "label": "Build artifacts"
           }
-        ]
+        ],
+        "successComment": false,
+        "failComment": false,
+        "releasedLabels": false
       }
     ],
     [

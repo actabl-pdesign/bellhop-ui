@@ -16,6 +16,10 @@ export const focusInput = [
   "focus:ring-indigo-200",
   // border color
   "focus:border-indigo-500",
+  // default ring color
+  "ring-neutral-300",
+  // default focus ring color
+  "focus:ring-indigo-500",
 ]
 
 export const focusRing = [
@@ -31,7 +35,9 @@ export const hasErrorInput = [
   // border color
   "border-red-500",
   // ring color
-  "ring-red-200 ",
+  "ring-red-300",
+  // focus ring color
+  "focus:ring-red-500",
 ]
 
 // Number formatter function

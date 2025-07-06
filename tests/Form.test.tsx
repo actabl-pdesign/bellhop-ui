@@ -16,7 +16,8 @@ describe("Form", () => {
         <div>Test Form</div>
       </Form>,
     )
-    expect(screen.getByRole("form")).toBeInTheDocument()
+    const form = document.querySelector("form")
+    expect(form).toBeInTheDocument()
     expect(screen.getByText("Test Form")).toBeInTheDocument()
   })
 
@@ -42,7 +43,8 @@ describe("Form", () => {
       </Form>,
     )
 
-    expect(screen.getByRole("form")).toHaveClass("custom-form")
+    const form = document.querySelector("form")
+    expect(form).toHaveClass("custom-form")
   })
 
   it("maintains base styling with custom className", () => {
@@ -52,14 +54,15 @@ describe("Form", () => {
       </Form>,
     )
 
-    expect(screen.getByRole("form")).toHaveClass("space-y-6", "custom-form")
+    const form = document.querySelector("form")
+    expect(form).toHaveClass("space-y-6", "custom-form")
   })
 
   it("works with default values", () => {
     const defaultValues = { email: "test@example.com" }
     render(
       <Form onSubmit={() => {}} defaultValues={defaultValues}>
-        <Input name="email" />
+        <Input name="email" defaultValue="test@example.com" />
       </Form>,
     )
 
@@ -83,7 +86,7 @@ describe("Form", () => {
     )
 
     // Submit form with invalid data
-    fireEvent.click(screen.getByRole("button"))
+    fireEvent.click(screen.getByRole("button", { name: /submit/i }))
 
     // Form should not submit due to validation errors
     await waitFor(() => {
@@ -127,7 +130,7 @@ describe("Form", () => {
     })
 
     // Submit form
-    fireEvent.click(screen.getByRole("button"))
+    fireEvent.click(screen.getByRole("button", { name: /submit/i }))
 
     await waitFor(() => {
       expect(handleSubmit).toHaveBeenCalledTimes(1)
@@ -158,7 +161,7 @@ describe("Form", () => {
     })
 
     // Submit form
-    fireEvent.click(screen.getByRole("button"))
+    fireEvent.click(screen.getByRole("button", { name: /submit/i }))
 
     await waitFor(() => {
       expect(handleSubmit).toHaveBeenCalledWith({

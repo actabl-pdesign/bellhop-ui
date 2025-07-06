@@ -16,9 +16,8 @@ describe("Input", () => {
     expect(screen.getByRole("textbox")).toHaveAttribute("type", "email")
 
     rerender(<Input type="password" />)
-    expect(
-      screen.getByLabelText(/password/i) || screen.getByDisplayValue(""),
-    ).toHaveAttribute("type", "password")
+    const passwordInput = screen.getByDisplayValue("")
+    expect(passwordInput).toHaveAttribute("type", "password")
 
     rerender(<Input type="number" />)
     expect(screen.getByRole("spinbutton")).toHaveAttribute("type", "number")
@@ -33,10 +32,12 @@ describe("Input", () => {
   })
 
   it("handles controlled value", () => {
-    const { rerender } = render(<Input value="test value" />)
+    const { rerender } = render(
+      <Input value="test value" onChange={() => {}} />,
+    )
     expect(screen.getByDisplayValue("test value")).toBeInTheDocument()
 
-    rerender(<Input value="updated value" />)
+    rerender(<Input value="updated value" onChange={() => {}} />)
     expect(screen.getByDisplayValue("updated value")).toBeInTheDocument()
   })
 
@@ -132,13 +133,34 @@ describe("Input", () => {
   it("should have no accessibility violations", async () => {
     const { container } = render(
       <div>
-        <Input />
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
-        <Input disabled placeholder="Disabled" />
-        <Input error placeholder="Error" />
-        <Input required placeholder="Required" />
-        <Input id="test" name="test" ariaDescribedBy="test-desc" />
+        <label>
+          Default Input
+          <Input />
+        </label>
+        <label>
+          Email Input
+          <Input type="email" placeholder="Email" />
+        </label>
+        <label>
+          Password Input
+          <Input type="password" placeholder="Password" />
+        </label>
+        <label>
+          Disabled Input
+          <Input disabled placeholder="Disabled" />
+        </label>
+        <label>
+          Error Input
+          <Input error placeholder="Error" />
+        </label>
+        <label>
+          Required Input
+          <Input required placeholder="Required" />
+        </label>
+        <label htmlFor="test">
+          Test Input
+          <Input id="test" name="test" ariaDescribedBy="test-desc" />
+        </label>
       </div>,
     )
 
