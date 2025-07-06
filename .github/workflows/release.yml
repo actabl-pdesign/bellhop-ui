@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          registry-url: https://npm.pkg.github.com
+          scope: "@actabl-pdesign"
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test --coverage --watchAll=false
+
+      - name: Build library
+        run: pnpm build
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+        run: pnpm semantic-release
+
+      - name: Deploy Storybook to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+          publish_dir: ./storybook-static
+          destination_dir: storybook

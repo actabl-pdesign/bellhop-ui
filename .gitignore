@@ -21,6 +21,7 @@ out/
 
 # IDE files
 .vscode/
+.claude/
 .idea/
 *.code-workspace
 *.swp

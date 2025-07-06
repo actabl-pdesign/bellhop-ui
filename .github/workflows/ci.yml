@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run linter
+        run: pnpm lint
+
+      - name: Check Prettier formatting
+        run: pnpm prettier:check
+
+      - name: Run type check
+        run: npx tsc --noEmit
+
+      - name: Run tests
+        run: pnpm test --coverage --watchAll=false
+
+      - name: Run accessibility tests
+        run: pnpm test:a11y --watchAll=false
+
+      - name: Build library
+        run: pnpm build
+
+      - name: Build Storybook
+        run: pnpm build-storybook
+
+      - name: Test build artifacts
+        run: |
+          test -f dist/index.js
+          test -f dist/index.esm.js
+          test -f dist/index.d.ts
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage/lcov.info
+          fail_ci_if_error: false
+
+      - name: Upload build artifacts
+        if: matrix.node-version == '20.x'
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: dist/

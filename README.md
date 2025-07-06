@@ -1,96 +1,235 @@
-<br />
-<br />
-<p align="center">
-  <a href="https://bellhop-ui.vercel.app">
-    <picture>
-       <source media="(prefers-color-scheme: dark)" srcset="images/bellhop-logo-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="images/bellhop-logo-light.svg">
-    <img alt="Bellhop Logo" src="images/bellhop-logo-light.svg" height="50"/>
-    </picture>
-  </a>
-</p>
-<div align="center">
-<br />
-<br />
+# @actabl-pdesign/bellhop-ui
 
-<div align="center">
-  <a href="https://npmjs.com/package/@bellhop">
-    <img alt="npm" src="https://img.shields.io/npm/dm/@actabl-pdesign/bellhop-ui?color=3b82f6&label=npm&logo=npm&labelColor=334155">
-  </a>
-  <a href="https://actabl.slack.com/archives/C05UD2LARQF">
-    <img src="https://img.shields.io/badge/Join-important.svg?color=4A154B&label=Slack&logo=slack&labelColor=334155&logoColor=f5f5f5" alt="Support on Slack" />
-  </a>
-</div>
-<h3 align="center">
-  <a href="https://bellhop-ui.vercel.app">Documentation</a> &bull;
-  <a href="https://bellhop-ui.vercel.app">Website</a>
-</h3>
-<br />
-  <h1>React components to build charts and dashboards</h1>
-</div>
+A modern React UI components library built with TypeScript, Tailwind CSS, and accessibility in mind.
 
-The [bellhop-ui](https://github.com/actabl-pdesign/bellhop-ui) contains 20+ components built on top of Tailwind CSS to make visualizing data simple.
+[![CI](https://github.com/actabl-pdesign/bellhop-ui/workflows/CI/badge.svg)](https://github.com/actabl-pdesign/bellhop-ui/actions)
+[![npm version](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui.svg)](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Getting Started
+## Features
 
-See our [Installation Guide](https://github.com/actabl-pdesign/bellhop-ui). To make use of the library we also need Tailwind CSS setup in the project.
+- 🎨 **Beautiful Design**: Clean, modern components with the Bellhop design system
+- ♿ **Accessible**: WCAG AA compliant with proper ARIA attributes
+- 🎯 **TypeScript**: Full TypeScript support with comprehensive type definitions
+- 🎭 **Tailwind CSS**: Styled with Tailwind CSS for easy customization
+- 📚 **Storybook**: Interactive component documentation and playground
+- 🧪 **Well Tested**: Comprehensive unit tests including accessibility testing
+- 📦 **Tree Shakeable**: Optimized bundle size with tree shaking support
+- 🎨 **Customizable**: Easy to customize with CSS variables and Tailwind
 
-## Example
+## Installation
 
-Creating an analytical interface with bellhop-ui.
+```bash
+# npm
+npm install @actabl-pdesign/bellhop-ui
 
-```jsx
-"use client";
-import { AreaChart, Card } from "@actabl-pdesign/bellhop-ui";
+# yarn
+yarn add @actabl-pdesign/bellhop-ui
 
-const chartdata = [
-  {
-    date: "Jan 23",
-    "Route Requests": 289,
-    "Station Requests": 233,
-  },
-  // ...
-  {
-    date: "Oct 23",
-    "Route Requests": 283,
-    "Station Requests": 247,
-  },
-];
+# pnpm
+pnpm add @actabl-pdesign/bellhop-ui
+```
 
-export default function Example() {
-  return (
-    <Card className="max-w-4xl">
-      <span className="text-bellhop-default text-bellhop-content dark:text-dark-bellhop-content">
-        Total Requests
-      </span>
-      <p className="text-bellhop-metric font-semibold text-bellhop-content-strong dark:text-dark-bellhop-content-strong">
-        6,568
-      </p>
-      <AreaChart
-        className="mt-2 h-80"
-        data={chartdata}
-        index="date"
-        categories={["Route Requests", "Station Requests"]}
-        colors={["indigo", "rose"]}
-        yAxisWidth={33}
-      />
-    </Card>
-  );
+### Peer Dependencies
+
+Make sure you have the required peer dependencies installed:
+
+```bash
+npm install react react-dom tailwindcss
+```
+
+## Setup
+
+### 1. Tailwind CSS Configuration
+
+Add the library path to your `tailwind.config.js`:
+
+```js
+module.exports = {
+  content: [
+    // ... your existing content paths
+    './node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}',
+  ],
+  // ... rest of your config
 }
 ```
 
-<br />
+### 2. Import Styles
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="images/example-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="images/example-light.png">
-  <img alt="Bellhop Example" src="images/example-light.png"/>
-</picture>
+Import the component styles in your main CSS file or component:
 
+```css
+@import '@actabl-pdesign/bellhop-ui/dist/styles.css';
+```
 
+## Quick Start
+
+```tsx
+import React from 'react'
+import { Button, Input, Label, Form } from '@actabl-pdesign/bellhop-ui'
+import { z } from 'zod'
+
+const loginSchema = z.object({
+  email: z.string().email('Please enter a valid email'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+})
+
+function LoginForm() {
+  const handleSubmit = (data: z.infer<typeof loginSchema>) => {
+    console.log('Form submitted:', data)
+  }
+
+  return (
+    <Form schema={loginSchema} onSubmit={handleSubmit} className="max-w-md">
+      <div>
+        <Label htmlFor="email" required>
+          Email address
+        </Label>
+        <div className="mt-2">
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+      </div>
+
+      <div>
+        <Label htmlFor="password" required>
+          Password
+        </Label>
+        <div className="mt-2">
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+      </div>
+
+      <Button type="submit" className="w-full">
+        Sign in
+      </Button>
+    </Form>
+  )
+}
+```
+
+## Components
+
+### Button
+
+Versatile button component with multiple variants and sizes.
+
+```tsx
+import { Button } from '@actabl-pdesign/bellhop-ui'
+
+<Button variant="primary" size="medium" onClick={() => console.log('Clicked!')}>
+  Click me
+</Button>
+```
+
+**Props:**
+- `variant`: `'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive'`
+- `size`: `'small' | 'medium' | 'large'`
+- `loading`: boolean
+- `disabled`: boolean
+
+### Input
+
+Form input component with validation states and accessibility features.
+
+```tsx
+import { Input } from '@actabl-pdesign/bellhop-ui'
+
+<Input
+  type="email"
+  placeholder="Enter your email"
+  error={hasError}
+  required
+/>
+```
+
+**Props:**
+- `type`: `'text' | 'email' | 'password' | 'number' | 'tel'`
+- `error`: boolean
+- `disabled`: boolean
+- `required`: boolean
+
+### Label
+
+Accessible label component with required/optional indicators.
+
+```tsx
+import { Label } from '@actabl-pdesign/bellhop-ui'
+
+<Label htmlFor="email" required>
+  Email address
+</Label>
+```
+
+**Props:**
+- `required`: boolean
+- `variant`: `'default' | 'required' | 'optional'`
+- `error`: boolean
+
+### Form
+
+Form wrapper with React Hook Form and Zod validation integration.
+
+```tsx
+import { Form } from '@actabl-pdesign/bellhop-ui'
+import { z } from 'zod'
+
+const schema = z.object({
+  email: z.string().email(),
+})
+
+<Form schema={schema} onSubmit={handleSubmit}>
+  {/* form content */}
+</Form>
+```
+
+## Examples
+
+Check out our [complete LoginForm example](./src/examples/LoginForm.tsx) that demonstrates all components working together with validation and accessibility features.
+
+## Documentation
+
+Visit our [Storybook documentation](https://actabl-pdesign.github.io/bellhop-ui/storybook/) for:
+
+- Interactive component playground
+- Comprehensive API documentation
+- Usage examples and best practices
+- Accessibility guidelines
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start Storybook
+pnpm storybook
+
+# Run tests
+pnpm test
+
+# Run linting
+pnpm lint
+
+# Build library
+pnpm build
+```
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## License
 
-[Apache License 2.0](https://github.com/bellhoplabs/bellhop-npm/blob/main/License)
-
-Copyright &copy; 2025 Actabl, All rights reserved.
+MIT © [actabl-pdesign](https://github.com/actabl-pdesign)
