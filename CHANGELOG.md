@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.3...v1.1.4) (2025-07-07)
+
+
+### Bug Fixes
+
+* stories with right props ([f2218ed](https://github.com/actabl-pdesign/bellhop-ui/commit/f2218ede3cd0348732684bf8def91c916cd272f3))
+
 ## [1.1.3](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.2...v1.1.3) (2025-07-07)
 
 

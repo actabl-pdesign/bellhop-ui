@@ -1,6 +1,6 @@
 {
   "name": "@actabl-pdesign/bellhop-ui",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "React UI components library with Tailwind CSS",
   "type": "module",
   "repository": {
