@@ -7,7 +7,7 @@ import { cx, focusInput, focusRing, hasErrorInput } from "../lib/utils"
 const inputStyles = tv({
   base: [
     // base
-    "relative block w-full appearance-none truncate rounded-md border px-2.5 py-2 text-sm font-medium outline-none transition",
+    "relative block h-9 w-full appearance-none truncate rounded-md border px-3 py-2 text-sm font-medium outline-none transition",
     // border color
     "border-gray-300",
     // text color
@@ -28,7 +28,7 @@ const inputStyles = tv({
     // focus
     focusInput,
     // invalid (optional)
-    // "aria-[invalid=true]:dark:ring-red-400/20 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200 aria-[invalid=true]:border-red-500 invalid:ring-2 invalid:ring-red-200 invalid:border-red-500"
+    // "invalid:border-red-500 invalid:ring-2 invalid:ring-red-200 aria-[invalid=true]:border-red-500 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200",
     // remove search cancel button (optional)
     "[&::--webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden",
   ],
@@ -78,7 +78,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={cx("relative w-full")}>
-        )
         <input
           ref={forwardedRef}
           type={isPassword ? typeState : type}

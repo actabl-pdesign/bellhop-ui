@@ -11,6 +11,9 @@ const meta: Meta<typeof Label> = {
   argTypes: {
     children: {
       control: "text",
+      disabled: {
+        control: "boolean",
+      },
     },
   },
   parameters: {

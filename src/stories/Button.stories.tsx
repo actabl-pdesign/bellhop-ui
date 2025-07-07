@@ -11,8 +11,33 @@ const meta = {
   component: Button,
   tags: ["autodocs"],
   argTypes: {
-    children: {
-      control: "text",
+    variant: {
+      options: [
+        "primary",
+        "secondary",
+        "outline",
+        "ghost",
+        "destructive",
+        "link",
+      ],
+      control: { type: "radio" },
+    },
+    size: {
+      options: ["small", "medium", "large", "icon"],
+      control: { type: "select" },
+    },
+    loading: {
+      control: { type: "boolean" },
+    },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
+    ariaLabel: {
+      table: {
+        disable: true,
+      },
     },
   },
   parameters: {
@@ -20,7 +45,7 @@ const meta = {
   },
   args: {
     variant: "primary",
-    size: "sm",
+    size: "small",
     children: "Button",
   },
 } satisfies Meta<typeof Button>
@@ -121,7 +146,7 @@ export const WithIcon: Story = {
  */
 export const Small: Story = {
   args: {
-    size: "sm",
+    size: "small",
   },
 }
 
@@ -131,7 +156,7 @@ export const Small: Story = {
  */
 export const Medium: Story = {
   args: {
-    size: "md",
+    size: "medium",
   },
 }
 
@@ -141,7 +166,7 @@ export const Medium: Story = {
  */
 export const Large: Story = {
   args: {
-    size: "lg",
+    size: "large",
   },
 }
 

@@ -13,13 +13,13 @@ export const focusInput = [
   // base
   "focus:ring-2",
   // ring color
-  "focus:ring-indigo-200",
+  "ring-indigo-300",
   // border color
   "focus:border-indigo-500",
   // default ring color
   "ring-neutral-300",
   // default focus ring color
-  "focus:ring-indigo-500",
+  "focus:ring-indigo-400",
 ]
 
 export const focusRing = [

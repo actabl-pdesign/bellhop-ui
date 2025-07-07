@@ -2,10 +2,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Slot as SlotPrimitive } from "radix-ui"
 import * as React from "react"
 
-import { cn } from "../lib/utils"
+import { cn, focusRing } from "../lib/utils"
 
 const buttonVariants = cva(
-  "focus-visible:border-indigo-500 focus-visible:ring-indigo-500/50 aria-invalid:ring-red-500/20 aria-invalid:border-red-500 inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 disabled:saturate-70 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  [
+    // base
+    "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all",
+    // disabled
+    "disabled:pointer-events-none disabled:opacity-50 disabled:saturate-70",
+    // svg styles
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    // focus styles (consistent with other components)
+    ...focusRing,
+    // error state
+    "aria-invalid:ring-red-500/20 aria-invalid:border-red-500",
+  ],
   {
     variants: {
       variant: {
@@ -13,9 +24,9 @@ const buttonVariants = cva(
         destructive:
           "bg-red-600 hover:bg-red-700/90 focus-visible:ring-red-600/20 dark:focus-visible:ring-red-500/40 text-white",
         outline:
-          "bg-white hover:bg-gray-200/80 text-gray-700 border border-gray-200",
-        secondary: "bg-neutral-600 text-white hover:bg-neutral-700/90",
-        ghost: "hover:bg-neutral-100 text-gray-700",
+          "bg-white hover:bg-gray-100 text-gray-800 border border-gray-200",
+        secondary: "bg-neutral-200 text-gray-800 hover:bg-neutral-300/80",
+        ghost: "hover:bg-neutral-100 text-gray-800",
         link: "text-indigo-600 underline-offset-4 !px-0 hover:underline",
       },
       size: {
@@ -53,7 +64,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, size }), className)}
       disabled={isDisabled}
       aria-disabled={isDisabled ? "true" : undefined}
       aria-label={ariaLabel}

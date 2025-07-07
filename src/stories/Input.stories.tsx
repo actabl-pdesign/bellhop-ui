@@ -84,10 +84,9 @@ export const RequiredAndPattern: Story = {
 
 export const TypeFile: Story = {
   render: () => (
-    <div className="flex gap-1">
+    <div className="flex flex-col gap-2">
+      <Label htmlFor="number">Upload you resume</Label>
       <Input id="upload" name="upload" type="file" />
-      <Input id="upload" name="upload" />
-      <Input id="upload" name="upload" type="password" />
     </div>
   ),
 }
@@ -107,7 +106,7 @@ export const HasError: Story = {
       <Label htmlFor="email">Email</Label>
       <Input
         hasError
-        placeholder="Enter full name"
+        placeholder="Enter your email"
         id="full_name"
         name="full_name"
         type="text"
@@ -119,7 +118,6 @@ export const HasError: Story = {
 export const InputWithButton: Story = {
   render: () => (
     <form className="inline-flex items-center gap-1">
-      <Button>Submit</Button>
       <Input
         required
         id="secret"

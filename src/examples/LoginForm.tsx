@@ -116,7 +116,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         </Form>
 
         <div className="text-center text-sm text-neutral-600">
-          Don't have an account?{" "}
+          {"Don't have an account? "}
           <a
             href="#"
             className="font-semibold text-indigo-600 hover:text-indigo-500"

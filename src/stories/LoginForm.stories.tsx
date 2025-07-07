@@ -51,9 +51,12 @@ export const WithError: Story = {
 }
 
 export const Styled: Story = {
+  parameters: {
+    layout: "padded",
+  },
   render: () => (
-    <div className="flex min-h-screen items-center justify-center bg-neutral-50 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8">
+    <div className="flex min-h-96 items-center justify-center bg-neutral-50 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 rounded-2xl">
         <LoginForm
           onSubmit={async data => {
             console.log("Login submitted:", data)
@@ -68,9 +71,12 @@ export const Styled: Story = {
 }
 
 export const WithCustomStyling: Story = {
+  parameters: {
+    layout: "padded",
+  },
   render: () => (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 p-4">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
+    <div className="flex min-h-96 items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 p-4">
+      <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
         <LoginForm
           onSubmit={async data => {
             console.log("Login submitted:", data)

@@ -7,7 +7,7 @@ export type ButtonVariant =
   | "ghost"
   | "destructive"
   | "link"
-export type ButtonSize = "sm" | "md" | "lg" | "icon"
+export type ButtonSize = "small" | "medium" | "large" | "icon"
 export type CheckboxState = "checked" | "indeterminate" | "unchecked"
 export type LabelVariant = "default" | "required" | "optional"
 export type InputType = "text" | "email" | "password" | "number" | "tel"
