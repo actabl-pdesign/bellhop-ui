@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.0...v1.1.1) (2025-07-07)
+
+
+### Bug Fixes
+
+* resolve Tailwind v3 compatibility and missing styles.css ([ce96a42](https://github.com/actabl-pdesign/bellhop-ui/commit/ce96a429c7b38cc400d2efba3fb2d9acdcd04f16))
+
 # [1.1.0](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.0.1...v1.1.0) (2025-07-07)
 
 
