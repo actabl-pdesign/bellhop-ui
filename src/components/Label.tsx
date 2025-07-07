@@ -5,6 +5,7 @@ import { cx } from "../lib/utils"
 
 interface LabelProps
   extends React.ComponentPropsWithoutRef<typeof LabelPrimitives.Root> {
+  children?: React.ReactNode
   disabled?: boolean
   required?: boolean
   error?: boolean
