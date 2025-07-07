@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.1...v1.1.2) (2025-07-07)
+
+
+### Bug Fixes
+
+* resolve TypeScript Label props error and improve documentation ([91b2e3d](https://github.com/actabl-pdesign/bellhop-ui/commit/91b2e3de242e816c96dda6399d8ee16bdda6840b))
+
 ## [1.1.1](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.0...v1.1.1) (2025-07-07)
 
 
