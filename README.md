@@ -2,10 +2,10 @@
 
 A modern React UI components library built with TypeScript, Tailwind CSS, and accessibility in mind.
 
-> **📦 Package Location**: This package is distributed via [GitHub Packages](https://github.com/actabl-pdesign/bellhop-ui/packages).
+> **📦 Package Location**: This package is distributed via [npm](https://www.npmjs.com/package/@actabl-pdesign/bellhop-ui).
 
 [![CI](https://github.com/actabl-pdesign/bellhop-ui/workflows/CI/badge.svg)](https://github.com/actabl-pdesign/bellhop-ui/actions)
-[![GitHub Package Registry version](https://img.shields.io/github/package-json/v/actabl-pdesign/bellhop-ui?label=package&logo=github)](https://github.com/actabl-pdesign/bellhop-ui/packages)
+[![npm version](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui.svg)](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -21,24 +21,6 @@ A modern React UI components library built with TypeScript, Tailwind CSS, and ac
 
 ## Installation
 
-First, configure your package manager to use GitHub Packages:
-
-### Option 1: Using .npmrc file (recommended)
-Create a `.npmrc` file in your project root:
-
-```bash
-@actabl-pdesign:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=YOUR_GITHUB_TOKEN
-```
-
-### Option 2: Configure globally
-```bash
-npm config set @actabl-pdesign:registry https://npm.pkg.github.com
-npm config set //npm.pkg.github.com/:_authToken YOUR_GITHUB_TOKEN
-```
-
-Then install the package:
-
 ```bash
 # npm
 npm install @actabl-pdesign/bellhop-ui
@@ -49,8 +31,6 @@ yarn add @actabl-pdesign/bellhop-ui
 # pnpm
 pnpm add @actabl-pdesign/bellhop-ui
 ```
-
-> **Note**: You'll need a GitHub personal access token with `read:packages` permission. [Learn how to create one here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ### Peer Dependencies
 

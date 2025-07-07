@@ -15,8 +15,16 @@
       {
         "assets": [
           {
-            "path": "dist/**",
-            "label": "Build artifacts"
+            "path": "dist/index.js",
+            "label": "CommonJS Bundle"
+          },
+          {
+            "path": "dist/index.esm.js", 
+            "label": "ESM Bundle"
+          },
+          {
+            "path": "dist/index.d.ts",
+            "label": "TypeScript Definitions"
           }
         ],
         "successComment": false,

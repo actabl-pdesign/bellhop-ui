@@ -10,7 +10,7 @@
   "author": "actabl-pdesign",
   "license": "MIT",
   "publishConfig": {
-    "@actabl-pdesign:registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

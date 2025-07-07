@@ -26,8 +26,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          registry-url: https://npm.pkg.github.com
-          scope: "@actabl-pdesign"
+          registry-url: https://registry.npmjs.org
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -49,8 +48,8 @@ jobs:
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-          NPM_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm semantic-release --debug
 
       - name: Deploy Storybook to GitHub Pages
