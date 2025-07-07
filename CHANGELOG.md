@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.0.1...v1.1.0) (2025-07-07)
+
+
+### Features
+
+* migrate from GitHub Packages to npm registry ([76eb66c](https://github.com/actabl-pdesign/bellhop-ui/commit/76eb66c847911cbd31b5708040294abc5c9c5dee))
+
 ## [1.0.1](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.0.0...v1.0.1) (2025-07-06)
 
 
