@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.2...v1.1.3) (2025-07-07)
+
+
+### Bug Fixes
+
+* add missing children prop to Label component interface ([723011e](https://github.com/actabl-pdesign/bellhop-ui/commit/723011e6a2a44c8f876ea555fed750aea96a6193))
+
 ## [1.1.2](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.1...v1.1.2) (2025-07-07)
 
 
