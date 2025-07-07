@@ -37,8 +37,10 @@ pnpm add @actabl-pdesign/bellhop-ui
 Make sure you have the required peer dependencies installed:
 
 ```bash
-npm install react react-dom tailwindcss
+npm install react react-dom tailwindcss@^3.0.0 @tailwindcss/forms
 ```
+
+**Important**: This library requires Tailwind CSS v3.x, not v4. Make sure your project uses Tailwind CSS version 3.0 or higher, but below version 4.0.
 
 ## Setup
 
@@ -51,6 +53,10 @@ module.exports = {
   content: [
     // ... your existing content paths
     "./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  plugins: [
+    require("@tailwindcss/forms"),
+    // ... your other plugins
   ],
   // ... rest of your config
 }
@@ -341,7 +347,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [
+    require("@tailwindcss/forms"),
+  ],
 }
 
 export default config
@@ -351,11 +359,21 @@ export default config
 
 ### 2. Import Styles
 
-Import the component styles in your main CSS file or component:
+Import the component styles in your main CSS file or at the root of your application:
 
 ```css
 @import "@actabl-pdesign/bellhop-ui/dist/styles.css";
 ```
+
+Or in your main JavaScript/TypeScript file:
+
+```javascript
+import "@actabl-pdesign/bellhop-ui/dist/styles.css";
+```
+
+### 3. Configure Tailwind Content
+
+Make sure your `tailwind.config.js` includes the library path in the content array so Tailwind can detect and include the necessary styles for the components.
 
 ## Quick Start
 
@@ -490,6 +508,42 @@ const schema = z.object({
   {/* form content */}
 </Form>
 ```
+
+## For AI Website Builders
+
+If you're using an AI website builder or agent that doesn't have direct terminal access, you can provide these instructions to set up the components:
+
+### Installation Instructions for AI Agents
+
+1. **Install the package:**
+   ```bash
+   npm install @actabl-pdesign/bellhop-ui
+   ```
+
+2. **Install required peer dependencies:**
+   ```bash
+   npm install react react-dom tailwindcss@^3.0.0 @tailwindcss/forms
+   ```
+
+3. **Update your `tailwind.config.js` file** to include:
+   - Add `"./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}"` to the `content` array
+   - Add `require("@tailwindcss/forms")` to the `plugins` array
+
+4. **Import the styles** in your main CSS file or root component:
+   ```javascript
+   import "@actabl-pdesign/bellhop-ui/dist/styles.css";
+   ```
+
+5. **Import and use components:**
+   ```javascript
+   import { Button, Input, Label, Form, Checkbox } from "@actabl-pdesign/bellhop-ui";
+   ```
+
+### Key Requirements for AI Agents:
+- **Tailwind CSS v3.x is required** (not v4)
+- **@tailwindcss/forms plugin is mandatory** for proper form styling
+- **Component styles must be imported** via the CSS file
+- **Tailwind content path must include** the library's dist folder
 
 ## Examples
 
