@@ -9,6 +9,7 @@ interface LabelProps
   required?: boolean
   error?: boolean
   variant?: "optional"
+  htmlFor?: string
 }
 
 const Label = React.forwardRef<

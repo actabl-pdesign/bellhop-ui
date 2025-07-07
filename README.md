@@ -359,17 +359,23 @@ export default config
 
 ### 2. Import Styles
 
-Import the component styles in your main CSS file or at the root of your application:
+**⚠️ CRITICAL:** You must import the component styles for the components to display correctly.
+
+**Option A - CSS Import (Recommended):**
+In your main CSS file (e.g., `globals.css`, `index.css`, `App.css`):
 
 ```css
 @import "@actabl-pdesign/bellhop-ui/dist/styles.css";
 ```
 
-Or in your main JavaScript/TypeScript file:
+**Option B - JavaScript/TypeScript Import:**
+In your main JavaScript/TypeScript file (e.g., `index.tsx`, `App.tsx`, `_app.tsx`):
 
 ```javascript
 import "@actabl-pdesign/bellhop-ui/dist/styles.css";
 ```
+
+**For Next.js projects:** Add the import to your `globals.css` file in the `app` directory.
 
 ### 3. Configure Tailwind Content
 
@@ -529,7 +535,14 @@ If you're using an AI website builder or agent that doesn't have direct terminal
    - Add `"./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}"` to the `content` array
    - Add `require("@tailwindcss/forms")` to the `plugins` array
 
-4. **Import the styles** in your main CSS file or root component:
+4. **Import the styles** (CRITICAL STEP):
+   
+   **For Next.js:** Add to your `globals.css` or `app/globals.css`:
+   ```css
+   @import "@actabl-pdesign/bellhop-ui/dist/styles.css";
+   ```
+   
+   **For other frameworks:** Import in your main JS/TS file:
    ```javascript
    import "@actabl-pdesign/bellhop-ui/dist/styles.css";
    ```
@@ -557,6 +570,51 @@ Visit our [Storybook documentation](https://actabl-pdesign.github.io/bellhop-ui/
 - Comprehensive API documentation
 - Usage examples and best practices
 - Accessibility guidelines
+
+## Troubleshooting
+
+### Components have no styling/colors
+
+**Problem:** Components appear unstyled or with default browser styling instead of the designed appearance.
+
+**Solution:** Make sure you've imported the component styles:
+
+```css
+/* In your main CSS file */
+@import "@actabl-pdesign/bellhop-ui/dist/styles.css";
+```
+
+### TypeScript errors with component props
+
+**Problem:** TypeScript errors like `Type '{ htmlFor: string; }' is not assignable to type 'LabelProps'`
+
+**Solution:** 
+1. Make sure you're using the latest version: `npm install @actabl-pdesign/bellhop-ui@latest`
+2. Restart your TypeScript server in your IDE
+3. Clear your node_modules and reinstall: `rm -rf node_modules package-lock.json && npm install`
+
+### Tailwind classes not working
+
+**Problem:** Custom Tailwind classes from the library aren't applied.
+
+**Solution:** Ensure your `tailwind.config.js` includes the library path in the content array:
+
+```js
+content: [
+  // ... your existing paths
+  "./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}",
+],
+```
+
+### Build errors in Next.js
+
+**Problem:** Build fails with module resolution errors.
+
+**Solution:** Make sure you have the correct Tailwind CSS version (v3.x, not v4):
+
+```bash
+npm install tailwindcss@^3.0.0 @tailwindcss/forms
+```
 
 ## Development
 
