@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
+import type { Meta, StoryObj } from "@storybook/react"
 import { z } from "zod"
 import { Button } from "../components/Button"
 import { Form } from "../components/Form"

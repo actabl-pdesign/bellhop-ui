@@ -69,9 +69,7 @@ export const millionFormatter = (number: number, decimals = 1) => {
   }).format(number)
   return `${formattedNumber}M`
 }
-export const formatters: {
-  [key: string]: (number: number, ...args: unknown[]) => string
-} = {
+export const formatters: { [key: string]: any } = {
   currency: (number: number, currency: string = "USD") =>
     new Intl.NumberFormat("en-US", {
       style: "currency",

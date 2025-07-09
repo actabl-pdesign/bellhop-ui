@@ -1,18 +1,16 @@
 # @actabl-pdesign/bellhop-ui
 
-A modern React UI components library built with TypeScript, Tailwind CSS, and
-accessibility in mind.
+A modern React UI components library built with TypeScript, Tailwind CSS, and accessibility in mind.
 
-> **📦 Package Location**: This package is distributed via
-> [npm](https://www.npmjs.com/package/@actabl-pdesign/bellhop-ui).
+> **📦 Package Location**: This package is distributed via [npm](https://www.npmjs.com/package/@actabl-pdesign/bellhop-ui).
 
+[![CI](https://github.com/actabl-pdesign/bellhop-ui/workflows/CI/badge.svg)](https://github.com/actabl-pdesign/bellhop-ui/actions)
 [![npm version](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui.svg)](https://badge.fury.io/js/%40actabl-pdesign%2Fbellhop-ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
 
-- 🎨 **Beautiful Design**: Clean, modern components with the Bellhop design
-  system
+- 🎨 **Beautiful Design**: Clean, modern components with the Bellhop design system
 - ♿ **Accessible**: WCAG AA compliant with proper ARIA attributes
 - 🎯 **TypeScript**: Full TypeScript support with comprehensive type definitions
 - 🎭 **Tailwind CSS**: Styled with Tailwind CSS for easy customization
@@ -42,8 +40,7 @@ Make sure you have the required peer dependencies installed:
 npm install react react-dom tailwindcss@^3.0.0 @tailwindcss/forms
 ```
 
-**Important**: This library requires Tailwind CSS v3.x, not v4. Make sure your
-project uses Tailwind CSS version 3.0 or higher, but below version 4.0.
+**Important**: This library requires Tailwind CSS v3.x, not v4. Make sure your project uses Tailwind CSS version 3.0 or higher, but below version 4.0.
 
 ## Setup
 
@@ -55,12 +52,12 @@ Add the library path to your `tailwind.config.js`:
 module.exports = {
   content: [
     // ... your existing content paths
-    "./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}",
   ],
   plugins: [
-    require("@tailwindcss/forms")
+    require("@tailwindcss/forms"),
     // ... your other plugins
-  ]
+  ],
   // ... rest of your config
 }
 ```
@@ -362,31 +359,27 @@ export default config
 
 ### 2. Import Styles
 
-**⚠️ CRITICAL:** You must import the component styles for the components to
-display correctly.
+**⚠️ CRITICAL:** You must import the component styles for the components to display correctly.
 
-**Option A - CSS Import (Recommended):** In your main CSS file (e.g.,
-`globals.css`, `index.css`, `App.css`):
+**Option A - CSS Import (Recommended):**
+In your main CSS file (e.g., `globals.css`, `index.css`, `App.css`):
 
 ```css
 @import "@actabl-pdesign/bellhop-ui/dist/styles.css";
 ```
 
-**Option B - JavaScript/TypeScript Import:** In your main JavaScript/TypeScript
-file (e.g., `index.tsx`, `App.tsx`, `_app.tsx`):
+**Option B - JavaScript/TypeScript Import:**
+In your main JavaScript/TypeScript file (e.g., `index.tsx`, `App.tsx`, `_app.tsx`):
 
 ```javascript
-import "@actabl-pdesign/bellhop-ui/dist/styles.css"
+import "@actabl-pdesign/bellhop-ui/dist/styles.css";
 ```
 
-**For Next.js projects:** Add the import to your `globals.css` file in the `app`
-directory.
+**For Next.js projects:** Add the import to your `globals.css` file in the `app` directory.
 
 ### 3. Configure Tailwind Content
 
-Make sure your `tailwind.config.js` includes the library path in the content
-array so Tailwind can detect and include the necessary styles for the
-components.
+Make sure your `tailwind.config.js` includes the library path in the content array so Tailwind can detect and include the necessary styles for the components.
 
 ## Quick Start
 
@@ -524,55 +517,42 @@ const schema = z.object({
 
 ## For AI Website Builders
 
-If you're using an AI website builder or agent that doesn't have direct terminal
-access, you can provide these instructions to set up the components:
+If you're using an AI website builder or agent that doesn't have direct terminal access, you can provide these instructions to set up the components:
 
 ### Installation Instructions for AI Agents
 
 1. **Install the package:**
-
    ```bash
    npm install @actabl-pdesign/bellhop-ui
    ```
 
 2. **Install required peer dependencies:**
-
    ```bash
    npm install react react-dom tailwindcss@^3.0.0 @tailwindcss/forms
    ```
 
 3. **Update your `tailwind.config.js` file** to include:
-   - Add `"./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}"`
-     to the `content` array
+   - Add `"./node_modules/@actabl-pdesign/bellhop-ui/dist/**/*.{js,ts,jsx,tsx}"` to the `content` array
    - Add `require("@tailwindcss/forms")` to the `plugins` array
 
 4. **Import the styles** (CRITICAL STEP):
-
+   
    **For Next.js:** Add to your `globals.css` or `app/globals.css`:
-
    ```css
    @import "@actabl-pdesign/bellhop-ui/dist/styles.css";
    ```
-
+   
    **For other frameworks:** Import in your main JS/TS file:
-
    ```javascript
-   import "@actabl-pdesign/bellhop-ui/dist/styles.css"
+   import "@actabl-pdesign/bellhop-ui/dist/styles.css";
    ```
 
 5. **Import and use components:**
    ```javascript
-   import {
-     Button,
-     Input,
-     Label,
-     Form,
-     Checkbox
-   } from "@actabl-pdesign/bellhop-ui"
+   import { Button, Input, Label, Form, Checkbox } from "@actabl-pdesign/bellhop-ui";
    ```
 
 ### Key Requirements for AI Agents:
-
 - **Tailwind CSS v3.x is required** (not v4)
 - **@tailwindcss/forms plugin is mandatory** for proper form styling
 - **Component styles must be imported** via the CSS file
@@ -580,15 +560,11 @@ access, you can provide these instructions to set up the components:
 
 ## Examples
 
-Check out our [complete LoginForm example](./src/examples/LoginForm.tsx) that
-demonstrates all components working together with validation and accessibility
-features.
+Check out our [complete LoginForm example](./src/examples/LoginForm.tsx) that demonstrates all components working together with validation and accessibility features.
 
 ## Documentation
 
-Visit our
-[Storybook documentation](https://actabl-pdesign.github.io/bellhop-ui/storybook/)
-for:
+Visit our [Storybook documentation](https://actabl-pdesign.github.io/bellhop-ui/storybook/) for:
 
 - Interactive component playground
 - Comprehensive API documentation
@@ -599,8 +575,7 @@ for:
 
 ### Components have no styling/colors
 
-**Problem:** Components appear unstyled or with default browser styling instead
-of the designed appearance.
+**Problem:** Components appear unstyled or with default browser styling instead of the designed appearance.
 
 **Solution:** Make sure you've imported the component styles:
 
@@ -611,23 +586,18 @@ of the designed appearance.
 
 ### TypeScript errors with component props
 
-**Problem:** TypeScript errors like
-`Type '{ htmlFor: string; }' is not assignable to type 'LabelProps'`
+**Problem:** TypeScript errors like `Type '{ htmlFor: string; }' is not assignable to type 'LabelProps'`
 
-**Solution:**
-
-1. Make sure you're using the latest version:
-   `npm install @actabl-pdesign/bellhop-ui@latest`
+**Solution:** 
+1. Make sure you're using the latest version: `npm install @actabl-pdesign/bellhop-ui@latest`
 2. Restart your TypeScript server in your IDE
-3. Clear your node_modules and reinstall:
-   `rm -rf node_modules package-lock.json && npm install`
+3. Clear your node_modules and reinstall: `rm -rf node_modules package-lock.json && npm install`
 
 ### Tailwind classes not working
 
 **Problem:** Custom Tailwind classes from the library aren't applied.
 
-**Solution:** Ensure your `tailwind.config.js` includes the library path in the
-content array:
+**Solution:** Ensure your `tailwind.config.js` includes the library path in the content array:
 
 ```js
 content: [
@@ -640,8 +610,7 @@ content: [
 
 **Problem:** Build fails with module resolution errors.
 
-**Solution:** Make sure you have the correct Tailwind CSS version (v3.x, not
-v4):
+**Solution:** Make sure you have the correct Tailwind CSS version (v3.x, not v4):
 
 ```bash
 npm install tailwindcss@^3.0.0 @tailwindcss/forms
@@ -668,8 +637,7 @@ pnpm build
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md)
-for details.
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## License
 

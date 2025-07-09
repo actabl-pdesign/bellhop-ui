@@ -43,6 +43,9 @@ jobs:
       - name: Run type check
         run: npx tsc --noEmit
 
+      - name: Run accessibility tests
+        run: pnpm test:a11y
+
       - name: Test Storybook stories
         run: pnpm test:storybook
 
