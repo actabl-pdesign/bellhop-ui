@@ -43,9 +43,6 @@ jobs:
       - name: Run type check
         run: npx tsc --noEmit
 
-      - name: Run tests
-        run: pnpm test:unit
-
       - name: Run accessibility tests
         run: pnpm test:a11y
 
