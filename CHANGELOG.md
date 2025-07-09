@@ -1,3 +1,12 @@
+## [1.1.5](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.4...v1.1.5) (2025-07-09)
+
+
+### Bug Fixes
+
+* CI workflow and linter issues ([662a275](https://github.com/actabl-pdesign/bellhop-ui/commit/662a27589b3854eefa8da3a53cd0467e96d7f195))
+* CI workflow and linter issues ([9eeb913](https://github.com/actabl-pdesign/bellhop-ui/commit/9eeb91352d2b958225a01275c2fc9f04dd683e7c))
+* re-apply CI workflow and linter fixes ([e287d4c](https://github.com/actabl-pdesign/bellhop-ui/commit/e287d4c3bee24f1028c00465bdba10dc660f2875))
+
 ## [1.1.4](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.3...v1.1.4) (2025-07-07)
 
 
