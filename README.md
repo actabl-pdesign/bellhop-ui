@@ -3,8 +3,6 @@
 A modern React UI components library built with TypeScript, Tailwind CSS, and
 accessibility in mind.
 
-## WIP - New components coming soon!
-
 > **📦 Package Location**: This package is distributed via
 > [npm](https://www.npmjs.com/package/@actabl-pdesign/bellhop-ui).
 
