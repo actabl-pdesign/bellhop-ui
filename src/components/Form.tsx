@@ -34,7 +34,7 @@ export const Form: React.FC<FormProps> = ({
 
 interface FormFieldProps {
   name: string
-  children: (field: any) => React.ReactNode
+  children: (field: { register: unknown; error?: unknown }) => React.ReactNode
 }
 
 export const FormField: React.FC<FormFieldProps> = ({ name, children }) => {

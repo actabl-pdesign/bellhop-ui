@@ -50,8 +50,8 @@ export interface InputProps extends BaseProps {
 }
 
 export interface FormProps extends BaseProps {
-  onSubmit: (data: any) => void
+  onSubmit: (data: Record<string, unknown>) => void
   children: ReactNode
-  schema?: any
-  defaultValues?: any
+  schema?: Record<string, unknown>
+  defaultValues?: Record<string, unknown>
 }
