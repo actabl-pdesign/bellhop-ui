@@ -12,7 +12,7 @@ const buttonVariants = cva(
     "disabled:pointer-events-none disabled:opacity-50 disabled:saturate-70",
     // svg styles
     "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-    // focus styles (consistent with other components)
+    // focus
     ...focusRing,
     // error state
     "aria-invalid:ring-red-500/20 aria-invalid:border-red-500"

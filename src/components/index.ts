@@ -20,7 +20,7 @@ export { Checkbox } from "./Checkbox"
 export { Divider } from "./Divider"
 export { FeaturedIcon } from "./FeaturedIcon"
 export { Form, FormError, FormField } from "./Form"
-export { Input, inputStyles, type InputProps } from "./Input"
+export { Input, inputStyles } from "./Input"
 export { Label } from "./Label"
 export {
   Popover,
@@ -47,3 +47,4 @@ export {
   TooltipProvider,
   TooltipTrigger
 } from "./Tooltip"
+
