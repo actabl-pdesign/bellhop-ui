@@ -37,13 +37,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test:coverage || true
+        run: pnpm test:storybook
 
       - name: Build library
         run: pnpm build
 
       - name: Build Storybook
-        run: pnpm build-storybook
+        run: pnpm storybook:build
 
       - name: Semantic Release
         env:
