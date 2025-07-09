@@ -10,6 +10,7 @@
     "jsx": "react",
     "module": "ESNext",
     "declaration": true,
+<<<<<<< Updated upstream
     "declarationDir": "dist",
     "sourceMap": false,
     "moduleResolution": "node",
@@ -18,3 +19,32 @@
   },
   "include": ["**/*.tsx", "**/*.ts", "setupTests.js"]
 }
+=======
+        "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "**/*.cjs"
+, "postcss.config.cjs", "src/styles/tailwind.config.js"  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.tsx"
+  ]
+}
+>>>>>>> Stashed changes
