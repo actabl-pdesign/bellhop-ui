@@ -14,7 +14,7 @@ export const Form: React.FC<FormProps> = ({
 }) => {
   const methods = useForm({
     resolver: schema ? zodResolver(schema) : undefined,
-    defaultValues,
+    defaultValues
   })
 
   const handleSubmit = methods.handleSubmit(onSubmit)
@@ -40,13 +40,13 @@ interface FormFieldProps {
 export const FormField: React.FC<FormFieldProps> = ({ name, children }) => {
   const {
     register,
-    formState: { errors },
+    formState: { errors }
   } = useFormContext()
 
   const field = {
     ...register(name),
     error: !!errors[name],
-    errorMessage: errors[name]?.message as string,
+    errorMessage: errors[name]?.message as string
   }
 
   return <>{children(field)}</>
@@ -59,7 +59,7 @@ interface FormErrorProps {
 
 export const FormError: React.FC<FormErrorProps> = ({ name, className }) => {
   const {
-    formState: { errors },
+    formState: { errors }
   } = useFormContext()
   const error = errors[name]
 

@@ -18,36 +18,36 @@ const meta = {
         "outline",
         "ghost",
         "destructive",
-        "link",
+        "link"
       ],
-      control: { type: "radio" },
+      control: { type: "radio" }
     },
     size: {
       options: ["small", "medium", "large", "icon"],
-      control: { type: "select" },
+      control: { type: "select" }
     },
     loading: {
-      control: { type: "boolean" },
+      control: { type: "boolean" }
     },
     asChild: {
       table: {
-        disable: true,
-      },
+        disable: true
+      }
     },
     ariaLabel: {
       table: {
-        disable: true,
-      },
-    },
+        disable: true
+      }
+    }
   },
   parameters: {
-    layout: "centered",
+    layout: "centered"
   },
   args: {
     variant: "primary",
     size: "small",
-    children: "Button",
-  },
+    children: "Button"
+  }
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -64,8 +64,8 @@ export const Primary: Story = {}
  */
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
-  },
+    variant: "secondary"
+  }
 }
 
 /**
@@ -74,8 +74,8 @@ export const Secondary: Story = {
  */
 export const Outline: Story = {
   args: {
-    variant: "outline",
-  },
+    variant: "outline"
+  }
 }
 
 /**
@@ -84,8 +84,8 @@ export const Outline: Story = {
  */
 export const Ghost: Story = {
   args: {
-    variant: "ghost",
-  },
+    variant: "ghost"
+  }
 }
 
 /**
@@ -94,8 +94,8 @@ export const Ghost: Story = {
  */
 export const Destructive: Story = {
   args: {
-    variant: "destructive",
-  },
+    variant: "destructive"
+  }
 }
 
 /**
@@ -104,8 +104,8 @@ export const Destructive: Story = {
  */
 export const Link: Story = {
   args: {
-    variant: "link",
-  },
+    variant: "link"
+  }
 }
 
 /**
@@ -121,8 +121,8 @@ export const Loading: Story = {
   ),
   args: {
     ...Outline.args,
-    disabled: true,
-  },
+    disabled: true
+  }
 }
 
 /**
@@ -136,8 +136,8 @@ export const WithIcon: Story = {
     </Button>
   ),
   args: {
-    ...Secondary.args,
-  },
+    ...Secondary.args
+  }
 }
 
 /**
@@ -146,8 +146,8 @@ export const WithIcon: Story = {
  */
 export const Small: Story = {
   args: {
-    size: "small",
-  },
+    size: "small"
+  }
 }
 
 /**
@@ -156,8 +156,8 @@ export const Small: Story = {
  */
 export const Medium: Story = {
   args: {
-    size: "medium",
-  },
+    size: "medium"
+  }
 }
 
 /**
@@ -166,8 +166,8 @@ export const Medium: Story = {
  */
 export const Large: Story = {
   args: {
-    size: "large",
-  },
+    size: "large"
+  }
 }
 
 /**
@@ -178,8 +178,8 @@ export const Icon: Story = {
     ...Secondary.args,
     size: "icon",
     title: "Mail",
-    children: <Mail />,
-  },
+    children: <Mail />
+  }
 }
 
 /**
@@ -187,6 +187,6 @@ export const Icon: Story = {
  */
 export const Disabled: Story = {
   args: {
-    disabled: true,
-  },
+    disabled: true
+  }
 }

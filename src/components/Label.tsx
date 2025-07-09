@@ -19,7 +19,7 @@ const Label = React.forwardRef<
 >(
   (
     { className, disabled, required, error, variant, ...props },
-    forwardedRef,
+    forwardedRef
   ) => (
     <LabelPrimitives.Root
       ref={forwardedRef}
@@ -30,23 +30,23 @@ const Label = React.forwardRef<
         error ? "text-red-600" : "text-neutral-700",
         // disabled
         {
-          "text-gray-400": disabled,
+          "text-gray-400": disabled
         },
         // required indicator
         {
-          'after:ml-1 after:text-red-500 after:content-["*"]': required,
+          'after:ml-1 after:text-red-500 after:content-["*"]': required
         },
         // optional indicator
         {
           'after:ml-1 after:text-gray-400 after:content-["(optional)"]':
-            variant === "optional" && !required,
+            variant === "optional" && !required
         },
-        className,
+        className
       )}
       aria-disabled={disabled}
       {...props}
     />
-  ),
+  )
 )
 Label.displayName = "Label"
 

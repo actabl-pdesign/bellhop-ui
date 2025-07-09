@@ -5,17 +5,17 @@ const meta = {
   title: "Examples/LoginForm",
   component: LoginForm,
   parameters: {
-    layout: "centered",
+    layout: "centered"
   },
   tags: ["autodocs"],
   argTypes: {
     loading: {
-      control: "boolean",
+      control: "boolean"
     },
     error: {
-      control: "text",
-    },
-  },
+      control: "text"
+    }
+  }
 } satisfies Meta<typeof LoginForm>
 
 export default meta
@@ -26,8 +26,8 @@ export const Default: Story = {
     onSubmit: data => {
       console.log("Login submitted:", data)
       return new Promise(resolve => setTimeout(resolve, 1000))
-    },
-  },
+    }
+  }
 }
 
 export const Loading: Story = {
@@ -36,8 +36,8 @@ export const Loading: Story = {
     onSubmit: data => {
       console.log("Login submitted:", data)
       return new Promise(resolve => setTimeout(resolve, 1000))
-    },
-  },
+    }
+  }
 }
 
 export const WithError: Story = {
@@ -46,13 +46,13 @@ export const WithError: Story = {
     onSubmit: data => {
       console.log("Login submitted:", data)
       return new Promise(resolve => setTimeout(resolve, 1000))
-    },
-  },
+    }
+  }
 }
 
 export const Styled: Story = {
   parameters: {
-    layout: "padded",
+    layout: "padded"
   },
   render: () => (
     <div className="flex min-h-96 items-center justify-center bg-neutral-50 px-4 py-12 sm:px-6 lg:px-8">
@@ -67,12 +67,12 @@ export const Styled: Story = {
         />
       </div>
     </div>
-  ),
+  )
 }
 
 export const WithCustomStyling: Story = {
   parameters: {
-    layout: "padded",
+    layout: "padded"
   },
   render: () => (
     <div className="flex min-h-96 items-center justify-center bg-gradient-to-br from-indigo-50 to-indigo-100 p-4">
@@ -85,7 +85,7 @@ export const WithCustomStyling: Story = {
         />
       </div>
     </div>
-  ),
+  )
 }
 
 export const Interactive: Story = {
@@ -123,5 +123,5 @@ export const Interactive: Story = {
         </div>
       </div>
     )
-  },
+  }
 }

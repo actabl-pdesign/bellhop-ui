@@ -7,7 +7,7 @@ import { Label } from "../components/Label"
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters long"),
+  password: z.string().min(8, "Password must be at least 8 characters long")
 })
 
 type LoginFormData = z.infer<typeof loginSchema>
@@ -23,7 +23,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   onSubmit,
   loading = false,
   error,
-  className,
+  className
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 

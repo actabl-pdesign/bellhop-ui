@@ -13,12 +13,12 @@ const meta: Meta<typeof Checkbox> = {
   tags: ["autodocs"],
   argTypes: {
     children: {
-      control: "text",
-    },
+      control: "text"
+    }
   },
   parameters: {
-    layout: "centered",
-  },
+    layout: "centered"
+  }
 }
 
 export default meta
@@ -31,8 +31,8 @@ export const Default: Story = {}
 
 export const Checked: Story = {
   args: {
-    checked: true,
-  },
+    checked: true
+  }
 }
 
 /**
@@ -40,8 +40,8 @@ export const Checked: Story = {
  */
 export const Indeterminate: Story = {
   args: {
-    checked: "indeterminate",
-  },
+    checked: "indeterminate"
+  }
 }
 
 /**
@@ -63,8 +63,8 @@ export const Disabled: Story = {
     </div>
   ),
   args: {
-    disabled: true,
-  },
+    disabled: true
+  }
 }
 
 export const WithLabel: Story = {
@@ -75,5 +75,5 @@ export const WithLabel: Story = {
         I'd like to be notified by SMS when my order is ready for collection.
       </Label>
     </div>
-  ),
+  )
 }

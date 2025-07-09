@@ -23,25 +23,25 @@ const inputStyles = tv({
       "file:-my-2 file:-ml-2.5 file:cursor-pointer file:rounded-l-[5px] file:rounded-r-none file:border-0 file:px-3 file:py-2 file:outline-none focus:outline-none disabled:pointer-events-none file:disabled:pointer-events-none",
       "file:border-solid file:border-gray-300 file:bg-gray-50 file:text-gray-500 file:hover:bg-gray-100",
       "file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem]",
-      "file:disabled:bg-gray-100 file:disabled:text-gray-500",
+      "file:disabled:bg-gray-100 file:disabled:text-gray-500"
     ],
     // focus
     focusInput,
     // invalid (optional)
     // "invalid:border-red-500 invalid:ring-2 invalid:ring-red-200 aria-[invalid=true]:border-red-500 aria-[invalid=true]:ring-2 aria-[invalid=true]:ring-red-200",
     // remove search cancel button (optional)
-    "[&::--webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden",
+    "[&::--webkit-search-cancel-button]:hidden [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden"
   ],
   variants: {
     hasError: {
-      true: hasErrorInput,
+      true: hasErrorInput
     },
     // number input
     enableStepper: {
       false:
-        "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none",
-    },
-  },
+        "[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+    }
+  }
 })
 
 interface InputProps
@@ -65,7 +65,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       required,
       ...props
     }: InputProps,
-    forwardedRef,
+    forwardedRef
   ) => {
     const [typeState, setTypeState] = React.useState(type || "text")
 
@@ -85,10 +85,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             inputStyles({ hasError: hasError || error, enableStepper }),
             {
               "pl-8": isSearch,
-              "pr-10": isPassword,
+              "pr-10": isPassword
             },
             className,
-            inputClassName,
+            inputClassName
           )}
           aria-invalid={error || hasError ? "true" : undefined}
           aria-required={required ? "true" : undefined}
@@ -102,7 +102,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               // base
               "pointer-events-none absolute bottom-0 left-2 flex h-full items-center justify-center",
               // text color
-              "text-gray-400",
+              "text-gray-400"
             )}
           >
             <SearchIcon
@@ -114,7 +114,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {isPassword && (
           <div
             className={cx(
-              "absolute bottom-0 right-0 flex h-full items-center justify-center px-3",
+              "absolute bottom-0 right-0 flex h-full items-center justify-center px-3"
             )}
           >
             <button
@@ -126,7 +126,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 "text-gray-400",
                 // hover
                 "hover:text-gray-500",
-                focusRing,
+                focusRing
               )}
               type="button"
               onClick={() => {
@@ -146,7 +146,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
       </div>
     )
-  },
+  }
 )
 
 Input.displayName = "Input"

@@ -6,12 +6,12 @@ import { Input } from "../components/Input"
 import { Label } from "../components/Label"
 
 const meta = {
-  title: "Components/Form",
+  title: "patterns/Form",
   component: Form,
   parameters: {
-    layout: "centered",
+    layout: "centered"
   },
-  tags: ["autodocs"],
+  tags: ["autodocs"]
 } satisfies Meta<typeof Form>
 
 export default meta
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>
 
 const loginSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  password: z.string().min(8, "Password must be at least 8 characters")
 })
 
 export const BasicForm: Story = {
@@ -52,7 +52,7 @@ export const BasicForm: Story = {
         </div>
       </Form>
     </div>
-  ),
+  )
 }
 
 export const LoginForm: Story = {
@@ -92,7 +92,7 @@ export const LoginForm: Story = {
         </div>
       </Form>
     </div>
-  ),
+  )
 }
 
 export const RegisterForm: Story = {
@@ -153,5 +153,5 @@ export const RegisterForm: Story = {
         </div>
       </Form>
     </div>
-  ),
+  )
 }

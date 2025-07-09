@@ -29,7 +29,7 @@ const Checkbox = React.forwardRef<
         "enabled:data-[state=indeterminate]:bg-indigo-600 enabled:data-[state=indeterminate]:ring-0 enabled:data-[state=indeterminate]:ring-transparent",
         // focus
         focusRing,
-        className,
+        className
       )}
     >
       <CheckboxPrimitives.Indicator

@@ -15,7 +15,7 @@ const buttonVariants = cva(
     // focus styles (consistent with other components)
     ...focusRing,
     // error state
-    "aria-invalid:ring-red-500/20 aria-invalid:border-red-500",
+    "aria-invalid:ring-red-500/20 aria-invalid:border-red-500"
   ],
   {
     variants: {
@@ -27,20 +27,20 @@ const buttonVariants = cva(
           "bg-white hover:bg-gray-100 text-gray-800 border border-gray-200",
         secondary: "bg-neutral-200 text-gray-800 hover:bg-neutral-300/80",
         ghost: "hover:bg-neutral-100 text-gray-800",
-        link: "text-indigo-600 underline-offset-4 !px-0 hover:underline",
+        link: "text-indigo-600 underline-offset-4 !px-0 hover:underline"
       },
       size: {
         small: "h-9 gap-1 px-3 py-2 has-[>svg]:px-2.5 has-[>svg]:gap-0.5",
         medium: "h-10 gap-1.5 px-4 py-2 has-[>svg]:px-3 has-[>svg]:gap-0.5",
         large: "h-11 text-md px-6 py-3 has-[>svg]:px-4",
-        icon: "size-9",
-      },
+        icon: "size-9"
+      }
     },
     defaultVariants: {
       variant: "secondary",
-      size: "small",
-    },
-  },
+      size: "small"
+    }
+  }
 )
 
 function Button({

@@ -10,27 +10,27 @@ const meta: Meta<typeof Input> = {
   tags: ["autodocs"],
   argTypes: {
     children: {
-      control: "text",
-    },
+      control: "text"
+    }
   },
   parameters: {
-    layout: "centered",
-  },
+    layout: "centered"
+  }
 }
 
 export default meta
 type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
-  render: () => <Input />,
+  render: () => <Input />
 }
 
 export const Disabled: Story = {
-  render: () => <Input disabled />,
+  render: () => <Input disabled />
 }
 
 export const WithPlaceholder: Story = {
-  render: () => <Input placeholder="With Placeholder" />,
+  render: () => <Input placeholder="With Placeholder" />
 }
 
 export const TypePassword: Story = {
@@ -44,7 +44,7 @@ export const TypePassword: Story = {
         type="password"
       />
     </form>
-  ),
+  )
 }
 
 export const TypeSearchDisabled: Story = {
@@ -59,7 +59,7 @@ export const TypeSearchDisabled: Story = {
         type="search"
       />{" "}
     </form>
-  ),
+  )
 }
 
 export const RequiredAndPattern: Story = {
@@ -79,7 +79,7 @@ export const RequiredAndPattern: Story = {
         Submit
       </Button>
     </form>
-  ),
+  )
 }
 
 export const TypeFile: Story = {
@@ -88,7 +88,7 @@ export const TypeFile: Story = {
       <Label htmlFor="number">Upload you resume</Label>
       <Input id="upload" name="upload" type="file" />
     </div>
-  ),
+  )
 }
 
 export const TypeNumber: Story = {
@@ -97,7 +97,7 @@ export const TypeNumber: Story = {
       <Label htmlFor="number">Enter Salary</Label>
       <Input id="number" name="number" type="number" />
     </div>
-  ),
+  )
 }
 
 export const HasError: Story = {
@@ -113,7 +113,7 @@ export const HasError: Story = {
         enableStepper
       />
     </div>
-  ),
+  )
 }
 export const InputWithButton: Story = {
   render: () => (
@@ -128,7 +128,7 @@ export const InputWithButton: Story = {
       />
       <Button variant="secondary">Submit</Button>
     </form>
-  ),
+  )
 }
 
 export const Controlled: Story = {
@@ -151,5 +151,5 @@ export const Controlled: Story = {
         <p>{search}</p>
       </form>
     )
-  },
+  }
 }

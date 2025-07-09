@@ -12,13 +12,13 @@ const meta: Meta<typeof Label> = {
     children: {
       control: "text",
       disabled: {
-        control: "boolean",
-      },
-    },
+        control: "boolean"
+      }
+    }
   },
   parameters: {
-    layout: "centered",
-  },
+    layout: "centered"
+  }
 }
 
 export default meta
@@ -26,8 +26,8 @@ type Story = StoryObj<typeof Label>
 
 export const Default: Story = {
   args: {
-    children: "Label",
-  },
+    children: "Label"
+  }
 }
 
 export const LabelWithInput: Story = {
@@ -41,7 +41,7 @@ export const LabelWithInput: Story = {
         type="password"
       />
     </form>
-  ),
+  )
 }
 export const LabelWithCheckbox: Story = {
   render: () => (
@@ -49,7 +49,7 @@ export const LabelWithCheckbox: Story = {
       <Checkbox id="r1" />
       <Label htmlFor="r1">Accept terms and conditions</Label>
     </div>
-  ),
+  )
 }
 
 export const Disabled: Story = {
@@ -57,5 +57,5 @@ export const Disabled: Story = {
     <Label disabled data-testid="label-disabled" htmlFor="search">
       Search
     </Label>
-  ),
+  )
 }
