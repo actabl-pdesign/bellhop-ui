@@ -1,64 +1,47 @@
-<<<<<<< Updated upstream
-/* eslint-disable @typescript-eslint/no-var-requires */
-/* eslint-disable no-undef */
-import commonjs from "@rollup/plugin-commonjs";
-import resolve from "@rollup/plugin-node-resolve";
-import typescript from "@rollup/plugin-typescript";
-=======
 import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import typescript from "@rollup/plugin-typescript"
-import terser from "@rollup/plugin-terser"
+import { terser } from "rollup-plugin-terser"
 import pkg from "./package.json" with { type: "json" }
->>>>>>> Stashed changes
 
-import dts from "rollup-plugin-dts";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import { typescriptPaths } from "rollup-plugin-typescript-paths";
-import terser from "@rollup/plugin-terser";
-import preserveDirectives from "rollup-plugin-preserve-directives";
-
-const outputOptions = {
-  sourcemap: false,
-  preserveModules: true,
-  preserveModulesRoot: "src",
-};
-
-export default [
-  {
-    input: "src/index.ts",
-    output: [
-      {
-        dir: "dist",
-        format: "cjs",
-        entryFileNames: "[name].cjs",
-        exports: "auto",
-        ...outputOptions,
-      },
-      {
-        dir: "dist",
-        format: "esm",
-        ...outputOptions,
-      },
-    ],
-    external: [/node_modules/],
-    plugins: [
-      peerDepsExternal(),
-      resolve(),
-      commonjs(),
-      preserveDirectives(),
-      terser(),
-      typescript({
-        tsconfig: "./tsconfig.json",
-        exclude: ["**/stories/**", "**/tests/**", "./styles.css"],
-      }),
-      typescriptPaths(),
-    ],
-  },
-  {
-    input: "dist/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
-    external: [/\.css$/],
-  },
-];
+export default {
+  input: "src/index.ts",
+  output: [
+    {
+      file: pkg.main,
+      format: "cjs",
+      exports: "named",
+      sourcemap: true,
+      strict: false
+    },
+    {
+      file: pkg.module,
+      format: "esm",
+      exports: "named",
+      sourcemap: true
+    }
+  ],
+  plugins: [
+    resolve({
+      browser: true,
+      preferBuiltins: false
+    }),
+    commonjs(),
+    typescript({
+      tsconfig: "./tsconfig.json",
+      exclude: ["**/*.test.ts", "**/*.test.tsx", "**/*.stories.ts", "**/*.stories.tsx"]
+    }),
+    terser()
+  ],
+  external: [
+    "react",
+    "react-dom",
+    "react/jsx-runtime",
+    "tailwindcss",
+    "clsx",
+    "tailwind-merge",
+    "react-hook-form",
+    "zod",
+    "@hookform/resolvers"
+  ]
+}
