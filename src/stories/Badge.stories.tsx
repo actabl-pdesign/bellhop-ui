@@ -19,10 +19,12 @@ const meta: Meta<typeof Badge> = {
     color: {
       options: [
         "brand",
-        "neutral",
-        "success",
-        "error",
-        "warning",
+        "indigo",
+        "gray",
+        "green",
+        "red",
+        "amber",
+        "amber",
         "purple",
         "violet",
         "rose",
@@ -78,7 +80,8 @@ export const Soft: Story = {
  */
 export const Outline: Story = {
   args: {
-    variant: "outline"
+    variant: "outline",
+    color: "orange"
   }
 }
 

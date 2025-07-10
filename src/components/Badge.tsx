@@ -21,12 +21,16 @@ const badgeVariants = cva(
       color: {
         brand:
           "bg-indigo-200/[var(--bg-opacity)] text-indigo-700 ring-indigo-400",
-        neutral:
+        indigo:
+          "bg-indigo-200/[var(--bg-opacity)] text-indigo-700 ring-indigo-400",
+        gray:
           "bg-gray-300/[var(--bg-opacity)] text-gray-700 ring-gray-500/50",
-        success:
+        green:
           "bg-green-300/[var(--bg-opacity)] text-green-700 ring-green-400",
-        error: "bg-red-300/[var(--bg-opacity)] text-red-700 ring-red-600/20",
-        warning:
+        red: "bg-red-300/[var(--bg-opacity)] text-red-700 ring-red-600/20",
+        orange:
+          "bg-amber-300/[var(--bg-opacity)] text-amber-700 ring-amber-400",
+        amber:
           "bg-amber-300/[var(--bg-opacity)] text-amber-700 ring-amber-400",
         purple:
           "bg-purple-300/[var(--bg-opacity)] text-purple-700 ring-purple-400",
@@ -43,7 +47,7 @@ const badgeVariants = cva(
     },
     defaultVariants: {
       variant: "soft",
-      color: "brand",
+      color: "gray",
       size: "medium"
     }
   }
