@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.5...v1.1.6) (2025-07-10)
+
+
+### Bug Fixes
+
+* adjust in badge component props for compatibility ([394807b](https://github.com/actabl-pdesign/bellhop-ui/commit/394807b480db8b1f2fe5f723277476813b43a57e))
+
 ## [1.1.5](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.4...v1.1.5) (2025-07-09)
 
 
