@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.6...v1.1.7) (2025-07-10)
+
+
+### Bug Fixes
+
+* added missing components to export ([e9a9248](https://github.com/actabl-pdesign/bellhop-ui/commit/e9a92480c369a4c4ab8a80bb0a4b5d898e1e9675))
+
 ## [1.1.6](https://github.com/actabl-pdesign/bellhop-ui/compare/v1.1.5...v1.1.6) (2025-07-10)
 
 
