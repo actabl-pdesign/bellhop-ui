@@ -1,0 +1,3 @@
+import{j as i}from"./jsx-runtime-D_NlE7bE.js";import"./iframe-TczdQGhE.js";function r({...a}){return i.jsx("div",{...a,className:"absolute left-0 top-0 z-30 h-full w-2 bg-gradient-to-b from-rose-400 via-indigo-500 to-indigo-800"})}try{r.displayName="GradientBar",r.__docgenInfo={description:"",displayName:"GradientBar",props:{}}}catch{}const c={title:"ui/GradientBar",component:r,tags:["autodocs"],argTypes:{},parameters:{layout:"centered"},excludeStories:["users"]},e={args:{}};var t,o,s;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {}
+}`,...(s=(o=e.parameters)==null?void 0:o.docs)==null?void 0:s.source}}};const p=["Default"];export{e as Default,p as __namedExportsOrder,c as default};
