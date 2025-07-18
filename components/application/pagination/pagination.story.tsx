@@ -42,24 +42,6 @@ export const PaginationCardMinimalLeftAligned = () => (
 PaginationCardMinimalLeftAligned.storyName =
   "Pagination card minimal left aligned";
 
-export const PaginationButtonGroupRightAligned = () => (
-  <Demos.PaginationButtonGroupRightAligned />
-);
-PaginationButtonGroupRightAligned.storyName =
-  "Pagination button group right aligned";
-
-export const PaginationButtonGroupCenterAligned = () => (
-  <Demos.PaginationButtonGroupCenterAligned />
-);
-PaginationButtonGroupCenterAligned.storyName =
-  "Pagination button group center aligned";
-
-export const PaginationButtonGroupLeftAligned = () => (
-  <Demos.PaginationButtonGroupLeftAligned />
-);
-PaginationButtonGroupLeftAligned.storyName =
-  "Pagination button group left aligned";
-
 export const PaginationDotMd = () => <Demos.PaginationDotMd />;
 PaginationDotMd.storyName = "Pagination dot md";
 

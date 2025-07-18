@@ -74,42 +74,6 @@ export const PaginationCardMinimalLeftAligned = () => {
   );
 };
 
-export const PaginationButtonGroupRightAligned = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  return (
-    <Paginations.PaginationButtonGroup
-      align="right"
-      page={currentPage}
-      onPageChange={setCurrentPage}
-    />
-  );
-};
-
-export const PaginationButtonGroupCenterAligned = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  return (
-    <Paginations.PaginationButtonGroup
-      align="center"
-      page={currentPage}
-      onPageChange={setCurrentPage}
-    />
-  );
-};
-
-export const PaginationButtonGroupLeftAligned = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  return (
-    <Paginations.PaginationButtonGroup
-      align="left"
-      page={currentPage}
-      onPageChange={setCurrentPage}
-    />
-  );
-};
-
 export const PaginationDotMd = () => {
   const [currentPage, setCurrentPage] = useState(1);
 

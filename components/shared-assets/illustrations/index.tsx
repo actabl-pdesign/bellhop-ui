@@ -9,7 +9,13 @@ import { CreditCardIllustration } from "./credit-card";
 import { DocumentIllustration } from "./Document";
 import { SearchFailIllustration } from "./SearchFail";
 
-const types = {
+export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
+  size?: "sm" | "md" | "lg";
+  svgClassName?: string;
+  childrenClassName?: string;
+}
+
+const types: Record<string, React.ComponentType<IllustrationProps>> = {
  "astronaut-lost": AstronautLostIllustration,
   box: BoxIllustration,
   celebrate: CelebrateIllustration,
@@ -18,12 +24,6 @@ const types = {
   "credit-card": CreditCardIllustration,
   "search-fail": SearchFailIllustration,
 };
-
-export interface IllustrationProps extends HTMLAttributes<HTMLDivElement> {
-  size?: "sm" | "md" | "lg";
-  svgClassName?: string;
-  childrenClassName?: string;
-}
 
 export const Illustration = (
   props: IllustrationProps & { type: keyof typeof types },

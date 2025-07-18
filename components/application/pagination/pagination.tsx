@@ -1,10 +1,6 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "@untitledui/icons";
-import {
-  ButtonGroup,
-  ButtonGroupItem,
-} from "@/components/base/button-group/button-group";
 import { Button } from "@/components/base/buttons/button";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
 import { cx } from "@/utils/cx";
@@ -110,7 +106,7 @@ export const PaginationPageDefault = ({
     >
       <div className="hidden flex-1 justify-start md:flex">
         <Pagination.PrevTrigger asChild>
-          <Button iconLeading={ArrowLeft} color="link-gray" size="sm">
+          <Button iconLeading={ArrowLeft} color="link-color" size="sm">
             {isDesktop ? "Previous" : undefined}{" "}
           </Button>
         </Pagination.PrevTrigger>
@@ -150,7 +146,7 @@ export const PaginationPageDefault = ({
 
       <div className="hidden flex-1 justify-end md:flex">
         <Pagination.NextTrigger asChild>
-          <Button iconTrailing={ArrowRight} color="link-gray" size="sm">
+          <Button iconTrailing={ArrowRight} color="link-color" size="sm">
             {isDesktop ? "Next" : undefined}
           </Button>
         </Pagination.NextTrigger>
@@ -356,71 +352,6 @@ export const PaginationCardMinimal = ({
           </Button>
         </div>
       </nav>
-    </div>
-  );
-};
-
-interface PaginationButtonGroupProps
-  extends Partial<Omit<PaginationRootProps, "children">> {
-  /** The alignment of the pagination. */
-  align?: "left" | "center" | "right";
-}
-
-export const PaginationButtonGroup = ({
-  align = "left",
-  page = 1,
-  total = 10,
-  ...props
-}: PaginationButtonGroupProps) => {
-  const isDesktop = useBreakpoint("md");
-
-  return (
-    <div
-      className={cx(
-        "flex border-t border-secondary px-4 py-3 md:px-6 md:pt-3 md:pb-4",
-        align === "left" && "justify-start",
-        align === "center" && "justify-center",
-        align === "right" && "justify-end",
-      )}
-    >
-      <Pagination.Root {...props} page={page} total={total}>
-        <Pagination.Context>
-          {({ pages }) => (
-            <ButtonGroup size="md">
-              <Pagination.PrevTrigger asChild>
-                <ButtonGroupItem iconLeading={ArrowLeft}>
-                  {isDesktop ? "Previous" : undefined}
-                </ButtonGroupItem>
-              </Pagination.PrevTrigger>
-
-              {pages.map((page, index) =>
-                page.type === "page" ? (
-                  <Pagination.Item key={index} {...page} asChild>
-                    <ButtonGroupItem
-                      isSelected={page.isCurrent}
-                      className="size-10 items-center justify-center"
-                    >
-                      {page.value}
-                    </ButtonGroupItem>
-                  </Pagination.Item>
-                ) : (
-                  <Pagination.Ellipsis key={index}>
-                    <ButtonGroupItem className="pointer-events-none size-10 items-center justify-center rounded-none!">
-                      &#8230;
-                    </ButtonGroupItem>
-                  </Pagination.Ellipsis>
-                ),
-              )}
-
-              <Pagination.NextTrigger asChild>
-                <ButtonGroupItem iconTrailing={ArrowRight}>
-                  {isDesktop ? "Next" : undefined}
-                </ButtonGroupItem>
-              </Pagination.NextTrigger>
-            </ButtonGroup>
-          )}
-        </Pagination.Context>
-      </Pagination.Root>
     </div>
   );
 };

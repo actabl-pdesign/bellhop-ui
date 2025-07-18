@@ -43,7 +43,7 @@ export const FeaturedCardProgressBar = ({
         <ProgressBar value={progress} />
       </div>
       <div className="mt-4 flex gap-3">
-        <Button onClick={onDismiss} color="link-gray" size="sm">
+        <Button onClick={onDismiss} color="link-color" size="sm">
           Dismiss
         </Button>
         <Button onClick={onConfirm} color="link-color" size="sm">
@@ -84,7 +84,7 @@ export const FeaturedCardProgressCircle = ({
         <p className="mt-1 text-sm text-tertiary">{description}</p>
       </div>
       <div className="mt-4 flex gap-3">
-        <Button onClick={onDismiss} color="link-gray" size="sm">
+        <Button onClick={onDismiss} color="link-color" size="sm">
           Dismiss
         </Button>
         <Button onClick={onConfirm} color="link-color" size="sm">

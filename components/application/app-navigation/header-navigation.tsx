@@ -93,7 +93,7 @@ export const HeaderNavigationBase = ({
                 href="#"
                 icon={Settings01}
                 badge={
-                  <BadgeWithDot color="success" type="modern" size="sm">
+                  <BadgeWithDot color="success" type="pill-color" size="sm">
                     Online
                   </BadgeWithDot>
                 }

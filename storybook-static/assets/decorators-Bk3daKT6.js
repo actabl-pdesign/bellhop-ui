@@ -1,0 +1,1 @@
+const{useGlobals:s}=__STORYBOOK_MODULE_PREVIEW_API__,_=a=>(e,r)=>{const[{overlay:i}]=s();return i?.visible?e(r,r):a?a(e,r):e(r,r)};try{_.displayName="withOverlayAware",_.__docgenInfo={description:"",displayName:"withOverlayAware",props:{}}}catch{}export{_ as w};

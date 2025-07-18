@@ -1,0 +1,1 @@
+import{r}from"./iframe-DcsACL-T.js";const i=({size:e=24,color:t="currentColor",...o})=>r.createElement("svg",{viewBox:"0 0 24 24",width:e,height:e,stroke:t,strokeWidth:"2",fill:"none",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",...o},r.createElement("path",{d:"M12 5v14m-7-7h14"}));i.displayName="Plus";export{i as s};

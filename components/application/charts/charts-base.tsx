@@ -1,11 +1,6 @@
 "use client";
 
-import type { TooltipProps } from "recharts";
 import type { Props as LegendContentProps } from "recharts/types/component/DefaultLegendContent";
-import type {
-  NameType,
-  ValueType,
-} from "recharts/types/component/DefaultTooltipContent";
 import type { Props as DotProps } from "recharts/types/shape/Dot";
 import { cx } from "@/utils/cx";
 
@@ -61,7 +56,7 @@ export const ChartLegendContent = ({
   layout,
   className,
 }: LegendContentProps & { reversed?: boolean; className?: string }) => {
-  payload = reversed ? payload?.toReversed() : payload;
+  payload = reversed ? payload?.slice().reverse() : payload;
 
   return (
     <ul
@@ -99,7 +94,7 @@ export const ChartTooltipContent = ({
   isPieChart,
   formatter,
   labelFormatter,
-}: TooltipProps<ValueType, NameType> & {
+}: any & {
   isRadialChart?: boolean;
   isPieChart?: boolean;
 }) => {

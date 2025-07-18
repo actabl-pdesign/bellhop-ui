@@ -1,11 +1,4 @@
 import React, { useEffect } from "react";
-import { Inter } from "next/font/google";
-
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-});
 
 const Wrapper = (Story: any) => {
   useEffect(() => {
@@ -47,7 +40,7 @@ const Wrapper = (Story: any) => {
   }, []);
 
   return (
-    <div className={inter.variable}>
+    <div style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
       <Story />
     </div>
   );

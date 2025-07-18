@@ -1,0 +1,1 @@
+import{l as o}from"./useFocusRing-CRLlfMnZ.js";import{r as a,R as f}from"./iframe-DcsACL-T.js";const n=a.createContext({}),x=a.forwardRef(function(e,t){[e,t]=o(e,t,n);let{elementType:r="span",...c}=e;return f.createElement(r,{className:"react-aria-Text",...c,ref:t})});export{n as $,x as a};
