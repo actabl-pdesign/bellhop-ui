@@ -1,0 +1,1 @@
+import{r}from"./iframe-BCkU_Mh_.js";const i=({size:e=24,color:t="currentColor",...o})=>r.createElement("svg",{viewBox:"0 0 24 24",width:e,height:e,stroke:t,strokeWidth:"2",fill:"none",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",...o},r.createElement("path",{d:"m7 15 5 5 5-5M7 9l5-5 5 5"}));i.displayName="ChevronSelectorVertical";export{i};

@@ -1,0 +1,18 @@
+{
+  "servers": {
+    "Figma Dev Mode MCP": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/sse"
+    },
+    "Figma MCP": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=figd_AtEbI9Xlb2VFTVoNFf8U9j_NgQzSkVPcE4XwkbNgw",
+        "--stdio"
+      ]
+    }
+  },
+  "inputs": []
+}

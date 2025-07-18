@@ -1,0 +1,1 @@
+import{r}from"./iframe-BCkU_Mh_.js";const i=({size:e=24,color:t="currentColor",...o})=>r.createElement("svg",{viewBox:"0 0 24 24",width:e,height:e,stroke:t,strokeWidth:"2",fill:"none",strokeLinecap:"round",strokeLinejoin:"round","aria-hidden":"true",...o},r.createElement("path",{d:"M5 12h14m0 0-7-7m7 7-7 7"}));i.displayName="ArrowRight";export{i};

@@ -1,287 +1,325 @@
-# Contributing to @actabl-pdesign/bellhop-ui
+# Contributing to Untitled UI Components
 
-Thank you for your interest in contributing to Bellhop UI! This guide will help you get started.
+Thank you for your interest in contributing! This guide will help you get started.
 
-## Development Setup
+## 🚀 Quick Start
 
-### Prerequisites
+1. **Fork the repository** on GitHub
+2. **Clone your fork** locally
+3. **Install dependencies**: `npm install`
+4. **Start development**: `npm run storybook`
+5. **Make your changes**
+6. **Test thoroughly**
+7. **Submit a pull request**
 
-- Node.js 18+
-- pnpm package manager
-- Git
+## 🎯 Contribution Types
 
-### Getting Started
+### 🐛 Bug Fixes
 
-1. **Fork and clone the repository**
+- Fix component functionality issues
+- Resolve accessibility problems
+- Correct styling inconsistencies
+- Address TypeScript errors
 
-```bash
-git clone https://github.com/YOUR_USERNAME/bellhop-ui.git
-cd bellhop-ui
-```
+### ✨ Component Enhancements
 
-2. **Install dependencies**
+- Improve existing component APIs
+- Add missing component variants
+- Enhance accessibility features
+- Optimize performance
 
-```bash
-pnpm install
-```
+### 🆕 New Components
 
-3. **Start the development environment**
+- Add components that fit our design system
+- Must be generally useful (not app-specific)
+- Should follow our established patterns
+- Include comprehensive documentation
 
-```bash
-yarn storybook
-```
+### 📚 Documentation
 
-This will start Storybook at `http://localhost:6006` where you can see and interact with all components.
+- Improve README and guides
+- Add better Storybook stories
+- Create usage examples
+- Fix typos and clarity issues
 
-## Development Workflow
+## 📋 Component Guidelines
 
-### Making Changes
+### Design Principles
 
-1. **Create a new branch**
+- **Accessibility First** - WCAG 2.1 AA compliance
+- **Mobile-First** - Responsive by default
+- **Composable** - Components work well together
+- **Consistent** - Follow established patterns
+- **Minimal** - No unnecessary complexity
 
-```bash
-git checkout -b feature/your-feature-name
-```
+### Technical Requirements
 
-2. **Make your changes**
+#### TypeScript
 
-- Follow the existing code style and patterns
-- Write or update tests for your changes
-- Update documentation as needed
-
-3. **Run the test suite**
-
-```bash
-# Run all tests
-yarn test
-
-# Run tests in watch mode
-yarn test:watch
-
-# Run accessibility tests
-yarn test:a11y
-
-# Run linting
-yarn lint
-
-# Fix linting issues
-yarn lint:fix
-
-# Check formatting
-yarn prettier:check
-
-# Fix formatting
-yarn prettier
-```
-
-4. **Build the library**
-
-```bash
-yarn build
-```
-
-### Commit Convention
-
-We use [Conventional Commits](https://www.conventionalcommits.org/) for our commit messages:
-
-- `feat:` new features
-- `fix:` bug fixes
-- `docs:` documentation changes
-- `style:` formatting, missing semicolons, etc.
-- `refactor:` code refactoring
-- `test:` adding or updating tests
-- `chore:` maintenance tasks
-
-Examples:
-
-```bash
-git commit -m "feat(Button): add loading state"
-git commit -m "fix(Input): resolve focus ring color issue"
-git commit -m "docs: update installation instructions"
-```
-
-## Code Standards
-
-### TypeScript
-
-- Use TypeScript for all new code
-- Define proper interfaces and types
-- Avoid `any` type - use proper typing
-- Export types from components for consumers
-
-### React Components
-
-- Use functional components with hooks
-- Follow the existing component structure
-- Use `forwardRef` for input-like components
-- Include proper TypeScript props interfaces
-
-### Styling
-
-- Use Tailwind CSS classes
-- Follow the existing design tokens
-- Use the `cn()` utility for conditional classes
-- Maintain responsive design patterns
-
-### Accessibility
-
-- Include proper ARIA attributes
-- Ensure keyboard navigation works
-- Test with screen readers when possible
-- Write accessibility tests using jest-axe
-- Follow WCAG AA guidelines
-
-### Testing
-
-- Write unit tests for all components
-- Include accessibility tests
-- Test different prop combinations
-- Test user interactions
-- Maintain high test coverage (80%+)
-
-## Component Development
-
-### Creating a New Component
-
-1. **Create the component file**
-
-```typescript
-// src/components/MyComponent.tsx
-import React from 'react'
-import { cn } from '../utils/cn'
-
-export interface MyComponentProps {
-  children: React.ReactNode
-  variant?: 'default' | 'special'
-  className?: string
+```tsx
+// ✅ Good - Fully typed with exported interfaces
+interface ButtonProps {
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+  children: React.ReactNode;
 }
 
-export const MyComponent: React.FC<MyComponentProps> = ({
-  children,
-  variant = 'default',
-  className,
+export const Button = ({ variant = "primary", ...props }: ButtonProps) => {
+  // Component implementation
+};
+
+export type { ButtonProps };
+```
+
+#### Accessibility
+
+```tsx
+// ✅ Good - Semantic HTML with ARIA
+<button
+  type="button"
+  aria-label="Close dialog"
+  aria-expanded={isOpen}
+  className="..."
+>
+  {children}
+</button>
+
+// ❌ Bad - Generic div without accessibility
+<div onClick={handleClick} className="...">
+  {children}
+</div>
+```
+
+#### Responsive Design
+
+```tsx
+// ✅ Good - Mobile-first responsive classes
+<div className="flex flex-col gap-2 md:flex-row md:gap-4">
+  {children}
+</div>
+
+// ❌ Bad - Desktop-first approach
+<div className="flex-row gap-4 max-md:flex-col max-md:gap-2">
+  {children}
+</div>
+```
+
+#### Styling
+
+```tsx
+import { cx } from "@/utils/cx";
+
+// ✅ Good - Use cx utility for conditional classes
+<button className={cx(
+  "base-classes",
+  variant === "primary" && "primary-classes",
+  size === "lg" && "large-classes",
+  disabled && "disabled-classes"
+)}>
+
+// ❌ Bad - String concatenation
+<button className={`base-classes ${variant === "primary" ? "primary-classes" : ""}`}>
+```
+
+### Component Structure
+
+```
+components/category/component-name/
+├── component-name.tsx        # Main component
+├── component-name.story.tsx  # Storybook stories
+├── component-name.demo.tsx   # Usage demos
+└── base-components/          # Sub-components (if needed)
+    ├── sub-component.tsx
+    └── index.tsx
+```
+
+### File Naming
+
+- **Components**: `kebab-case.tsx` (e.g., `date-picker.tsx`)
+- **Stories**: `component-name.story.tsx`
+- **Demos**: `component-name.demo.tsx`
+- **Types**: Export from main component file
+
+## 🔍 Code Review Process
+
+### Before Submitting
+
+1. **Run Tests**
+
+   ```bash
+   npm run build      # TypeScript compilation
+   npm run lint       # ESLint checks
+   npm run prettier   # Code formatting
+   ```
+
+2. **Test in Storybook**
+
+   ```bash
+   npm run storybook
+   # Navigate to your component and test all variants
+   ```
+
+3. **Accessibility Check**
+   - Test with keyboard navigation
+   - Verify screen reader compatibility
+   - Check color contrast ratios
+   - Ensure focus management
+
+### PR Requirements
+
+#### Title Format
+
+```
+feat: add new component name
+fix: resolve accessibility issue in component
+docs: improve component documentation
+style: update component styling
+```
+
+#### Description Template
+
+```markdown
+## Changes
+
+- Brief description of what changed
+- Why this change was needed
+
+## Testing
+
+- [ ] Tested in Storybook
+- [ ] Keyboard navigation works
+- [ ] Screen reader compatible
+- [ ] Mobile responsive
+- [ ] TypeScript compiles
+- [ ] No lint errors
+
+## Screenshots
+
+[Include before/after screenshots for UI changes]
+
+## Related Issues
+
+Closes #123
+```
+
+### Review Criteria
+
+- **Functionality** - Component works as expected
+- **Accessibility** - Meets WCAG 2.1 AA standards
+- **Performance** - No unnecessary re-renders or heavy computations
+- **API Design** - Consistent with existing components
+- **Documentation** - Clear stories and examples
+- **Code Quality** - TypeScript, ESLint, and Prettier compliant
+
+## 🎨 Design Guidelines
+
+### Color Usage
+
+```tsx
+// ✅ Use semantic color tokens
+className = "text-fg-primary bg-bg-secondary border-border-primary";
+
+// ❌ Avoid hardcoded colors
+className = "text-gray-900 bg-white border-gray-200";
+```
+
+### Spacing
+
+```tsx
+// ✅ Use consistent spacing scale
+className = "p-4 gap-3 mt-6";
+
+// ❌ Avoid arbitrary values
+className = "p-[17px] gap-[13px] mt-[25px]";
+```
+
+### Typography
+
+```tsx
+// ✅ Use design system typography
+className = "text-lg font-semibold leading-7";
+
+// ❌ Avoid custom font sizes
+className = "text-[19px] font-[650] leading-[1.4]";
+```
+
+## 🧪 Testing
+
+### Manual Testing Checklist
+
+- [ ] Component renders without errors
+- [ ] All props work as expected
+- [ ] Responsive across screen sizes
+- [ ] Keyboard navigation functional
+- [ ] Screen reader announces correctly
+- [ ] Focus management works properly
+- [ ] No console errors or warnings
+
+### Accessibility Testing
+
+- Use **VoiceOver** (Mac) or **NVDA** (Windows)
+- Test with **keyboard only** navigation
+- Check **focus indicators** are visible
+- Verify **color contrast** meets standards
+- Ensure **semantic markup** is used
+
+## 🚨 Common Issues
+
+### Import Paths
+
+```tsx
+// ✅ Correct - Use path aliases
+import { Button } from "@/components/base/buttons/button";
+import { cx } from "@/utils/cx";
+
+// ❌ Wrong - Relative imports
+import { Button } from "../../../base/buttons/button";
+import { cx } from "../../../utils/cx";
+```
+
+### Component Props
+
+```tsx
+// ✅ Good - Extend HTML attributes
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
+}
+
+// ❌ Bad - Missing HTML attributes
+interface ButtonProps {
+  variant?: "primary" | "secondary";
+  onClick?: () => void; // Missing other button attributes
+}
+```
+
+### Default Props
+
+```tsx
+// ✅ Good - Default parameters
+export const Button = ({
+  variant = "primary",
+  size = "md",
   ...props
-}) => {
-  return (
-    <div
-      className={cn(
-        'base-styles',
-        variant === 'special' && 'special-styles',
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-}
+}: ButtonProps) => {
+
+// ❌ Bad - Default props (deprecated in TypeScript)
+Button.defaultProps = {
+  variant: "primary",
+  size: "md"
+};
 ```
 
-2. **Add to exports**
+## 💬 Getting Help
 
-```typescript
-// src/components/index.ts
-export { MyComponent } from "./MyComponent"
-```
+- **GitHub Issues** - For bug reports and feature requests
+- **GitHub Discussions** - For questions and community help
+- **Discord** - Real-time chat with maintainers and community
 
-3. **Create Storybook stories**
+## 📚 Resources
 
-```typescript
-// src/stories/MyComponent.stories.tsx
-import type { Meta, StoryObj } from "@storybook/react"
-import { MyComponent } from "../components/MyComponent"
+- [Component API Patterns](https://react-spectrum.adobe.com/react-aria/patterns.html)
+- [Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
-const meta = {
-  title: "Components/MyComponent",
-  component: MyComponent,
-  parameters: {
-    layout: "centered",
-  },
-  tags: ["autodocs"],
-} satisfies Meta<typeof MyComponent>
-
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
-  args: {
-    children: "My Component",
-  },
-}
-```
-
-4. **Write tests**
-
-```typescript
-// tests/MyComponent.test.tsx
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import { axe, toHaveNoViolations } from 'jest-axe'
-import { MyComponent } from '../src/components/MyComponent'
-
-expect.extend(toHaveNoViolations)
-
-describe('MyComponent', () => {
-  it('renders correctly', () => {
-    render(<MyComponent>Test</MyComponent>)
-    expect(screen.getByText('Test')).toBeInTheDocument()
-  })
-
-  it('should have no accessibility violations', async () => {
-    const { container } = render(<MyComponent>Test</MyComponent>)
-    const results = await axe(container)
-    expect(results).toHaveNoViolations()
-  })
-})
-```
-
-## Pull Request Process
-
-1. **Ensure all tests pass**
-
-```bash
-yarn test
-yarn lint
-yarn build
-```
-
-2. **Update documentation**
-
-- Update README if needed
-- Add/update Storybook stories
-- Update TypeScript definitions
-
-3. **Create a pull request**
-
-- Use a clear, descriptive title
-- Describe what changes you made and why
-- Reference any related issues
-- Include screenshots for UI changes
-
-4. **Code review**
-
-- Address feedback from reviewers
-- Make requested changes
-- Ensure CI passes
-
-## Release Process
-
-Releases are automated using semantic-release:
-
-1. Merge to `master` branch triggers release workflow
-2. Commits are analyzed for version bump type
-3. Changelog is generated automatically
-4. Package is published to GitHub Packages
-5. GitHub release is created
-
-## Getting Help
-
-- Check existing [issues](https://github.com/actabl-pdesign/bellhop-ui/issues)
-- Review [Storybook documentation](https://actabl-pdesign.github.io/bellhop-ui/storybook/)
-- Ask questions in GitHub Discussions
-
-## Code of Conduct
-
-Please note that this project has a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
-
-Thank you for contributing! 🎉
+Thank you for contributing to Untitled UI! 🎉

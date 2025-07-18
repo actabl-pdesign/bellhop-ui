@@ -1,0 +1,1 @@
+import{r as n}from"./iframe-BCkU_Mh_.js";const o={sm:"640px",md:"768px",lg:"1024px",xl:"1280px","2xl":"1536px"},m=a=>{const[r,t]=n.useState(!0);return n.useEffect(()=>{const e=window.matchMedia(`(min-width: ${o[a]})`);t(e.matches);const s=c=>t(c.matches);return e.addEventListener("change",s),()=>e.removeEventListener("change",s)},[]),r};export{m as u};

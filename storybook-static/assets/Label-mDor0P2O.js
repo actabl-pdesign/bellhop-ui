@@ -1,0 +1,1 @@
+import{l as o}from"./useFocusRing-S0-S86YF.js";import{$ as b}from"./Hidden-CzPdlwLZ.js";import{r as f,c as $}from"./iframe-BCkU_Mh_.js";const l=f.createContext({}),p=b(function(e,a){[e,a]=o(e,a,l);let{elementType:t="label",...r}=e;return $.createElement(t,{className:"react-aria-Label",...r,ref:a})});export{l as $,p as a};
